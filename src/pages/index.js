@@ -1,22 +1,9 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import { baseRedirect, getAccessToken } from "../utils/common";
-import { ROUTE } from "../configs";
+import MainLayout from "@layouts/Adapter/MainLayout";
 
-export default function Home() {
-  const router = useRouter();
+export default function Main() {
+  return <MainLayout containers={Home} />;
+}
 
-  useEffect(() => {
-    const handleRedirect = async () => {
-      if (!getAccessToken()) {
-        router.push(ROUTE.LOGIN());
-      } else {
-        baseRedirect();
-      }
-    };
-
-    handleRedirect();
-  }, []);
-
-  return <></>;
+function Home() {
+  return <div>Main</div>;
 }

@@ -2,15 +2,14 @@ import Main from "../Main";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { getAccessToken, logout } from "@utils/common";
-import Sidebar from "@layouts/WithSidebar";
 
-const MainLayout = ({ containers, withSidebar, ...props }) => {
+const MainLayout = ({ containers, verified, ...props }) => {
   const Containers = containers;
 
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (!getAccessToken()) {
+    if (!getAccessToken() && verified) {
       logout();
     } else {
       setMounted(true);
@@ -23,13 +22,6 @@ const MainLayout = ({ containers, withSidebar, ...props }) => {
     return null;
   }
 
-  if (withSidebar)
-    return (
-      <Sidebar {...props}>
-        <Containers />
-      </Sidebar>
-    );
-
   return (
     <Main {...props}>
       <Containers />
@@ -39,11 +31,11 @@ const MainLayout = ({ containers, withSidebar, ...props }) => {
 
 MainLayout.propTypes = {
   containers: PropTypes.func.isRequired,
-  withSidebar: PropTypes.bool,
+  verified: PropTypes.bool,
 };
 
 MainLayout.defaultProps = {
-  withSidebar: false,
+  verified: false,
 };
 
 export default MainLayout;

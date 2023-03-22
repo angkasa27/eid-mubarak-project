@@ -1,4 +1,4 @@
-import { key, ROUTE } from "../configs";
+import { key, ROUTES } from "../configs";
 
 const storageName = key.storageName;
 
@@ -39,7 +39,7 @@ export const getRefreshToken = () => {
 
 // Auto Redirect Home
 export const baseRedirect = async () => {
-  let url = ROUTE.DASHBOARD();
+  let url = ROUTES.DASHBOARD();
   location.href = url;
 };
 
@@ -51,5 +51,5 @@ export const clearStorage = () => {
 // Logout
 export const logout = () => {
   clearStorage();
-  location.href = ROUTE.LOGIN();
+  location.href = ROUTES.MAIN();
 };

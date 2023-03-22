@@ -14,6 +14,7 @@ import { ROUTES, NAV } from "src/configs";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import { useRouter } from "next/router";
+import { getAccessToken } from "@utils/common";
 
 export default function NavbarElement({ secondary, options }) {
   const [openNav, setOpenNav] = useState(false);
@@ -35,6 +36,22 @@ export default function NavbarElement({ secondary, options }) {
     });
   }, []);
 
+  const renderActionButton = !getAccessToken() ? (
+    !mobileView && (
+      <li className="lg:p-1 md:w-auto" color="blue-gray">
+        <Button onClick={() => router.push(ROUTES.LOGIN())} size="sm">
+          Login
+        </Button>
+      </li>
+    )
+  ) : (
+    <li className="lg:p-1 md:w-auto" color="blue-gray">
+      <Button onClick={() => logout()} size="sm">
+        Logout
+      </Button>
+    </li>
+  );
+
   const navList = (
     <ul
       className={clsx(
@@ -45,7 +62,7 @@ export default function NavbarElement({ secondary, options }) {
       {NAV.MAIN.map((item, i) => (
         <li
           className="lg:p-1 hover:text-blue-500
-           body-2"
+          body-2"
           color="blue-gray"
           key={i}
         >
@@ -54,11 +71,7 @@ export default function NavbarElement({ secondary, options }) {
           </Link>
         </li>
       ))}
-      <li className="lg:p-1 md:w-auto" color="blue-gray">
-        <Button onClick={() => logout()} size="sm">
-          Logout
-        </Button>
-      </li>
+      {renderActionButton}
     </ul>
   );
 

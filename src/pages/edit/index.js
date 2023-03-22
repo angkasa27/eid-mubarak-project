@@ -1,10 +1,7 @@
 // import CardList from "@containers/Dashboard/CardList";
+import CardForm from "@containers/Dashboard/CardForm";
 import MainLayout from "@layouts/Adapter/MainLayout";
 
 export default function Pages() {
-  return <MainLayout containers={Main} verified />;
-}
-
-function Main() {
-  return <div>dashboard</div>;
+  return <MainLayout containers={CardForm} verified />;
 }
