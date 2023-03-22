@@ -5,7 +5,7 @@ export default function Register() {
   return (
     <Fragment>
       <div className="title-1 font-extrabold mb-12">
-        Daftar <br /> Akun Baru
+        Buat <br /> Ucapan <br /> Idul Fitri
       </div>
       <RegisterForm />
     </Fragment>

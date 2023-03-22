@@ -4,14 +4,14 @@ import { register } from "../../../../_repositories/repositories";
 import validation from "../validation";
 import usePopupAlert from "@utils/hooks/usePopupAlert";
 import { useRouter } from "next/router";
-import { ROUTE } from "src/configs";
+import { ROUTES } from "src/configs";
 
 const useActions = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const { setFailedAlert, setSuccessAlert } = usePopupAlert();
 
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit, watch } = useForm({
     resolver: validation,
     mode: "onChange",
   });
@@ -21,7 +21,7 @@ const useActions = () => {
     try {
       const result = await register(values);
       setSuccessAlert({ message: result.message });
-      router.push(ROUTE.LOGIN());
+      router.push(ROUTES.LOGIN());
     } catch (error) {
       setFailedAlert({ message: error.message });
     } finally {
@@ -34,6 +34,7 @@ const useActions = () => {
     handleSubmit,
     loading,
     onSubmit,
+    username: watch("username"),
   };
 };
 

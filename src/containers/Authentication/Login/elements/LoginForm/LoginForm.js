@@ -2,7 +2,7 @@ import { Button } from "@material-tailwind/react";
 import useActions from "./hooks/useActions";
 import { TextField } from "@components/form";
 import Link from "next/link";
-import { ROUTE } from "src/configs";
+import { ROUTES } from "src/configs";
 
 export default function LoginForm() {
   const { control, handleSubmit, loading, onSubmit } = useActions();
@@ -22,7 +22,7 @@ export default function LoginForm() {
         type="password"
       />
       <div>
-        <Link className="link" href={ROUTE.FORGOT_PASSWORD()}>
+        <Link className="link" href={ROUTES.FORGOT_PASSWORD()}>
           Lupa password?
         </Link>
       </div>
@@ -31,7 +31,7 @@ export default function LoginForm() {
       </Button>
       <p>
         Belum punya akun?
-        <Link className="link ml-2" href={ROUTE.REGISTER()}>
+        <Link className="link ml-2" href={ROUTES.REGISTER()}>
           Daftar
         </Link>
       </p>

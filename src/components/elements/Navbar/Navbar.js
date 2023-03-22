@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 import { logout } from "@utils/common";
 import { LogoCompact, LogoWithText } from "src/assets/svg";
-import { ROUTE, NAV } from "src/configs";
+import { ROUTES, NAV } from "src/configs";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import { useRouter } from "next/router";
@@ -104,7 +104,7 @@ export default function NavbarElement({ secondary, options }) {
         })}
       >
         <div className="mr-4 py-1.5 flex items-center ">
-          <Link className="cursor-pointer mr-2" href={ROUTE.DASHBOARD()}>
+          <Link className="cursor-pointer mr-2" href={ROUTES.DASHBOARD()}>
             {mobileView ? (
               <LogoCompact className="h-8" />
             ) : (

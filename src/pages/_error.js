@@ -34,5 +34,9 @@ Error.getInitialProps = ({ res, err }) => {
 export default Error;
 
 Error.propTypes = {
-  statusCode: PropTypes.number.isRequired,
+  statusCode: PropTypes.number,
+};
+
+Error.defaultProps = {
+  statusCode: 404,
 };

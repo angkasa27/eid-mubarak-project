@@ -1,6 +1,6 @@
 // import { Breadcrumbs } from "@material-tailwind/react";
 // import Link from "next/link";
-// import { ROUTE } from "src/configs";
+// import { ROUTES } from "src/configs";
 import PropTypes from "prop-types";
 
 export default function Header(props) {
@@ -10,7 +10,7 @@ export default function Header(props) {
       <div>
         <h2 className="title-2 bold">{name}</h2>
         {/* <Breadcrumbs>
-          <Link href={ROUTE.DASHBOARD()}>UCAPAN</Link>
+          <Link href={ROUTES.DASHBOARD()}>UCAPAN</Link>
           <p className="bold">Form</p>
         </Breadcrumbs> */}
       </div>
