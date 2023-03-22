@@ -8,7 +8,6 @@ import clsx from "clsx";
 import theme from "@styles/theme";
 import { UserDataProvider } from "src/contexts/UserData";
 import { PopupAlertProvider } from "src/contexts/PopupAlert";
-import { TemplateProvider } from "src/contexts/Template";
 import PropTypes from "prop-types";
 import PopUpAlert from "@components/elements/PopUpAlert";
 
@@ -30,10 +29,8 @@ export default function App({ Component, pageProps }) {
         <ThemeProvider value={theme}>
           <PopupAlertProvider>
             <UserDataProvider>
-              <TemplateProvider>
-                <Component {...pageProps} />
-                <PopUpAlert />
-              </TemplateProvider>
+              <Component {...pageProps} />
+              <PopUpAlert />
             </UserDataProvider>
           </PopupAlertProvider>
         </ThemeProvider>

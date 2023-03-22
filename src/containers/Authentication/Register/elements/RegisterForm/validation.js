@@ -3,7 +3,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ERROR_MESSAGE } from "src/constants";
 
 const validation = yup.object().shape({
-  fullname: yup.string().required(ERROR_MESSAGE.REQUIRED("Nama Lengkap")),
   username: yup
     .string()
     .required(ERROR_MESSAGE.REQUIRED("Username"))

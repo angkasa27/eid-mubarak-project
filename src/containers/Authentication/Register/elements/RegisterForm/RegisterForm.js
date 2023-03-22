@@ -11,12 +11,6 @@ export default function RegisterForm() {
     <form className="flex flex-col gap-3" onSubmit={handleSubmit(onSubmit)}>
       <TextField
         control={control}
-        label="Nama Lengkap"
-        name="fullname"
-        placeholder="Masukan nama lengkap"
-      />
-      <TextField
-        control={control}
         label="Username"
         name="username"
         placeholder="Masukan username"
