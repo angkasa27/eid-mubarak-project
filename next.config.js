@@ -5,9 +5,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "upcdn.io",
+        hostname: "ik.imagekit.io",
         port: "",
-        pathname: "/FW25b5A/**",
+        pathname: "/sd3osdoco/**",
       },
     ],
   },

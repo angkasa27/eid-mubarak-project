@@ -1,4 +1,4 @@
-import { Select, TextArea, TextField } from "@components/form";
+import { Select, TextArea, TextField, InputImage } from "@components/form";
 import { Button } from "@material-tailwind/react";
 import clsx from "clsx";
 import PropTypes from "prop-types";
@@ -19,6 +19,8 @@ export default function FormGenerator(props) {
         return <Select {...fieldProps} key={key} />;
       case "textarea":
         return <TextArea {...fieldProps} key={key} />;
+      case "image":
+        return <InputImage {...fieldProps} key={key} />;
       default:
         return <TextField {...fieldProps} key={key} />;
     }

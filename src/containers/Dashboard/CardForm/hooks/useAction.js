@@ -14,6 +14,7 @@ const useAction = () => {
   const [loading, setLoading] = useState(false);
   const { setFailedAlert, setSuccessAlert } = usePopupAlert();
   const { getUsername } = useUserData();
+  const username = getUsername();
 
   const { control, handleSubmit, reset } = useForm({
     resolver: validation,
@@ -25,11 +26,11 @@ const useAction = () => {
     try {
       if (!values.username) {
         await createCard({
-          link: `${DOMAIN}${getUsername()}`,
+          link: `${DOMAIN}${username}`,
           ...values,
         });
       } else {
-        await updateCard(getUsername(), values);
+        await updateCard(username, values);
       }
       setSuccessAlert({ message: "Berhasil disimpan" });
     } catch (error) {
@@ -42,7 +43,7 @@ const useAction = () => {
   const fetchDetail = async () => {
     setLoading(true);
     try {
-      const { data } = await detailCard(getUsername());
+      const { data } = await detailCard(username);
       reset({ ...data });
     } catch (error) {
       setFailedAlert({ message: error.message });
@@ -55,7 +56,7 @@ const useAction = () => {
     fetchDetail();
   }, []);
 
-  return { control, handleSubmit, loading, onSubmit };
+  return { control, handleSubmit, loading, onSubmit, username };
 };
 
 export default useAction;

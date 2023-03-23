@@ -98,3 +98,6 @@ const refreshToken = async () => {
 export const cancelRequestToken = () => {
   return axios.CancelToken.source();
 };
+
+export const precentProccess = ({ loaded, total }) =>
+  Math.round((loaded * 100) / total) || 1;

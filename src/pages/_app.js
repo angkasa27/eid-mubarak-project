@@ -10,11 +10,16 @@ import { UserDataProvider } from "src/contexts/UserData";
 import { PopupAlertProvider } from "src/contexts/PopupAlert";
 import PropTypes from "prop-types";
 import PopUpAlert from "@components/elements/PopUpAlert";
+import { IKContext } from "imagekitio-react";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: ["--plus-jakarta-sans"],
   subsets: ["latin"],
 });
+
+const urlEndpoint = "https://ik.imagekit.io/sd3osdoco/";
+const publicKey = "public_dH7uH0U5VmvL4AZY4KepRYWujNU=";
+const authenticationEndpoint = "http://localhost:5000/image/auth";
 
 export default function App({ Component, pageProps }) {
   const defaultClass =
@@ -29,8 +34,14 @@ export default function App({ Component, pageProps }) {
         <ThemeProvider value={theme}>
           <PopupAlertProvider>
             <UserDataProvider>
-              <Component {...pageProps} />
-              <PopUpAlert />
+              <IKContext
+                authenticationEndpoint={authenticationEndpoint}
+                publicKey={publicKey}
+                urlEndpoint={urlEndpoint}
+              >
+                <Component {...pageProps} />
+                <PopUpAlert />
+              </IKContext>
             </UserDataProvider>
           </PopupAlertProvider>
         </ThemeProvider>

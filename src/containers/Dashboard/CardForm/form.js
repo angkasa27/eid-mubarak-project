@@ -2,7 +2,7 @@ import useAction from "./hooks/useAction";
 import FormGenerator from "src/fragments/FormGenerator";
 
 export default function Form() {
-  const { control, handleSubmit, loading, onSubmit } = useAction();
+  const { control, handleSubmit, loading, onSubmit, username } = useAction();
 
   const formProps = {
     fields: [
@@ -12,6 +12,14 @@ export default function Form() {
         label: "Tema",
         name: "theme",
         disabled: loading,
+      },
+      {
+        field: "image",
+        control,
+        label: "Foto",
+        name: "image",
+        helperText: "Upload foto",
+        username,
       },
       {
         field: "text",
