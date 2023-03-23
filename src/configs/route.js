@@ -6,19 +6,18 @@ export const MAIN = () => `/`;
 export const ABOUT = () => `/about`;
 
 export const DASHBOARD = () => `/dashboard`;
-export const CREATE = () => `/create`;
-export const EDIT = (id) => `/edit/${id}`;
+export const EDIT = () => `/edit`;
+
+export const NOT_FOUND = () => `/404`;
 
 export const USED_PATH = [
   `/index`,
-  `/404`,
-  `/test`,
+  NOT_FOUND(),
   LOGIN(),
   REGISTER(),
   FORGOT_PASSWORD(),
   MAIN(),
   ABOUT(),
   DASHBOARD(),
-  CREATE(),
   EDIT(),
 ];

@@ -27,8 +27,8 @@ const service = {
   REFRESH_TOKEN: `${domain}/auth/refresh-token`,
   USER: (id) => `${domain}/user/${id}`,
   CARD: `${domain}/card`,
-  CARD_DETAIL: (id) => `${domain}/card/${id}`,
-  IMAGE_DETAIL: (link) => `${domain}/image/${link}`,
+  CARD_DETAIL: (username) => `${domain}/card/${username}`,
+  IMAGE_DETAIL: (username) => `${domain}/image/${username}`,
 };
 
 export default service;
