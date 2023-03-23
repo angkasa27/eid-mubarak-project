@@ -21,7 +21,7 @@ export default function CommentCard() {
         label: "Pesan",
         placeholder: "Semoga yang disemogakan segera tersemogakan...",
         name: "message",
-        rows: 4,
+        rows: 3,
         disabled: loading,
       },
     ],
@@ -37,18 +37,12 @@ export default function CommentCard() {
     // },
     handleSubmit,
     onSubmit,
-    className: "flex flex-col gap-2 mt-6",
+    className: "flex flex-col gap-2",
   };
 
   return (
     <>
       <Card className="text-blue-gray-800" padding="p-4">
-        <p className="title-3 bold text-center">Kirim Ucapan</p>
-        <p className="body-3 text-default-secondary text-center">
-          Ucapan selamat dan kebahagiaan bisa dari mana saja. Tanpa jabatan
-          tangan atau pelukan hangat, masih ada simpul-simpul senyum dan doa doa
-          baik yang kami harapkan.
-        </p>
         <FormGenerator {...formProps} />
       </Card>
       <Card
