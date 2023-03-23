@@ -1,17 +1,6 @@
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { ROUTES } from "src/configs";
+import Preview from "@containers/Preview";
+import PreviewLayout from "@layouts/Adapter/PreviewLayout";
 
-export default function Template() {
-  const router = useRouter();
-
-  const {
-    query: { id },
-  } = useRouter();
-
-  useEffect(() => {
-    if (id?.length < 6) router.push(ROUTES.NOT_FOUND());
-  }, [id]);
-
-  return <div>index</div>;
+export default function Pages() {
+  return <PreviewLayout containers={Preview} />;
 }

@@ -9,7 +9,7 @@ export default function LoadingPage({ open }) {
       leaveTo="opacity-0"
       show={open}
     >
-      <div className="absolute inset-0 bg-blue-gray-800 flex items-center justify-center">
+      <div className="absolute w-[101vw] h-[101vh] bg-blue-gray-800 flex items-center justify-center">
         <p className="text-white body-1 animate-pulse">Memuat Halaman...</p>
       </div>
     </Transition>

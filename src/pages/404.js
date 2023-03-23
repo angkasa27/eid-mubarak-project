@@ -1,6 +1,7 @@
 import { Button } from "@material-tailwind/react";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
+import { ROUTES } from "src/configs";
 
 function Error() {
   const router = useRouter();
@@ -13,7 +14,7 @@ function Error() {
           Sorry, we couldn’t find the page you’re looking for.
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
-          <Button onClick={() => router.back()}>return</Button>
+          <Button onClick={() => router.push(ROUTES.MAIN())}>return</Button>
           <a className="link" href="#">
             Report this <span aria-hidden="true">&rarr;</span>
           </a>

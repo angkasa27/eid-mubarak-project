@@ -57,6 +57,9 @@
 .body-3 {
   @apply text-sm;
 }
+.body-4 {
+  @apply text-xs;
+}
 
 /* **-----Border-----** */
 .border-default {

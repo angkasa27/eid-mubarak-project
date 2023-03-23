@@ -19,6 +19,7 @@
     "clsx": "^1.2.1",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
+    "framer-motion": "^10.8.5",
     "imagekitio-react": "^2.0.0",
     "next": "13.1.6",
     "prop-types": "^15.8.1",

@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
+      "@ramadhan/*": ["src/assets/ramadhan/*"],
       "@containers/*": ["src/containers/*"],
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
