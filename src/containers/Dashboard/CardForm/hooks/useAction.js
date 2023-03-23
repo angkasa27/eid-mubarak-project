@@ -2,11 +2,9 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import validation from "../validation";
 import usePopupAlert from "@utils/hooks/usePopupAlert";
-import {
-  detailCard,
-  updateCard,
-  createCard,
-} from "../../_repositories/repositories";
+import detailCard from "@repositories/card/detailCard";
+import updateCard from "@repositories/card/updateCard";
+import createCard from "@repositories/card/createCard";
 import useUserData from "@utils/hooks/useUserData";
 import { DOMAIN } from "src/constants";
 

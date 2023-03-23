@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { register } from "../../../../_repositories/repositories";
+import register from "@repositories/auth/register";
 import validation from "../validation";
 import usePopupAlert from "@utils/hooks/usePopupAlert";
 import { useRouter } from "next/router";

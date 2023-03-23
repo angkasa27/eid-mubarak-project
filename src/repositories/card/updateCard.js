@@ -2,10 +2,11 @@ import fetch from "@utils/fetch";
 import { SERVICES } from "src/configs";
 import { getAccessToken } from "@utils/common";
 
-export const profile = (username) => {
+const updateCard = (username, data) => {
   const options = {
-    method: "GET",
-    url: SERVICES.USER(username),
+    data,
+    method: "PUT",
+    url: SERVICES.CARD_DETAIL(username),
     headers: {
       Authorization: getAccessToken(),
     },
@@ -13,3 +14,5 @@ export const profile = (username) => {
   };
   return fetch(options);
 };
+
+export default updateCard;

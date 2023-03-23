@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { login } from "../../../../_repositories/repositories";
+import login from "@repositories/auth/login";
 import validation from "../validation";
 import {
   setAccessToken,
