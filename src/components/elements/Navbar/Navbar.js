@@ -39,7 +39,7 @@ const Nav = () => {
     <>
       <nav
         className={clsx(
-          "border-default text-default lg:sticky top-0 z-50 w-screen bg-main",
+          "border-blue-gray-200/25 text-default lg:sticky top-0 z-50 w-screen bg-main",
           { "border-b": !showMenu }
         )}
       >
@@ -79,7 +79,7 @@ const Nav = () => {
         {showMenu && (
           <motion.div
             animate="visible"
-            className="fixed z-0 flex h-screen w-screen flex-col items-center justify-end bg-main px-6 pt-4 pb-24 "
+            className="fixed z-40 flex h-screen w-screen flex-col items-center justify-end bg-main px-6 pt-4 pb-24 "
             exit="hidden"
             initial="hidden"
             variants={menuVariant}

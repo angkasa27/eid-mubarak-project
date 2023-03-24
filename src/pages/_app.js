@@ -22,7 +22,7 @@ const publicKey = "public_dH7uH0U5VmvL4AZY4KepRYWujNU=";
 const authenticationEndpoint = "http://localhost:5000/image/auth";
 
 export default function App({ Component, pageProps }) {
-  const defaultClass = "font-jakarta text-default bg-slate-900";
+  const defaultClass = "font-jakarta text-default bg-main";
 
   return (
     <Fragment>
