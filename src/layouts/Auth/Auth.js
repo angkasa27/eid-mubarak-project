@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Logo } from "src/assets/svg";
+import Logo from "src/assets/svg/Logo";
 import { Chip } from "@material-tailwind/react";
 export default function Auth(props) {
   return (
