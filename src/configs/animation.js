@@ -176,3 +176,19 @@ export const contentVariant2 = {
     },
   },
 };
+
+export const previewVariant = {
+  visible: {
+    transition: {
+      type: "tween",
+      when: "beforeChildren",
+      staggerChildren: 0.3,
+      delayChildren: 0.3,
+    },
+  },
+  hidden: {
+    transition: {
+      type: "tween",
+    },
+  },
+};

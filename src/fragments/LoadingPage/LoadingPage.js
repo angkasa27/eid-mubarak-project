@@ -1,25 +1,32 @@
 import PropTypes from "prop-types";
-import { Transition } from "@headlessui/react";
+import { AnimatePresence, motion } from "framer-motion";
+import Logo from "src/assets/svg/LogoAnimate";
 
-export default function LoadingPage({ open }) {
+export default function LoadingPage({ loading }) {
   return (
-    <Transition
-      leave="ease-in-out duration-500"
-      leaveFrom="opacity-100"
-      leaveTo="opacity-0"
-      show={open}
-    >
-      <div className="absolute w-[101vw] h-[101vh] bg-blue-gray-800 flex items-center justify-center">
-        <p className="text-white body-1 animate-pulse">Memuat Halaman...</p>
-      </div>
-    </Transition>
+    <AnimatePresence>
+      {loading && (
+        <motion.div
+          animate={{ opacity: 1 }}
+          className="absolute inset-0 z-50 bg-main flex items-center justify-center flex-col"
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="pb-12">
+            <Logo className="h-32" />
+          </div>
+          {/* <p className="text-center mt-2 title-3">EidMubarak!</p> */}
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
 
 LoadingPage.propTypes = {
-  open: PropTypes.bool,
+  loading: PropTypes.bool,
 };
 
 LoadingPage.defaultProps = {
-  open: true,
+  loading: true,
 };

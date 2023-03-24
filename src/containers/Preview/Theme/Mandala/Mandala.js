@@ -5,7 +5,7 @@ import Lamp1 from "@ramadhan/Lamp1";
 import Ornament1 from "@ramadhan/Ornament1";
 import { motion } from "framer-motion";
 import {
-  contentVariant2,
+  previewVariant,
   UpVariant,
   FadeInVariant,
   RightVariant,
@@ -18,12 +18,12 @@ export default function Container(props) {
   const { data, name } = props;
 
   return (
-    <>
+    <div className="bg-deep-purple-900">
       <Main name={name} />
       <Detail {...data} />
       <Comment name={name} />
       <Footer {...data} />
-    </>
+    </div>
   );
 }
 
@@ -99,14 +99,14 @@ function Main(props) {
       animate="visible"
       className="h-screen flex flex-col justify-between"
       initial="hidden"
-      variants={contentVariant2}
+      variants={previewVariant}
     >
       {_topProps}
       <motion.div
         animate="visible"
         className="px-8"
         initial="hidden"
-        variants={contentVariant2}
+        variants={previewVariant}
       >
         <div>
           <motion.p className="title-3 bold" variants={RightVariant}>
