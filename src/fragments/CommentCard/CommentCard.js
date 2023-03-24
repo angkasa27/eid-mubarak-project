@@ -3,8 +3,8 @@ import Card from "@components/elements/Card";
 import useComment from "./useComment";
 import FormGenerator from "../FormGenerator";
 
-export default function CommentCard() {
-  const { control, handleSubmit, onSubmit, loading } = useComment();
+export default function CommentCard(props) {
+  const { control, handleSubmit, onSubmit, loading } = useComment(props);
   const formProps = {
     fields: [
       {

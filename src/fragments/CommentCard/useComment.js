@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import validation from "./validation";
 
-const useComment = () => {
+const useComment = ({ name }) => {
   const [loading, setLoading] = useState(false);
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit, setValue } = useForm({
     resolver: validation,
     mode: "onChange",
   });
@@ -12,6 +12,10 @@ const useComment = () => {
   const onSubmit = (value) => {
     console.log(value);
   };
+
+  useEffect(() => {
+    if (name) setValue("name", name);
+  }, [name]);
 
   return {
     control,

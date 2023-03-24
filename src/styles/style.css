@@ -4,10 +4,10 @@
 
 /* **-----Typography-----** */
 .text-default {
-  @apply text-blue-gray-800 dark:text-white;
+  @apply text-white;
 }
 .text-default-secondary {
-  @apply text-gray-500 dark:text-gray-500;
+  @apply text-gray-500;
 }
 
 .extrabold {

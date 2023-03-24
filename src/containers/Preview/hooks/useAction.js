@@ -4,10 +4,8 @@ import detailCard from "@repositories/card/detailCard";
 import usePopupAlert from "@utils/hooks/usePopupAlert";
 
 const useAction = () => {
-  const container = useRef(null);
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
-  const [height, setHeight] = useState(0);
   const { setFailedAlert } = usePopupAlert();
 
   const {
@@ -28,13 +26,9 @@ const useAction = () => {
 
   useEffect(() => {
     if (id) fetchDetail();
-
-    setHeight(container?.current?.clientHeight);
   }, [id]);
 
-  console.log(name);
-
-  return { data, loading, container, name };
+  return { data, loading, name };
 };
 
 export default useAction;
