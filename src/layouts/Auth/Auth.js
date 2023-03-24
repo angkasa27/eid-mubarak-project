@@ -3,7 +3,7 @@ import Logo from "src/assets/svg/Logo";
 import { Chip } from "@material-tailwind/react";
 export default function Auth(props) {
   return (
-    <div className=" h-full min-h-screen flex flex-col items-center py-4">
+    <div className=" h-full min-h-screen flex flex-col items-center py-4 bg-main">
       <div className="flex items-center ">
         <Logo className="h-8" />
         <Chip className="ml-2" color="blue" value="Beta" />

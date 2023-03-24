@@ -63,7 +63,7 @@
 
 /* **-----Border-----** */
 .border-default {
-  @apply border-blue-gray-800/10 dark:border-blue-gray-200/10;
+  @apply border-blue-gray-200/10;
 }
 
 .border-group-default {

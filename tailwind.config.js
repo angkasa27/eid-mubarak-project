@@ -15,6 +15,9 @@ module.exports = withMT({
       fontFamily: {
         jakarta: ["var(--plus-jakarta-sans)", ...defaultTheme.fontFamily.serif],
       },
+      colors: {
+        main: "#0f172a",
+      },
     },
   },
   // plugins: [require("@tailwindcss/forms")],

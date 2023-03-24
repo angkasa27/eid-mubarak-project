@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 export default function Main(props) {
   return (
-    <div className="flex h-full min-h-screen flex-col bg-gray-100">
+    <div className="flex h-full min-h-screen flex-col bg-main">
       <Navbar />
       <div className={clsx("container h-full w-full")}>{props.children}</div>
     </div>
