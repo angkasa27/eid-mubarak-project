@@ -39,7 +39,7 @@ const Nav = () => {
     <>
       <nav
         className={clsx(
-          "border-blue-gray-200/25 text-default lg:sticky top-0 z-50 w-screen bg-main",
+          "border-blue-gray-200/25 text-default lg:sticky top-0 z-50 w-full bg-main",
           { "border-b": !showMenu }
         )}
       >
