@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import Mandala from "@ramadhan/Mandala2";
-import Mosque from "@ramadhan//Mosque3";
+import Mosque from "@ramadhan/Mosque3";
 import Lamp1 from "@ramadhan/Lamp1";
 import Ornament1 from "@ramadhan/Ornament1";
 import { motion } from "framer-motion";
@@ -18,7 +18,7 @@ export default function Container(props) {
   const { data, name } = props;
 
   return (
-    <div className="bg-deep-purple-900">
+    <div className="bg-deep-purple-900 h-full max-w-screen-sm mx-auto">
       <Main name={name} />
       <Detail {...data} />
       <Comment name={name} />

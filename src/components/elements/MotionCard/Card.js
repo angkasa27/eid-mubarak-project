@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import clsx from "clsx";
-
+import { motion } from "framer-motion";
 export default function Card(props) {
   const {
     className,
@@ -16,7 +16,7 @@ export default function Card(props) {
     ...cardProps
   } = props;
   return (
-    <div
+    <motion.div
       className={clsx(
         "rounded-lg overflow-hidden",
         {
@@ -32,7 +32,7 @@ export default function Card(props) {
       {!!header && <div className="w-full">{header}</div>}
       <div className={clsx(padding, childClass)}>{children}</div>
       {!!footer && <div className="w-full">{footer}</div>}
-    </div>
+    </motion.div>
   );
 }
 
