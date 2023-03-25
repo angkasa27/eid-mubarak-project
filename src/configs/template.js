@@ -1,19 +1,16 @@
 export const MANDALA = {
   name: "Mandala",
   theme: "mandala",
-  variants: [{ name: "Blue", variant: "blue" }],
+  variants: [{ name: "Blue", variant: "blue", color: "bg-deep-purple-900" }],
 };
 
 export const STACKED = {
   name: "Stacked",
   theme: "stacked",
   variants: [
-    { name: "Dark Mode", variant: "dark" },
-    { name: "Light Mode", variant: "light" },
+    { name: "Dark Mode", variant: "dark", color: "bg-main" },
+    { name: "Light Mode", variant: "light", color: "bg-yellow-50" },
   ],
 };
 
-export const THEME_LIST = [
-  { name: MANDALA.name, value: MANDALA.theme },
-  { name: STACKED.name, value: STACKED.theme },
-];
+export const THEME_LIST = [MANDALA, STACKED];

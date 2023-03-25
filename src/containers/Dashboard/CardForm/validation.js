@@ -8,6 +8,7 @@ const validation = yup.object().shape({
     message: yup.string().required(ERROR_MESSAGE.REQUIRED("Pesan")),
     quotes: yup.string().required(ERROR_MESSAGE.REQUIRED("Quotes")),
   }),
+  variant: yup.string().required(ERROR_MESSAGE.REQUIRED("Variant")),
 });
 
 export default yupResolver(validation);

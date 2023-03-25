@@ -1,8 +1,10 @@
 import useAction from "./hooks/useAction";
 import FormGenerator from "src/fragments/FormGenerator";
+import clsx from "clsx";
 
 export default function Form() {
-  const { control, handleSubmit, loading, onSubmit, username } = useAction();
+  const { control, handleSubmit, loading, onSubmit, username, variantOption } =
+    useAction();
 
   const formProps = {
     fields: [
@@ -12,6 +14,32 @@ export default function Form() {
         label: "Tema",
         name: "theme",
         disabled: loading,
+      },
+      {
+        field: "select",
+        control,
+        label: "Varian Warna",
+        name: "variant",
+        disabled: loading,
+        options: variantOption,
+        mapValue: (item) => item.variant,
+        mapLabel: (item) => (
+          <div className="inline-flex items-center gap-2">
+            <div className={clsx(item.color, "h-4 w-4 rounded-full border")} />
+            {item.name}
+          </div>
+        ),
+        mapSelected: (val) => {
+          const selected = variantOption.find((item) => item.variant === val);
+          return (
+            <div className="inline-flex items-center gap-2">
+              <div
+                className={clsx(selected?.color, "h-4 w-4 rounded-full border")}
+              />
+              {selected?.name}
+            </div>
+          );
+        },
       },
       {
         field: "image",

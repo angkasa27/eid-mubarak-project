@@ -7,17 +7,25 @@ import updateCard from "@repositories/card/updateCard";
 import createCard from "@repositories/card/createCard";
 import useUserData from "@utils/hooks/useUserData";
 import { DOMAIN } from "src/constants";
+import { THEME_LIST } from "src/configs/template";
 
 const useAction = () => {
   const [loading, setLoading] = useState(false);
+  const [variantOption, setVariantOption] = useState([]);
   const { setFailedAlert, setSuccessAlert } = usePopupAlert();
   const { getUsername } = useUserData();
   const username = getUsername();
 
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, reset, setValue } = useForm({
     resolver: validation,
     mode: "onChange",
   });
+
+  const updateOption = (theme) => {
+    const themeData = THEME_LIST.find((item) => item.theme === theme);
+    setVariantOption(themeData?.variants);
+    setValue("variant", themeData?.variants[0].variant);
+  };
 
   const onSubmit = async (values) => {
     setLoading(true);
@@ -43,6 +51,7 @@ const useAction = () => {
     try {
       const { data } = await detailCard(username);
       reset({ ...data });
+      updateOption(data.theme);
     } catch (error) {
       setFailedAlert({ message: error.message });
     } finally {
@@ -54,7 +63,7 @@ const useAction = () => {
     fetchDetail();
   }, []);
 
-  return { control, handleSubmit, loading, onSubmit, username };
+  return { control, handleSubmit, loading, onSubmit, username, variantOption };
 };
 
 export default useAction;
