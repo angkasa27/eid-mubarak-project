@@ -13,13 +13,22 @@ import CommentCard from "src/fragments/CommentCard";
 import { IKImage } from "imagekitio-react";
 import Card from "@components/elements/Card";
 import MotionCard from "@components/elements/MotionCard";
-// import { cva } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 
 export default function Container(props) {
   const { data, name } = props;
 
+  const container = cva("max-w-screen-sm mx-auto", {
+    variants: {
+      variant: {
+        dark: "bg-main",
+        light: "bg-[#f7f2f2]",
+      },
+    },
+  });
+
   return (
-    <div className={"bg-main h-full max-w-screen-sm mx-auto"}>
+    <div className={container(data)}>
       <Main name={name} />
       <Detail {...data} />
       <Comment name={name} />
@@ -40,6 +49,15 @@ Container.defaultProps = {
 function Main(props) {
   const { name } = props;
 
+  const container = cva("max-w-screen-sm mx-auto", {
+    variants: {
+      variant: {
+        dark: "bg-main",
+        light: "bg-[#f7f2f2]",
+      },
+    },
+  });
+
   return (
     <div className="h-screen p-8 flex items-end">
       <motion.div
@@ -49,18 +67,16 @@ function Main(props) {
         variants={previewVariant}
       >
         <MotionCard
-          backgroundColor="bg-secondary"
           border={false}
-          className="col-span-2 row-start-1 row-end-3"
+          className="col-span-2 row-start-1 row-end-3 bg-secondary"
           padding=""
           variants={RightVariant}
         >
           <Mosque className="w-full h-auto mt-16 text-indigo-200" />
         </MotionCard>
         <MotionCard
-          backgroundColor="bg-[#262626]"
           border={false}
-          className="col-span-2 row-span-1"
+          className="col-span-2 row-span-1 bg-[#262626]"
           variants={UpVariant}
         >
           <p className="title-3 bold">Selamat Hari Raya</p>
@@ -68,27 +84,24 @@ function Main(props) {
         </MotionCard>
 
         <MotionCard
-          backgroundColor="bg-[#1f2937]"
           border={false}
-          className="col-span-1 row-start-2 row-end-4"
+          className="col-span-1 row-start-2 row-end-4 bg-[#1f2937]"
           variants={LeftVariant}
         >
           <p className="body-1">1 Syawal</p>
           <p className="title-3 bold">1442H</p>
         </MotionCard>
         <MotionCard
-          backgroundColor="bg-[#1f2937]"
           border={false}
-          className="col-span-1 row-span-1 flex items-center justify-center"
+          className="col-span-1 row-span-1 flex items-center justify-center bg-[#1f2937]"
           padding="p-3"
           variants={ZoomVariant}
         >
           <Mandala className="w-20 h-20" />
         </MotionCard>
         <MotionCard
-          backgroundColor="bg-[#262626]"
           border={false}
-          className="col-span-2 row-span-1"
+          className="col-span-2 row-span-1 bg-[#262626]"
           variants={LeftVariant}
         >
           <div className="flex items-center">
@@ -99,11 +112,7 @@ function Main(props) {
         </MotionCard>
         <motion.div className="col-span-3" variants={UpVariant}>
           {!!name && (
-            <Card
-              backgroundColor="bg-[#27272a]"
-              border={false}
-              className="w-full"
-            >
+            <Card border={false} className="w-full bg-[#27272a]">
               <p className="body-1">Kepada</p>
               <p className="title-3 bold">{name}</p>
             </Card>
@@ -128,20 +137,11 @@ function Detail(props) {
   return (
     <div className="h-screen p-8 flex items-end">
       <div className="grid gap-3 grid-cols-3 w-full">
-        <Card
-          backgroundColor="bg-secondary"
-          border={false}
-          className="col-span-2"
-        >
+        <Card border={false} className="col-span-2 bg-secondary">
           <p className="title-3 bold">Keluarga Besar</p>
           <h1 className="title-2 bold text-amber-400">{data?.name}</h1>
         </Card>
-        <Card
-          backgroundColor="bg-secondary"
-          border={false}
-          className="col-span-3"
-          padding=""
-        >
+        <Card border={false} className="col-span-3 bg-secondary" padding="">
           <IKImage
             alt={image?.name}
             height="auto"
@@ -156,38 +156,18 @@ function Detail(props) {
             width="100%"
           />
         </Card>
-        <Card
-          backgroundColor="bg-secondary"
-          border={false}
-          className="col-span-1"
-        >
+        <Card border={false} className="col-span-1 bg-secondary">
           <p className="title-3 bold text-amber-400">MENG- UCAPKAN</p>
         </Card>
-        <Card
-          backgroundColor="bg-secondary"
-          border={false}
-          className="col-span-2"
-        >
+        <Card border={false} className="col-span-2 bg-secondary">
           <h1 className="title-3 bold">Minal Aidin wal Faizin</h1>
         </Card>
-        <Card
-          backgroundColor="bg-secondary"
-          border={false}
-          className="col-span-2"
-        >
+        <Card border={false} className="col-span-2 bg-secondary">
           <h2 className="title-3 bold">Mohon Maaf Lahir dan Batin</h2>
         </Card>
 
-        <Card
-          backgroundColor="bg-secondary"
-          border={false}
-          className="col-span-1"
-        />
-        <Card
-          backgroundColor="bg-secondary"
-          border={false}
-          className="col-span-3"
-        >
+        <Card border={false} className="col-span-1 bg-secondary" />
+        <Card border={false} className="col-span-3 bg-secondary">
           <p className="body-2 text-center">{data?.message}</p>
         </Card>
       </div>
@@ -213,7 +193,7 @@ function Comment(props) {
   const _bottomProps = <div className="relative" />;
 
   return (
-    <div className="flex flex-col justify-between min-h-screen bg-blue-gray-900/20">
+    <div className="flex flex-col justify-between min-h-screen">
       {_topProps}
       <div className="px-8 z-10 py-24">
         <div className="text-center mb-8">

@@ -7,7 +7,6 @@ export default function Card(props) {
     children,
     hover,
     header,
-    backgroundColor,
     childClass,
     footer,
     padding,
@@ -15,6 +14,7 @@ export default function Card(props) {
     border,
     ...cardProps
   } = props;
+
   return (
     <motion.div
       className={clsx(
@@ -23,8 +23,8 @@ export default function Card(props) {
           ["cursor-pointer hover:border-blue-500"]: hover,
           ["drop-shadow-xl"]: shadow,
           ["border border-default"]: border,
+          ["bg-white"]: !className?.includes("bg-"),
         },
-        backgroundColor,
         className
       )}
       {...cardProps}
@@ -37,7 +37,6 @@ export default function Card(props) {
 }
 
 Card.propTypes = {
-  backgroundColor: PropTypes.string,
   border: PropTypes.bool,
   childClass: PropTypes.string,
   children: PropTypes.node.isRequired,
@@ -50,13 +49,12 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  backgroundColor: " bg-white ",
   border: true,
   childClass: "",
   className: "",
   footer: undefined,
   header: undefined,
   hover: false,
-  padding: " p-6 ",
+  padding: "p-6",
   shadow: true,
 };

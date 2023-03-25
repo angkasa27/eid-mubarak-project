@@ -46,20 +46,17 @@ export default function CommentCard(props) {
         <FormGenerator {...formProps} />
       </Card>
       <Card
-        backgroundColor="bg-gray-100"
-        childClass=" flex flex-col gap-2"
-        className="text-blue-gray-800 mt-4 max-h-[36rem] overflow-y-auto"
+        childClass="flex flex-col gap-2"
+        className="bg-white text-blue-gray-800 mt-4 max-h-[36rem] overflow-y-auto"
         padding="p-4"
       >
         {COMMENT.map((item, index) => (
-          <div className=" p-2 rounded-md  bg-white w-full" key={index}>
+          <div className=" p-2 rounded-md   bg-gray-100 w-full" key={index}>
             <div className="flex items-center gap-2">
               <div className="h-8 w-8 shrink-0 bg-blue-gray-500 rounded-full" />
               <div>
                 <p className="body-3 font-bold">{item.name}</p>
-                <p className="body-4 text-default-secondary">
-                  Senin, 12 Agustus 2022
-                </p>
+                <p className="body-4 text-default-secondary">2 Jam yang lalu</p>
               </div>
             </div>
             <p className="body-3 pt-1">{item.message}</p>

@@ -17,8 +17,16 @@ import { IKImage } from "imagekitio-react";
 export default function Container(props) {
   const { data, name } = props;
 
+  const container = cva("max-w-screen-sm mx-auto", {
+    variants: {
+      variant: {
+        blue: "bg-deep-purple-900",
+      },
+    },
+  });
+
   return (
-    <div className="bg-deep-purple-900 h-full max-w-screen-sm mx-auto">
+    <div className={container(data)}>
       <Main name={name} />
       <Detail {...data} />
       <Comment name={name} />
