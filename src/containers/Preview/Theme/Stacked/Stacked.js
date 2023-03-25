@@ -14,6 +14,7 @@ import { IKImage } from "imagekitio-react";
 import Card from "@components/elements/Card";
 import MotionCard from "@components/elements/MotionCard";
 import { cva } from "class-variance-authority";
+import { mosqueCard, mainCard, secondaryCard, mandalaCard } from "./variant";
 
 export default function Container(props) {
   const { data, name } = props;
@@ -21,17 +22,17 @@ export default function Container(props) {
   const container = cva("max-w-screen-sm mx-auto", {
     variants: {
       variant: {
-        dark: "bg-main",
-        light: "bg-[#f7f2f2]",
+        dark: "bg-main text-white",
+        light: "bg-amber-50 text-blue-gray-800",
       },
     },
   });
 
   return (
     <div className={container(data)}>
-      <Main name={name} />
+      <Main name={name} variant={data?.variant} />
       <Detail {...data} />
-      <Comment name={name} />
+      <Comment name={name} variant={data?.variant} />
       <Footer {...data} />
     </div>
   );
@@ -47,16 +48,7 @@ Container.defaultProps = {
 };
 
 function Main(props) {
-  const { name } = props;
-
-  const container = cva("max-w-screen-sm mx-auto", {
-    variants: {
-      variant: {
-        dark: "bg-main",
-        light: "bg-[#f7f2f2]",
-      },
-    },
-  });
+  const { name, variant } = props;
 
   return (
     <div className="h-screen p-8 flex items-end">
@@ -68,15 +60,19 @@ function Main(props) {
       >
         <MotionCard
           border={false}
-          className="col-span-2 row-start-1 row-end-3 bg-secondary"
-          padding=""
+          className={mosqueCard("col-span-2 row-start-1 row-end-3")({
+            variant,
+          })}
+          padding
+          shadow={false}
           variants={RightVariant}
         >
-          <Mosque className="w-full h-auto mt-16 text-indigo-200" />
+          <Mosque className="w-full h-auto mt-16 " />
         </MotionCard>
         <MotionCard
           border={false}
-          className="col-span-2 row-span-1 bg-[#262626]"
+          className={mainCard("col-span-2 row-span-1")({ variant })}
+          shadow={false}
           variants={UpVariant}
         >
           <p className="title-3 bold">Selamat Hari Raya</p>
@@ -85,7 +81,10 @@ function Main(props) {
 
         <MotionCard
           border={false}
-          className="col-span-1 row-start-2 row-end-4 bg-[#1f2937]"
+          className={secondaryCard("col-span-1 row-start-2 row-end-4")({
+            variant,
+          })}
+          shadow={false}
           variants={LeftVariant}
         >
           <p className="body-1">1 Syawal</p>
@@ -93,15 +92,19 @@ function Main(props) {
         </MotionCard>
         <MotionCard
           border={false}
-          className="col-span-1 row-span-1 flex items-center justify-center bg-[#1f2937]"
+          className={mandalaCard(
+            "col-span-1 row-span-1 flex items-center justify-center"
+          )({ variant })}
           padding="p-3"
+          shadow={false}
           variants={ZoomVariant}
         >
           <Mandala className="w-20 h-20" />
         </MotionCard>
         <MotionCard
           border={false}
-          className="col-span-2 row-span-1 bg-[#262626]"
+          className={mainCard("col-span-2 row-span-1")({ variant })}
+          shadow={false}
           variants={LeftVariant}
         >
           <div className="flex items-center">
@@ -112,7 +115,11 @@ function Main(props) {
         </MotionCard>
         <motion.div className="col-span-3" variants={UpVariant}>
           {!!name && (
-            <Card border={false} className="w-full bg-[#27272a]">
+            <Card
+              border={false}
+              className={secondaryCard("w-full")({ variant })}
+              shadow={false}
+            >
               <p className="body-1">Kepada</p>
               <p className="title-3 bold">{name}</p>
             </Card>
@@ -125,52 +132,86 @@ function Main(props) {
 
 Main.propTypes = {
   name: PropTypes.string,
+  variant: PropTypes.string,
 };
 
 Main.defaultProps = {
   name: "",
+  variant: "",
 };
 
 function Detail(props) {
-  const { data, image } = props;
+  const { data, image, variant } = props;
 
   return (
-    <div className="h-screen p-8 flex items-end">
-      <div className="grid gap-3 grid-cols-3 w-full">
-        <Card border={false} className="col-span-2 bg-secondary">
-          <p className="title-3 bold">Keluarga Besar</p>
-          <h1 className="title-2 bold text-amber-400">{data?.name}</h1>
-        </Card>
-        <Card border={false} className="col-span-3 bg-secondary" padding="">
-          <IKImage
-            alt={image?.name}
-            height="auto"
-            loading="lazy"
-            lqip={{ active: true, quality: 10 }}
-            path={image?.filePath}
-            transformation={[
-              {
-                ar: "4-3",
-              },
-            ]}
-            width="100%"
-          />
-        </Card>
-        <Card border={false} className="col-span-1 bg-secondary">
-          <p className="title-3 bold text-amber-400">MENG- UCAPKAN</p>
-        </Card>
-        <Card border={false} className="col-span-2 bg-secondary">
-          <h1 className="title-3 bold">Minal Aidin wal Faizin</h1>
-        </Card>
-        <Card border={false} className="col-span-2 bg-secondary">
-          <h2 className="title-3 bold">Mohon Maaf Lahir dan Batin</h2>
-        </Card>
+    <div className="p-8 grid gap-3 grid-cols-3 w-full">
+      <Card
+        border={false}
+        className={mandalaCard("col-span-1")({ variant })}
+        shadow={false}
+      />
+      <Card
+        border={false}
+        className={mainCard("col-span-2")({ variant })}
+        shadow={false}
+      >
+        <p className="title-3 bold">Keluarga Besar</p>
+        <h1 className="title-2 bold text-amber-400">{data?.name}</h1>
+      </Card>
+      <Card
+        border={false}
+        className={secondaryCard("col-span-3")({ variant })}
+        padding=""
+        shadow={false}
+      >
+        <IKImage
+          alt={image?.name}
+          height="auto"
+          loading="lazy"
+          lqip={{ active: true, quality: 10 }}
+          path={image?.filePath}
+          transformation={[
+            {
+              ar: "4-3",
+            },
+          ]}
+          width="100%"
+        />
+      </Card>
+      <Card
+        border={false}
+        className={secondaryCard("col-span-1")({ variant })}
+        shadow={false}
+      >
+        <p className="title-3 bold">MENGU- CAPKAN</p>
+      </Card>
+      <Card
+        border={false}
+        className={mainCard("col-span-2")({ variant })}
+        shadow={false}
+      >
+        <h1 className="title-3 bold">Minal Aidin wal Faizin</h1>
+      </Card>
+      <Card
+        border={false}
+        className={mainCard("col-span-2")({ variant })}
+        shadow={false}
+      >
+        <h2 className="title-3 bold">Mohon Maaf Lahir dan Batin</h2>
+      </Card>
 
-        <Card border={false} className="col-span-1 bg-secondary" />
-        <Card border={false} className="col-span-3 bg-secondary">
-          <p className="body-2 text-center">{data?.message}</p>
-        </Card>
-      </div>
+      <Card
+        border={false}
+        className={mandalaCard("col-span-1")({ variant })}
+        shadow={false}
+      />
+      <Card
+        border={false}
+        className={mainCard("col-span-3")({ variant })}
+        shadow={false}
+      >
+        <p className="body-2 text-center">{data?.message}</p>
+      </Card>
     </div>
   );
 }
@@ -178,59 +219,94 @@ function Detail(props) {
 Detail.propTypes = {
   data: PropTypes.object,
   image: PropTypes.object,
+  variant: PropTypes.string,
 };
 
 Detail.defaultProps = {
   data: {},
   image: {},
+  variant: "",
 };
 
 function Comment(props) {
-  const { name } = props;
-
-  const _topProps = <div className="relative" />;
-
-  const _bottomProps = <div className="relative" />;
+  const { name, variant } = props;
 
   return (
-    <div className="flex flex-col justify-between min-h-screen">
-      {_topProps}
-      <div className="px-8 z-10 py-24">
-        <div className="text-center mb-8">
-          <h1 className="title-2 bold text-amber-400">Kirim Ucapan</h1>
-          <p className="body-3 mx-6 mt-2">
-            Tanpa jabatan tangan atau pelukan hangat, masih ada simpul-simpul
-            senyum dan doa-doa baik yang bisa diberikan
-          </p>
-        </div>
-        <CommentCard name={name} />
-      </div>
-      {_bottomProps}
+    <div className="p-8 grid gap-3 grid-cols-3 w-full">
+      <Card
+        border={false}
+        className={mandalaCard("col-span-1")({ variant })}
+        shadow={false}
+      />
+      <Card
+        border={false}
+        className={secondaryCard("col-span-2")({ variant })}
+        shadow={false}
+      >
+        <h1 className="title-2 bold">KIRIM UCAPAN</h1>
+      </Card>
+      <CommentCard
+        avatarColor={["bg-amber-500", "bg-light-blue-500"]}
+        border={false}
+        commentClass="col-span-3"
+        formClass="col-span-3"
+        name={name}
+        shadow={false}
+      />
     </div>
   );
 }
 
 Comment.propTypes = {
   name: PropTypes.string,
+  variant: PropTypes.string,
 };
 
 Comment.defaultProps = {
   name: "",
+  variant: "",
 };
 
-function Footer({ data }) {
+function Footer({ data, variant }) {
   return (
-    <div className="flex flex-col justify-between bg-blue-gray-900/20 px-8 text-center">
-      <p className="body-2 mx-6 mb-2">{data.quotes}</p>
-      <p className="subtitle-1 text-amber-400">{data.name}</p>
-      <div className="mt-8">
+    <div className="p-8 grid gap-3 grid-cols-3 w-full">
+      <Card
+        border={false}
+        className={mainCard("col-span-2")({ variant })}
+        shadow={false}
+      >
+        <p className="body-2">{data.quotes}</p>
+      </Card>
+      <Card
+        border={false}
+        className={secondaryCard("col-span-1")({ variant })}
+        shadow={false}
+      >
+        <p className="subtitle-1 ">{data.name}</p>
+      </Card>
+      <Card
+        border={false}
+        className={mandalaCard("col-span-1")({ variant })}
+        shadow={false}
+      />
+      <Card
+        border={false}
+        className={mainCard("col-span-2")({ variant })}
+        shadow={false}
+      >
         <p>Eid Mubarak</p>
         <p>Bikin ucapan versimu sendiri!</p>
-      </div>
+      </Card>
     </div>
   );
 }
 
-Footer.propTypes = { data: PropTypes.object };
+Footer.propTypes = {
+  data: PropTypes.object,
+  variant: PropTypes.string,
+};
 
-Footer.defaultProps = { data: {} };
+Footer.defaultProps = {
+  data: {},
+  variant: "",
+};
