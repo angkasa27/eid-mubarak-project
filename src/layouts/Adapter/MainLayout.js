@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { getAccessToken, logout } from "@utils/common";
 
-const MainLayout = ({ containers, verified, ...props }) => {
+const MainLayout = ({ containers, ...props }) => {
   const Containers = containers;
 
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (!getAccessToken() && verified) {
+    if (!getAccessToken()) {
       logout();
     } else {
       setMounted(true);
@@ -31,11 +31,8 @@ const MainLayout = ({ containers, verified, ...props }) => {
 
 MainLayout.propTypes = {
   containers: PropTypes.func.isRequired,
-  verified: PropTypes.bool,
 };
 
-MainLayout.defaultProps = {
-  verified: false,
-};
+MainLayout.defaultProps = {};
 
 export default MainLayout;
