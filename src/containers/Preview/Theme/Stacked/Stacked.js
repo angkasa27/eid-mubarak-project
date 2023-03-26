@@ -23,7 +23,7 @@ export default function Container(props) {
     variants: {
       variant: {
         dark: "bg-main text-white",
-        light: "bg-amber-50 text-blue-gray-800",
+        light: "bg-amber-50 text-blue-gray-700",
       },
     },
   });
@@ -74,11 +74,14 @@ function Main(props) {
         <MotionCard
           border={false}
           className={mainCard("col-span-2 row-span-1")({ variant })}
+          padding="p-4"
           shadow={false}
           variants={UpVariant}
         >
-          <p className="title-3 bold">Selamat Hari Raya</p>
-          <h1 className="title-1 bold text-amber-400">Idul Fitri</h1>
+          <div>
+            <p className="subtitle-3">Selamat Hari Raya</p>
+            <h1 className="title-1 bold text-amber-400">Idul Fitri</h1>
+          </div>
         </MotionCard>
 
         <MotionCard
@@ -86,6 +89,7 @@ function Main(props) {
           className={secondaryCard("col-span-1 row-start-2 row-end-4")({
             variant,
           })}
+          padding="p-4"
           shadow={false}
           variants={LeftVariant}
         >
@@ -106,20 +110,24 @@ function Main(props) {
         <MotionCard
           border={false}
           className={mainCard("col-span-2 row-span-1")({ variant })}
+          padding="p-4"
           shadow={false}
           variants={LeftVariant}
         >
-          <div className="flex items-center">
-            <p className="title-1 bold">Happy</p>
-            <h1 className="title-1 bold text-amber-400"> Eid</h1>
+          <div>
+            <h1 className="title-2 bold">
+              Happy
+              <span className="text-amber-400"> Eid</span>
+            </h1>
+            <h1 className="title-2 bold text-amber-400"> Mubarak!</h1>
           </div>
-          <h1 className="title-1 bold text-amber-400"> Mubarak!</h1>
         </MotionCard>
         <motion.div className="col-span-3" variants={UpVariant}>
           {!!name && (
             <Card
               border={false}
               className={secondaryCard("w-full")({ variant })}
+              padding="p-4"
               shadow={false}
             >
               <p className="body-1">Kepada</p>
@@ -154,11 +162,15 @@ function Detail(props) {
       />
       <Card
         border={false}
+        childClass="flex items-center justify-center"
         className={mainCard("col-span-2")({ variant })}
+        padding="p-4"
         shadow={false}
       >
-        <p className="title-3 bold">Keluarga Besar</p>
-        <h1 className="title-2 bold text-amber-400">{data?.name}</h1>
+        <div>
+          <p className="subtitle-2">Keluarga Besar</p>
+          <h1 className="title-3 bold text-amber-400">{data?.name}</h1>
+        </div>
       </Card>
       <Card
         border={false}
@@ -182,14 +194,17 @@ function Detail(props) {
       </Card>
       <Card
         border={false}
+        childClass="flex items-center justify-center"
         className={secondaryCard("col-span-1")({ variant })}
+        padding="p-4"
         shadow={false}
       >
-        <p className="title-3 bold">MENGU- CAPKAN</p>
+        <p className="title-3 bold">MENG UCAP KAN</p>
       </Card>
       <Card
         border={false}
         className={mainCard("col-span-2")({ variant })}
+        padding="p-4"
         shadow={false}
       >
         <h1 className="title-3 bold">{data?.mainQuotes}</h1>
@@ -197,6 +212,7 @@ function Detail(props) {
       <Card
         border={false}
         className={mainCard("col-span-2")({ variant })}
+        padding="p-4"
         shadow={false}
       >
         <h2 className="title-3 bold">{data?.secondaryQuotes}</h2>
@@ -210,6 +226,7 @@ function Detail(props) {
       <Card
         border={false}
         className={mainCard("col-span-3")({ variant })}
+        padding="p-4"
         shadow={false}
       >
         <p className="body-2 text-center">{data?.message}</p>
@@ -243,6 +260,7 @@ function Comment(props) {
       <Card
         border={false}
         className={secondaryCard("col-span-2")({ variant })}
+        padding="p-4"
         shadow={false}
       >
         <h1 className="title-2 bold">KIRIM UCAPAN</h1>
@@ -275,6 +293,7 @@ function Footer({ data, variant }) {
       <Card
         border={false}
         className={mainCard("col-span-2")({ variant })}
+        padding="p-4"
         shadow={false}
       >
         <p className="body-2">{data?.closing}</p>
@@ -282,9 +301,10 @@ function Footer({ data, variant }) {
       <Card
         border={false}
         className={secondaryCard("col-span-1")({ variant })}
+        padding="p-4"
         shadow={false}
       >
-        <p className="subtitle-1 ">{data.name}</p>
+        <p className="subtitle-2 ">{data.name}</p>
       </Card>
       <Card
         border={false}
@@ -294,6 +314,7 @@ function Footer({ data, variant }) {
       <Card
         border={false}
         className={mainCard("col-span-2")({ variant })}
+        padding="p-4"
         shadow={false}
       >
         <p>Eid Mubarak</p>
