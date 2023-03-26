@@ -14,3 +14,11 @@ export const STACKED = {
 };
 
 export const THEME_LIST = [MANDALA, STACKED];
+
+export const FLATTENED_THEME_LIST = THEME_LIST.reduce((acc, currentValue) => {
+  currentValue.variants.forEach((variant) => {
+    const newObj = { ...currentValue, variant };
+    acc.push(newObj);
+  });
+  return acc;
+}, []);

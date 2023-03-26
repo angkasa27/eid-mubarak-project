@@ -48,7 +48,7 @@ const fetch = ({ withCancel, ...opt }) => {
         } else {
           // eslint-disable-next-line no-console
           console.log(err);
-          reject(err.response.data);
+          reject({ ...err.response.data, code: err.response.status });
         }
       });
   });

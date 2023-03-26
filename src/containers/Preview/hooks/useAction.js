@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useState, useEffect, useRef } from "react";
-import detailCard from "@repositories/card/detailCard";
+import showCard from "@repositories/card/showCard";
 import usePopupAlert from "@utils/hooks/usePopupAlert";
 
 const useAction = () => {
@@ -15,7 +15,7 @@ const useAction = () => {
   const fetchDetail = async () => {
     setLoading(true);
     try {
-      const res = await detailCard(id);
+      const res = await showCard(id);
       setData(res.data);
     } catch (error) {
       setFailedAlert({ message: error.message });

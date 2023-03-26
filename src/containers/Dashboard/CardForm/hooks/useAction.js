@@ -4,12 +4,15 @@ import validation from "../validation";
 import usePopupAlert from "@utils/hooks/usePopupAlert";
 import detailCard from "@repositories/card/detailCard";
 import updateCard from "@repositories/card/updateCard";
-import createCard from "@repositories/card/createCard";
+import createCard from "@repositories/card/updateTheme";
 import useUserData from "@utils/hooks/useUserData";
 import { DOMAIN } from "src/constants";
 import { THEME_LIST } from "src/configs/template";
+import { useRouter } from "next/router";
+import { ROUTES } from "src/configs";
 
 const useAction = () => {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [variantOption, setVariantOption] = useState([]);
   const { setFailedAlert, setSuccessAlert } = usePopupAlert();
@@ -30,14 +33,14 @@ const useAction = () => {
   const onSubmit = async (values) => {
     setLoading(true);
     try {
-      if (!values.username) {
-        await createCard({
-          link: `${DOMAIN}${username}`,
-          ...values,
-        });
-      } else {
-        await updateCard(username, values);
-      }
+      // if (!values.username) {
+      //   await createCard({
+      //     link: `${DOMAIN}${username}`,
+      //     ...values,
+      //   });
+      // } else {
+      await updateCard(username, values);
+      // }
       setSuccessAlert({ message: "Berhasil disimpan" });
     } catch (error) {
       setFailedAlert({ message: error.message });
@@ -53,7 +56,8 @@ const useAction = () => {
       reset({ ...data });
       updateOption(data.theme);
     } catch (error) {
-      setFailedAlert({ message: error.message });
+      if (error?.code === 404) router.push(ROUTES.THEME());
+      else setFailedAlert({ message: error.message });
     } finally {
       setLoading(false);
     }

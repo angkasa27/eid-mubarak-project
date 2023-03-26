@@ -1,4 +1,4 @@
-import { DASHBOARD, ABOUT } from "./route";
+import { DASHBOARD, ABOUT, LOGOUT } from "./route";
 
 export const MAIN = [
   {
@@ -8,5 +8,9 @@ export const MAIN = [
   {
     label: "Tentang",
     href: ABOUT(),
+  },
+  {
+    label: "Keluar",
+    href: LOGOUT(),
   },
 ];

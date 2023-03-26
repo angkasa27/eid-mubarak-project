@@ -1,11 +1,13 @@
 export const LOGIN = () => `/login`;
 export const REGISTER = () => `/daftar`;
+export const LOGOUT = () => `/logout`;
 export const FORGOT_PASSWORD = () => ``;
 
 export const MAIN = () => `/`;
 export const ABOUT = () => `/about`;
 
 export const DASHBOARD = () => `/dashboard`;
+export const THEME = () => `/theme`;
 export const EDIT = () => `/edit`;
 
 export const NOT_FOUND = () => `/404`;
@@ -20,4 +22,5 @@ export const USED_PATH = [
   ABOUT(),
   DASHBOARD(),
   EDIT(),
+  THEME(),
 ];

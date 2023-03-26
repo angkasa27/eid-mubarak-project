@@ -2,17 +2,13 @@ import fetch from "@utils/fetch";
 import { SERVICES } from "src/configs";
 import { getAccessToken } from "@utils/common";
 
-const createCard = (data) => {
+const showCard = (username) => {
   const options = {
-    data,
-    method: "POST",
-    url: SERVICES.CARD,
-    headers: {
-      Authorization: getAccessToken(),
-    },
+    method: "GET",
+    url: SERVICES.CARD_SHOW(username),
     withCancel: true,
   };
   return fetch(options);
 };
 
-export default createCard;
+export default showCard;

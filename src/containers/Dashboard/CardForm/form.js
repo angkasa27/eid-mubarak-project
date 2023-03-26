@@ -13,7 +13,7 @@ export default function Form() {
         control,
         label: "Tema",
         name: "theme",
-        disabled: loading,
+        disabled: true,
       },
       {
         field: "select",
@@ -25,7 +25,7 @@ export default function Form() {
         mapValue: (item) => item.variant,
         mapLabel: (item) => (
           <div className="inline-flex items-center gap-2">
-            <div className={clsx(item.color, "h-4 w-4 rounded-full border")} />
+            <div className={clsx(item.color, "h-4 w-4 rounded-md border")} />
             {item.name}
           </div>
         ),

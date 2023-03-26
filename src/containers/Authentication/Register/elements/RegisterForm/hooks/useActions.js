@@ -25,7 +25,7 @@ const useActions = () => {
       setAccessToken(accessToken);
       setRefreshToken(refreshToken);
       setUserData(userData);
-      router.push(ROUTES.EDIT());
+      router.push(ROUTES.THEME());
     } catch (error) {
       setFailedAlert({ message: error.message });
     } finally {
