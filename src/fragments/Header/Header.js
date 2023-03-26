@@ -8,7 +8,7 @@ export default function Header(props) {
   return (
     <div className="flex justify-between mb-6">
       <div>
-        <h2 className="title-2 bold">{name}</h2>
+        <h2 className="md:text-3xl text-2xl bold">{name}</h2>
         {/* <Breadcrumbs>
           <Link href={ROUTES.DASHBOARD()}>UCAPAN</Link>
           <p className="bold">Form</p>

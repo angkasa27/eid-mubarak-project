@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { AnimatePresence, motion } from "framer-motion";
-import Logo from "src/assets/svg/LogoAnimate";
+import Logo from "src/assets/svg/LogoLoadingAnimate";
 
 export default function LoadingPage({ loading }) {
   return (
