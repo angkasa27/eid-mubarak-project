@@ -33,15 +33,9 @@ const useAction = () => {
   const onSubmit = async (values) => {
     setLoading(true);
     try {
-      // if (!values.username) {
-      //   await createCard({
-      //     link: `${DOMAIN}${username}`,
-      //     ...values,
-      //   });
-      // } else {
       await updateCard(username, values);
-      // }
       setSuccessAlert({ message: "Berhasil disimpan" });
+      router.push(ROUTES.DASHBOARD());
     } catch (error) {
       setFailedAlert({ message: error.message });
     } finally {

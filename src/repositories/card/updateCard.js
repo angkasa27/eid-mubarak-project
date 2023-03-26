@@ -6,7 +6,7 @@ const updateCard = (username, data) => {
   const options = {
     data,
     method: "PUT",
-    url: SERVICES.CARD_DETAIL(username),
+    url: SERVICES.CARD(username),
     headers: {
       Authorization: getAccessToken(),
     },

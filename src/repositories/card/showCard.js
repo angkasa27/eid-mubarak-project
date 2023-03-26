@@ -5,7 +5,7 @@ import { getAccessToken } from "@utils/common";
 const showCard = (username) => {
   const options = {
     method: "GET",
-    url: SERVICES.CARD_SHOW(username),
+    url: SERVICES.CARD(username),
     withCancel: true,
   };
   return fetch(options);

@@ -6,7 +6,9 @@ const validation = yup.object().shape({
   data: yup.object().shape({
     name: yup.string().required(ERROR_MESSAGE.REQUIRED("Nama")),
     message: yup.string().required(ERROR_MESSAGE.REQUIRED("Pesan")),
-    quotes: yup.string().required(ERROR_MESSAGE.REQUIRED("Quotes")),
+    mainQuotes: yup.string().required(ERROR_MESSAGE.REQUIRED("Quotes")),
+    secondaryQuotes: yup.string().required(ERROR_MESSAGE.REQUIRED("Quotes")),
+    closing: yup.string().required(ERROR_MESSAGE.REQUIRED("Penutup")),
   }),
   variant: yup.string().required(ERROR_MESSAGE.REQUIRED("Variant")),
 });

@@ -26,8 +26,8 @@ const service = {
   REGISTER: `${domain}/auth/register`,
   REFRESH_TOKEN: `${domain}/auth/refresh-token`,
   USER: (id) => `${domain}/user/${id}`,
+  CARD: (username) => `${domain}/card/${username}`,
   CARD_THEME: (username) => `${domain}/card/theme/${username}`,
-  CARD_SHOW: (username) => `${domain}/card/${username}`,
   CARD_DETAIL: (username) => `${domain}/card/detail/${username}`,
   IMAGE_DETAIL: (username) => `${domain}/image/${username}`,
 };
