@@ -23,7 +23,7 @@ export default function Container() {
   };
 
   return (
-    <div className="h-screen w-full overflow-y-scroll  text-white overflow-x-hidden bg-main">
+    <div className="h-screen w-full overflow-y-scroll  text-white overflow-x-hidden">
       {_renderTheme()}
       <LoadingPage loading={loading} />
     </div>

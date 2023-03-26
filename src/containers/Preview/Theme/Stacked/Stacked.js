@@ -19,7 +19,7 @@ import { mosqueCard, mainCard, secondaryCard, mandalaCard } from "./variant";
 export default function Container(props) {
   const { data, name } = props;
 
-  const container = cva("max-w-screen-sm mx-auto", {
+  const container = cva("", {
     variants: {
       variant: {
         dark: "bg-main text-white",
@@ -30,10 +30,12 @@ export default function Container(props) {
 
   return (
     <div className={container(data)}>
-      <Main name={name} variant={data?.variant} />
-      <Detail {...data} />
-      <Comment name={name} variant={data?.variant} />
-      <Footer {...data} />
+      <div className="max-w-screen-sm mx-auto">
+        <Main name={name} variant={data?.variant} />
+        <Detail {...data} />
+        <Comment name={name} variant={data?.variant} />
+        <Footer {...data} />
+      </div>
     </div>
   );
 }
@@ -190,14 +192,14 @@ function Detail(props) {
         className={mainCard("col-span-2")({ variant })}
         shadow={false}
       >
-        <h1 className="title-3 bold">Minal Aidin wal Faizin</h1>
+        <h1 className="title-3 bold">{data?.mainQuotes}</h1>
       </Card>
       <Card
         border={false}
         className={mainCard("col-span-2")({ variant })}
         shadow={false}
       >
-        <h2 className="title-3 bold">Mohon Maaf Lahir dan Batin</h2>
+        <h2 className="title-3 bold">{data?.secondaryQuotes}</h2>
       </Card>
 
       <Card
@@ -275,7 +277,7 @@ function Footer({ data, variant }) {
         className={mainCard("col-span-2")({ variant })}
         shadow={false}
       >
-        <p className="body-2">{data.quotes}</p>
+        <p className="body-2">{data?.closing}</p>
       </Card>
       <Card
         border={false}

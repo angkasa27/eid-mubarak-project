@@ -13,11 +13,12 @@ import {
 } from "src/configs/animation";
 import CommentCard from "src/fragments/CommentCard";
 import { IKImage } from "imagekitio-react";
+import { cva } from "class-variance-authority";
 
 export default function Container(props) {
   const { data, name } = props;
 
-  const container = cva("max-w-screen-sm mx-auto", {
+  const container = cva("", {
     variants: {
       variant: {
         blue: "bg-deep-purple-900",
@@ -27,10 +28,12 @@ export default function Container(props) {
 
   return (
     <div className={container(data)}>
-      <Main name={name} />
-      <Detail {...data} />
-      <Comment name={name} />
-      <Footer {...data} />
+      <div className="max-w-screen-sm mx-auto">
+        <Main name={name} />
+        <Detail {...data} />
+        <Comment name={name} />
+        <Footer {...data} />
+      </div>
     </div>
   );
 }
@@ -202,8 +205,8 @@ function Detail(props) {
         </div>
         <div>
           <p className="body-1 text-amber-400">Mengucapkan</p>
-          <h1 className="title-2 bold">Minal Aidin wal Faizin</h1>
-          <h2 className="title-3">Mohon Maaf Lahir dan Batin</h2>
+          <h1 className="title-2 bold">{data?.mainQuotes}</h1>
+          <h2 className="title-3">{data?.secondaryQuotes}</h2>
         </div>
         <div className="w-24">
           <Ornament1 className="h-auto w-full text-[#f9be65]" />
@@ -277,7 +280,7 @@ Comment.defaultProps = {
 function Footer({ data }) {
   return (
     <div className="flex flex-col justify-between bg-blue-gray-900/20 px-8 text-center">
-      <p className="body-2 mx-6 mb-2">{data.quotes}</p>
+      <p className="body-2 mx-6 mb-2">{data?.closing}</p>
       <p className="subtitle-1 text-amber-400">{data.name}</p>
       <div className="mt-8">
         <p>Eid Mubarak</p>
