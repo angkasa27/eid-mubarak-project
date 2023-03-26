@@ -19,7 +19,7 @@ const useAction = () => {
   const { getUsername } = useUserData();
   const username = getUsername();
 
-  const { control, handleSubmit, reset, setValue } = useForm({
+  const { control, handleSubmit, reset } = useForm({
     resolver: validation,
     mode: "onChange",
   });
@@ -27,7 +27,6 @@ const useAction = () => {
   const updateOption = (theme) => {
     const themeData = THEME_LIST.find((item) => item.theme === theme);
     setVariantOption(themeData?.variants);
-    setValue("variant", themeData?.variants[0].variant);
   };
 
   const onSubmit = async (values) => {
