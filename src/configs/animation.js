@@ -183,7 +183,7 @@ export const previewVariant = {
       type: "tween",
       when: "beforeChildren",
       staggerChildren: 0.3,
-      delayChildren: 0.3,
+      delayChildren: 0.2,
     },
   },
   hidden: {

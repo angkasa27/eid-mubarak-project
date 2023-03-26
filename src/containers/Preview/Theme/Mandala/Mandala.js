@@ -14,6 +14,7 @@ import {
 import CommentCard from "src/fragments/CommentCard";
 import { IKImage } from "imagekitio-react";
 import { cva } from "class-variance-authority";
+import Background from "@ramadhan/background";
 
 export default function Container(props) {
   const { data, name } = props;
@@ -21,7 +22,7 @@ export default function Container(props) {
   const container = cva("", {
     variants: {
       variant: {
-        blue: "bg-deep-purple-900",
+        blue: "bg-[#242059]",
       },
     },
   });
@@ -110,6 +111,12 @@ function Main(props) {
       animate="visible"
       className="h-screen flex flex-col justify-between"
       initial="hidden"
+      style={{
+        background: `url("${Background.Pattern1?.src}")`,
+        backgroundPosition: "center",
+        backgroundSize: "800px",
+        backdropFilter: "opacity(0.1)",
+      }}
       variants={previewVariant}
     >
       {_topProps}
@@ -161,10 +168,10 @@ function Detail(props) {
   const _topProps = (
     <div className="relative">
       <div className="absolute -top-10 right-8 w-8">
-        <Lamp1 className="h-auto w-full text-blue-gray-900/20" />
+        <Lamp1 className="h-auto w-full text-blue-gray-300/5" />
       </div>
       <div className="absolute -top-16 right-32 w-8">
-        <Lamp1 className="h-auto w-full text-blue-gray-900/20" />
+        <Lamp1 className="h-auto w-full text-blue-gray-300/5" />
       </div>
     </div>
   );
@@ -172,7 +179,7 @@ function Detail(props) {
   const _bottomProps = (
     <div className="relative">
       <div className="absolute bottom-0 w-screen max-w-screen-sm">
-        <Mosque className="h-auto w-full text-blue-gray-900/20" />
+        <Mosque className="h-auto w-full text-blue-gray-300/5" />
       </div>
     </div>
   );
@@ -252,7 +259,7 @@ function Comment(props) {
   const _bottomProps = <div className="relative" />;
 
   return (
-    <div className="flex flex-col justify-between min-h-screen bg-blue-gray-900/20">
+    <div className="flex flex-col justify-between min-h-screen bg-blue-gray-300/5">
       {_topProps}
       <div className="px-8 z-10 py-24">
         <div className="text-center mb-8">
@@ -279,7 +286,7 @@ Comment.defaultProps = {
 
 function Footer({ data }) {
   return (
-    <div className="flex flex-col justify-between bg-blue-gray-900/20 px-8 text-center">
+    <div className="flex flex-col justify-between bg-blue-gray-300/5 px-8 text-center">
       <p className="body-2 mx-6 mb-2">{data?.closing}</p>
       <p className="subtitle-1 text-amber-400">{data.name}</p>
       <div className="mt-8">
