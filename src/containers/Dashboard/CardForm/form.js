@@ -88,7 +88,7 @@ export default function Form() {
     // },
     handleSubmit,
     onSubmit,
-    className: "flex flex-col gap-4",
+    className: "flex flex-col gap-4 text-blue-gray-800",
   };
   return <FormGenerator {...formProps} />;
 }

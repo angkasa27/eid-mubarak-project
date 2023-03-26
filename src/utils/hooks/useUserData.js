@@ -5,7 +5,7 @@ const useUserData = () => {
   const { data } = useContext(UserData);
 
   const getUserData = () => data || {};
-  const getUsername = () => data.username || "";
+  const getUsername = () => data?.username || "";
 
   return {
     getUserData,
