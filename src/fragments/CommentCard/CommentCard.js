@@ -34,7 +34,6 @@ export default function CommentCard(props) {
         field: "text",
         control,
         label: "Nama",
-        placeholder: "Dimas Angkasa",
         name: "name",
         disabled: loading,
       },
@@ -42,7 +41,6 @@ export default function CommentCard(props) {
         field: "textarea",
         control,
         label: "Pesan",
-        placeholder: "Semoga yang disemogakan segera tersemogakan...",
         name: "message",
         rows: 3,
         disabled: loading,
@@ -66,19 +64,12 @@ export default function CommentCard(props) {
 
   return (
     <>
-      <Card
-        className={clsx("text-blue-gray-800", formClass)}
-        padding="p-4"
-        {...cardProps}
-      >
+      <Card className={clsx(formClass)} padding="p-4" {...cardProps}>
         <FormGenerator {...formProps} />
       </Card>
       <Card
         childClass="flex flex-col gap-4"
-        className={clsx(
-          "bg-white text-blue-gray-800 max-h-[36rem] overflow-y-auto",
-          commentClass
-        )}
+        className={clsx("max-h-[36rem] overflow-y-auto", commentClass)}
         padding="p-4"
         {...cardProps}
       >
@@ -119,8 +110,8 @@ CommentCard.propTypes = {
 CommentCard.defaultProps = {
   avatarColor: ["bg-blue-500", "bg-green-500", "bg-yellow-500"],
   buttonColor: "blue",
-  commentClass: "mt-4",
-  formClass: "",
+  commentClass: "mt-4 text-blue-gray-800",
+  formClass: "text-blue-gray-800",
   name: "",
 };
 

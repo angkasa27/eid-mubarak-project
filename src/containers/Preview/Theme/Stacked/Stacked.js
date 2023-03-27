@@ -15,6 +15,10 @@ import Card from "@components/elements/Card";
 import MotionCard from "@components/elements/MotionCard";
 import { cva } from "class-variance-authority";
 import { mosqueCard, mainCard, secondaryCard, mandalaCard } from "./variant";
+import KetupatIcon from "@ramadhan/KetupatIcon";
+import BulanBintangIcon from "@ramadhan/BulanBintangIcon";
+import MasjidIcon from "@ramadhan/MasjidIcon";
+import LampionIcon from "@ramadhan/LampionIcon";
 
 export default function Container(props) {
   const { data, name } = props;
@@ -101,11 +105,11 @@ function Main(props) {
           className={mandalaCard(
             "col-span-1 row-span-1 flex items-center justify-center"
           )({ variant })}
-          padding="p-3"
+          padding="p-2"
           shadow={false}
           variants={ZoomVariant}
         >
-          <Mandala className="w-20 h-20" />
+          <KetupatIcon className="w-20 h-20" />
         </MotionCard>
         <MotionCard
           border={false}
@@ -157,20 +161,22 @@ function Detail(props) {
     <div className="p-8 grid gap-3 grid-cols-3 w-full">
       <Card
         border={false}
-        className={mandalaCard("col-span-1")({ variant })}
+        className={mandalaCard("col-span-1 flex items-center justify-center")({
+          variant,
+        })}
+        padding="p-2"
         shadow={false}
-      />
+      >
+        <BulanBintangIcon className="w-20 h-20" />
+      </Card>
       <Card
         border={false}
-        childClass="flex items-center justify-center"
-        className={mainCard("col-span-2")({ variant })}
+        className={mainCard("col-span-2 flex items-center")({ variant })}
         padding="p-4"
         shadow={false}
       >
-        <div>
-          <p className="subtitle-2">Keluarga Besar</p>
-          <h1 className="title-3 bold text-amber-400">{data?.name}</h1>
-        </div>
+        <p className="subtitle-2">Keluarga Besar</p>
+        <h1 className="title-3 bold text-amber-400">{data?.name}</h1>
       </Card>
       <Card
         border={false}
@@ -194,24 +200,31 @@ function Detail(props) {
       </Card>
       <Card
         border={false}
-        childClass="flex items-center justify-center"
-        className={secondaryCard("col-span-1")({ variant })}
+        className={secondaryCard("col-span-1 flex items-center justify-center")(
+          { variant }
+        )}
         padding="p-4"
         shadow={false}
       >
-        <p className="title-3 bold">MENG UCAP KAN</p>
+        <p className="title-3 bold">
+          MENG
+          <br />
+          UCAP
+          <br />
+          KAN
+        </p>
       </Card>
       <Card
         border={false}
-        className={mainCard("col-span-2")({ variant })}
+        className={mainCard("col-span-2  flex items-center")({ variant })}
         padding="p-4"
         shadow={false}
       >
-        <h1 className="title-3 bold">{data?.mainQuotes}</h1>
+        <h1 className="title-3 bold text-amber-400">{data?.mainQuotes}</h1>
       </Card>
       <Card
         border={false}
-        className={mainCard("col-span-2")({ variant })}
+        className={mainCard("col-span-2  flex items-center")({ variant })}
         padding="p-4"
         shadow={false}
       >
@@ -220,9 +233,14 @@ function Detail(props) {
 
       <Card
         border={false}
-        className={mandalaCard("col-span-1")({ variant })}
+        className={mandalaCard("col-span-1 flex items-center justify-center")({
+          variant,
+        })}
+        padding="p-2"
         shadow={false}
-      />
+      >
+        <MasjidIcon className="w-20 h-20" />
+      </Card>
       <Card
         border={false}
         className={mainCard("col-span-3")({ variant })}
@@ -254,12 +272,17 @@ function Comment(props) {
     <div className="p-8 grid gap-3 grid-cols-3 w-full">
       <Card
         border={false}
-        className={mandalaCard("col-span-1")({ variant })}
+        className={mandalaCard("col-span-1 flex items-center justify-center")({
+          variant,
+        })}
+        padding="p-2"
         shadow={false}
-      />
+      >
+        <LampionIcon className="w-20 h-20" />
+      </Card>
       <Card
         border={false}
-        className={secondaryCard("col-span-2")({ variant })}
+        className={secondaryCard("col-span-2 flex items-center")({ variant })}
         padding="p-4"
         shadow={false}
       >
@@ -268,8 +291,8 @@ function Comment(props) {
       <CommentCard
         avatarColor={["bg-amber-500", "bg-light-blue-500"]}
         border={false}
-        commentClass="col-span-3"
-        formClass="col-span-3"
+        commentClass={mainCard("col-span-3")({ variant })}
+        formClass={mainCard("col-span-3")({ variant })}
         name={name}
         shadow={false}
       />

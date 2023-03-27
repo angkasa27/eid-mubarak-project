@@ -14,7 +14,7 @@ export const mandalaCard = (classes) =>
   cva(classes, {
     variants: {
       variant: {
-        dark: "bg-[#262626]",
+        dark: "bg-[#262626] text-amber-400",
         light: "bg-light-blue-400 text-white",
       },
     },
