@@ -13,22 +13,14 @@ import {
 } from "src/configs/animation";
 import CommentCard from "src/fragments/CommentCard";
 import { IKImage } from "imagekitio-react";
-import { cva } from "class-variance-authority";
 import Background from "@ramadhan/background";
+import { containerCard } from "./variant";
 
 export default function Container(props) {
   const { data, name } = props;
 
-  const container = cva("", {
-    variants: {
-      variant: {
-        blue: "bg-[#242059]",
-      },
-    },
-  });
-
   return (
-    <div className={container(data)}>
+    <div className={containerCard()(data)}>
       <div className="max-w-screen-sm mx-auto">
         <Main name={name} />
         <Detail {...data} />

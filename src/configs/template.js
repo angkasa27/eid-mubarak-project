@@ -1,7 +1,12 @@
 export const MANDALA = {
   name: "Mandala",
   theme: "mandala",
-  variants: [{ name: "Blue", variant: "blue", color: "bg-deep-purple-900" }],
+  variants: [
+    { name: "Indigo", variant: "indigo", color: "bg-indigo-900" },
+    { name: "Purple", variant: "purple", color: "bg-purple-900" },
+    { name: "Pink", variant: "pink", color: "bg-pink-900" },
+    { name: "Teal", variant: "teal", color: "bg-teal-900" },
+  ],
 };
 
 export const STACKED = {
