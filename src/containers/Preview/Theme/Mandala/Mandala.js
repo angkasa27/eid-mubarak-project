@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Mandala from "@ramadhan/Mandala2";
 import Mosque from "@ramadhan/MosqueSilhouette1";
-import Lantern from "@ramadhan/Lantern1";
+import Lantern from "@ramadhan/LanternSilhouette1";
 import Ornament1 from "@ramadhan/Ornament1";
 import { motion } from "framer-motion";
 import {
