@@ -18,7 +18,13 @@ export const STACKED = {
   ],
 };
 
-export const THEME_LIST = [MANDALA, STACKED];
+export const FRAME = {
+  name: "Frame",
+  theme: "frame",
+  variants: [{ name: "Blue", variant: "blue", color: "bg-main" }],
+};
+
+export const THEME_LIST = [MANDALA, STACKED, FRAME];
 
 export const FLATTENED_THEME_LIST = THEME_LIST.reduce((acc, currentValue) => {
   currentValue.variants.forEach((variant) => {

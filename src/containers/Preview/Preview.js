@@ -2,7 +2,8 @@ import useAction from "./hooks/useAction";
 import LoadingPage from "src/fragments/LoadingPage";
 import Mandala from "./Theme/Mandala";
 import Stacked from "./Theme/Stacked";
-import { MANDALA, STACKED } from "src/configs/template";
+import Frame from "./Theme/Frame";
+import { MANDALA, STACKED, FRAME } from "src/configs/template";
 
 export default function Container() {
   const { data, loading, name } = useAction();
@@ -18,6 +19,8 @@ export default function Container() {
         return <Mandala {...props} />;
       case STACKED.theme:
         return <Stacked {...props} />;
+      case FRAME.theme:
+        return <Frame {...props} />;
       default:
         break;
     }
