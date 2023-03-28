@@ -3,6 +3,7 @@ import LoadingPage from "src/fragments/LoadingPage";
 import Mandala from "./Theme/Mandala";
 import Stacked from "./Theme/Stacked";
 import { MANDALA, STACKED } from "src/configs/template";
+
 export default function Container() {
   const { data, loading, name } = useAction();
 
@@ -25,7 +26,7 @@ export default function Container() {
   return (
     <div className="h-screen w-full overflow-y-scroll  text-white overflow-x-hidden">
       {_renderTheme()}
-      <LoadingPage loading={loading} />
+      <LoadingPage loading={loading || !_renderTheme()} />
     </div>
   );
 }

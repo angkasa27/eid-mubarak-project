@@ -18,7 +18,11 @@ export default function Main() {
           <Card
             border={false}
             className="w-full text-blue-gray-800"
-            header={<div className="bg-gray-500 aspect-square w-full" />}
+            header={
+              <div
+                className={clsx("aspect-square w-full", theme.variant.color)}
+              />
+            }
             key={theme.theme}
             padding="lg:p-4 p-2"
           >

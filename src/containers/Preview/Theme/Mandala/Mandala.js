@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Mandala from "@ramadhan/Mandala2";
-import Mosque from "@ramadhan/Mosque3";
-import Lamp1 from "@ramadhan/Lamp1";
+import Mosque from "@ramadhan/MosqueSilhouette1";
+import Lantern from "@ramadhan/Lantern1";
 import Ornament1 from "@ramadhan/Ornament1";
 import { motion } from "framer-motion";
 import {
@@ -62,13 +62,13 @@ function Main(props) {
         className="absolute -top-10 right-8 w-8"
         variants={FadeInVariant}
       >
-        <Lamp1 className="h-auto w-full text-amber-400 drop-shadow-lg" />
+        <Lantern className="h-auto w-full text-amber-400 drop-shadow-lg" />
       </motion.div>
       <motion.div
         className="absolute -top-16 right-32 w-8"
         variants={FadeInVariant}
       >
-        <Lamp1 className="h-auto w-full text-amber-400 drop-shadow-lg" />
+        <Lantern className="h-auto w-full text-amber-400 drop-shadow-lg" />
       </motion.div>
     </div>
   );
@@ -160,10 +160,10 @@ function Detail(props) {
   const _topProps = (
     <div className="relative">
       <div className="absolute -top-10 right-8 w-8">
-        <Lamp1 className="h-auto w-full text-blue-gray-300/5" />
+        <Lantern className="h-auto w-full text-blue-gray-300/5" />
       </div>
       <div className="absolute -top-16 right-32 w-8">
-        <Lamp1 className="h-auto w-full text-blue-gray-300/5" />
+        <Lantern className="h-auto w-full text-blue-gray-300/5" />
       </div>
     </div>
   );

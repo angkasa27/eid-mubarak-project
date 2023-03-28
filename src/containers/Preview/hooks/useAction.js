@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import showCard from "@repositories/card/showCard";
 import usePopupAlert from "@utils/hooks/usePopupAlert";
 

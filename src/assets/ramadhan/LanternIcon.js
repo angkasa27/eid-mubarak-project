@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-export default function LampionIcon({ className }) {
+export default function LanternIcon({ className }) {
   return (
     <svg
       className={className}
@@ -26,10 +26,10 @@ export default function LampionIcon({ className }) {
   );
 }
 
-LampionIcon.propTypes = {
+LanternIcon.propTypes = {
   className: PropTypes.string,
 };
 
-LampionIcon.defaultProps = {
+LanternIcon.defaultProps = {
   className: "",
 };

@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
-import Mandala from "@ramadhan/Mandala1";
-import Mosque from "@ramadhan/Mosque3";
+import Mosque from "@ramadhan/MosqueSilhouette1";
 import { motion } from "framer-motion";
 import {
   previewVariant,
@@ -17,8 +16,8 @@ import { cva } from "class-variance-authority";
 import { mosqueCard, mainCard, secondaryCard, mandalaCard } from "./variant";
 import KetupatIcon from "@ramadhan/KetupatIcon";
 import BulanBintangIcon from "@ramadhan/BulanBintangIcon";
-import MasjidIcon from "@ramadhan/MasjidIcon";
-import LampionIcon from "@ramadhan/LampionIcon";
+import MasjidIcon from "@ramadhan/MosqueIcon";
+import LanternIcon from "@ramadhan/LanternIcon";
 
 export default function Container(props) {
   const { data, name } = props;
@@ -278,7 +277,7 @@ function Comment(props) {
         padding="p-2"
         shadow={false}
       >
-        <LampionIcon className="w-20 h-20" />
+        <LanternIcon className="w-20 h-20" />
       </Card>
       <Card
         border={false}
