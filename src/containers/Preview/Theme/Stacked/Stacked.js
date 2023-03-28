@@ -15,7 +15,7 @@ import MotionCard from "@components/elements/MotionCard";
 import { cva } from "class-variance-authority";
 import { mosqueCard, mainCard, secondaryCard, mandalaCard } from "./variant";
 import KetupatIcon from "@ramadhan/KetupatIcon";
-import BulanBintangIcon from "@ramadhan/BulanBintangIcon";
+import BulanBintangIcon from "@ramadhan/MoonStarIcon";
 import MasjidIcon from "@ramadhan/MosqueIcon";
 import LanternIcon from "@ramadhan/LanternIcon";
 
