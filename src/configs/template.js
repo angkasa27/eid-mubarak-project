@@ -24,6 +24,12 @@ export const FRAME = {
   variants: [{ name: "Blue", variant: "blue", color: "bg-main" }],
 };
 
+export const CLOUDY = {
+  name: "Cloudy",
+  theme: "cloudy",
+  variants: [{ name: "Blue", variant: "blue", color: "bg-main" }],
+};
+
 export const THEME_LIST = [MANDALA, STACKED, FRAME];
 
 export const FLATTENED_THEME_LIST = THEME_LIST.reduce((acc, currentValue) => {
