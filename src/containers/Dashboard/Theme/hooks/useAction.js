@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import usePopupAlert from "@utils/hooks/usePopupAlert";
 import updateTheme from "@repositories/card/updateTheme";
 import useUserData from "@utils/hooks/useUserData";
 import { DOMAIN } from "src/constants";
-import { THEME_LIST } from "src/configs/template";
 import { useRouter } from "next/router";
 import { ROUTES } from "src/configs";
 
@@ -31,7 +30,11 @@ const useAction = () => {
     }
   };
 
-  return { onSelectTheme, loading };
+  const redirectDemo = (theme, variant) => {
+    router.push(ROUTES.DEMO(theme, variant));
+  };
+
+  return { onSelectTheme, loading, redirectDemo };
 };
 
 export default useAction;

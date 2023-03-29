@@ -7,7 +7,7 @@ import { EyeIcon } from "@heroicons/react/24/solid";
 import useAction from "./hooks/useAction";
 
 export default function Main() {
-  const { onSelectTheme, loading } = useAction();
+  const { onSelectTheme, loading, redirectDemo } = useAction();
 
   return (
     <div className="py-6 px-4">
@@ -44,6 +44,7 @@ export default function Main() {
               <IconButton
                 className="px-3 md:hidden"
                 disabled={loading}
+                onClick={() => redirectDemo(theme.theme, theme.variant.variant)}
                 size="sm"
                 variant="outlined"
               >
@@ -52,6 +53,7 @@ export default function Main() {
               <Button
                 className="hidden md:block"
                 disabled={loading}
+                onClick={() => redirectDemo(theme.theme, theme.variant.variant)}
                 size="sm"
                 variant="outlined"
               >
