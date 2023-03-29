@@ -111,7 +111,7 @@ function Detail(props) {
   return (
     <div className="flex flex-col justify-between overflow-hidden min-h-screen bg-blue-gray-900/30">
       {_topProps}
-      <div className="px-8 z-10 pb-24 flex flex-col items-center text-center gap-2">
+      <div className="p-8 z-10 flex flex-col items-center text-center gap-2">
         <div className="w-24 rotate-180">
           <Ornament1 className="h-auto w-full text-[#f9be65]" />
         </div>
@@ -164,7 +164,11 @@ function Comment(props) {
 
   const _topProps = <div className="relative" />;
 
-  const _bottomProps = <div className="relative" />;
+  const _bottomProps = (
+    <div className="relative">
+      <CloudFrame className="h-auto w-full absolute -bottom-1" />
+    </div>
+  );
 
   return (
     <div className="flex flex-col justify-between min-h-screen">
@@ -181,10 +185,6 @@ function Comment(props) {
           </p>
         </div>
         <CommentCard name={name} />
-
-        <div className="w-24 mx-auto mt-8">
-          <Ornament1 className="h-auto w-full text-[#f9be65]" />
-        </div>
       </div>
       {_bottomProps}
     </div>
@@ -201,8 +201,8 @@ Comment.defaultProps = {
 
 function Footer({ data }) {
   return (
-    <div className="flex flex-col justify-between px-8 text-center">
-      <p className="body-2 mx-6 mb-2">{data?.closing}</p>
+    <div className="flex flex-col justify-between px-8 text-center bg-[#ffeec0] text-blue-gray-800">
+      <p className="body-2 mb-2 mt-6">{data?.closing}</p>
       <p className="subtitle-1 ">{data.name}</p>
       <div className="mt-8">
         <p>Eid Mubarak</p>
