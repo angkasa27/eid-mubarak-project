@@ -56,7 +56,7 @@ function Main(props) {
 
   const _bottomProps = (
     <div className="relative">
-      <Mosque className="h-auto w-full absolute bottom-0 text-blue-gray-900/30" />
+      <Mosque className="h-auto w-full absolute bottom-0 text-blue-gray-900/30 z-0" />
       <CloudFrame className="h-auto w-full absolute -bottom-1" />
     </div>
   );
@@ -64,7 +64,7 @@ function Main(props) {
   return (
     <div className="h-screen flex flex-col justify-between">
       {_topProps}
-      <div className="px-8 flex flex-col items-center text-center gap-6">
+      <div className="px-8 flex flex-col items-center text-center gap-6 z-10">
         <Moon1 className="h-auto w-32 my-12" />
         <div>
           <p className="title-3 bold">Selamat Hari Raya</p>
