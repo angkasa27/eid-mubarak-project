@@ -17,8 +17,8 @@ export default function Container() {
   const _renderTheme = () => {
     switch (data?.theme) {
       case MANDALA.theme:
-        // return <Mandala {...props} />;
-        return <Cloudy {...props} />;
+        return <Mandala {...props} />;
+      // return <Cloudy {...props} />;
       case STACKED.theme:
         return <Stacked {...props} />;
       case FRAME.theme:
