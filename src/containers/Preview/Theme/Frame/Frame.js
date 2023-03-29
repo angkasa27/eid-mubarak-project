@@ -16,17 +16,19 @@ import { IKImage } from "imagekitio-react";
 import Frame from "@ramadhan/frame";
 import { containerCard } from "./variant";
 import Image from "next/image";
+import MusicPlayer from "src/fragments/MusicPlayer";
 
 export default function Container(props) {
   const { data, name } = props;
 
   return (
     <div className={containerCard("bg-[#474e7a]")(data)}>
-      <div className="max-w-screen-sm mx-auto">
+      <div className="max-w-screen-sm mx-auto relative">
         <Main name={name} />
         <Detail {...data} />
         <Comment name={name} />
         <Footer {...data} />
+        <MusicPlayer />
       </div>
     </div>
   );
@@ -119,7 +121,7 @@ function Detail(props) {
           <p className="title-3">Keluarga Besar</p>
           <h1 className="title-2 bold ">{data?.name}</h1>
         </div>
-        <div className="rounded-md border-4 border-[#f9be65] overflow-hidden">
+        <div className="rounded-md border-4 border-[#f9be65] overflow-hidden z-10">
           <IKImage
             alt={image?.name}
             height={300}
@@ -201,7 +203,7 @@ Comment.defaultProps = {
 
 function Footer({ data }) {
   return (
-    <div className="flex flex-col justify-between px-8 text-center bg-[#ffeec0] text-blue-gray-800">
+    <div className="flex flex-col justify-between px-8 text-center bg-[#ffeec0] text-blue-gray-800 z-0">
       <p className="body-2 mb-2 mt-6">{data?.closing}</p>
       <p className="subtitle-1 ">{data.name}</p>
       <div className="mt-8">
