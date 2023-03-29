@@ -18,6 +18,7 @@ import KetupatIcon from "@ramadhan/KetupatIcon";
 import BulanBintangIcon from "@ramadhan/MoonStarIcon";
 import MasjidIcon from "@ramadhan/MosqueIcon";
 import LanternIcon from "@ramadhan/LanternIcon";
+import MusicPlayer from "src/fragments/MusicPlayer";
 
 export default function Container(props) {
   const { data, name } = props;
@@ -33,11 +34,12 @@ export default function Container(props) {
 
   return (
     <div className={container(data)}>
-      <div className="max-w-screen-sm mx-auto">
+      <div className="max-w-screen-sm mx-auto relative">
         <Main name={name} variant={data?.variant} />
         <Detail {...data} />
         <Comment name={name} variant={data?.variant} />
         <Footer {...data} />
+        <MusicPlayer />
       </div>
     </div>
   );

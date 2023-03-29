@@ -17,17 +17,19 @@ import {
 import CommentCard from "src/fragments/CommentCard";
 import { IKImage } from "imagekitio-react";
 import { containerCard } from "./variant";
+import MusicPlayer from "src/fragments/MusicPlayer";
 
 export default function Container(props) {
   const { data, name } = props;
 
   return (
     <div className={containerCard("bg-[#474e7a]")(data)}>
-      <div className="max-w-screen-sm mx-auto">
+      <div className="max-w-screen-sm mx-auto relative">
         <Main name={name} />
         <Detail {...data} />
         <Comment name={name} />
         <Footer {...data} />
+        <MusicPlayer />
       </div>
     </div>
   );
