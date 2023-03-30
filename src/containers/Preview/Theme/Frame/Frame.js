@@ -24,14 +24,12 @@ export default function Container(props) {
 
   return (
     <div className={containerCard()(data)}>
-      <div className=" bg-gray-900/50">
-        <div className="max-w-screen-sm mx-auto relative">
-          <Main name={name} />
-          <Detail {...data} />
-          <Comment name={name} />
-          <Footer {...data} />
-          <MusicPlayer music={data?.data?.music} />
-        </div>
+      <div className="max-w-screen-sm mx-auto relative">
+        <Main name={name} />
+        <Detail {...data} />
+        <Comment name={name} />
+        <Footer {...data} />
+        <MusicPlayer music={data?.data?.music} />
       </div>
     </div>
   );

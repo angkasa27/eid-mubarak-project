@@ -4,9 +4,9 @@ export const containerCard = (classes) =>
   cva(classes, {
     variants: {
       variant: {
-        blue: "bg-blue-900",
-        purple: "bg-purple-900",
-        brown: "bg-yellow-900",
+        blue: "bg-[#173461]",
+        purple: "bg-[#361b57]",
+        brown: "bg-[#8b501c]",
       },
     },
   });
