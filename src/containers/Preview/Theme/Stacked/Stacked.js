@@ -39,7 +39,7 @@ export default function Container(props) {
         <Detail {...data} />
         <Comment name={name} variant={data?.variant} />
         <Footer {...data} />
-        <MusicPlayer />
+        <MusicPlayer music={data?.data?.music} />
       </div>
     </div>
   );

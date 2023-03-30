@@ -25,8 +25,8 @@ export default function FormGenerator(props) {
         return <TextField {...fieldProps} key={key} />;
     }
   };
-  const _renderButton = (buttonProps) => {
-    return <Button {...buttonProps} />;
+  const _renderButton = (buttonProps, key) => {
+    return <Button {...buttonProps} key={key} />;
   };
 
   const { className: buttonContainerClass, ...buttonContainerProps } =
@@ -39,7 +39,7 @@ export default function FormGenerator(props) {
         className={clsx("flex justify-end", buttonContainerClass)}
         {...buttonContainerProps}
       >
-        {buttons?.map((button) => _renderButton(button))}
+        {buttons?.map((button, i) => _renderButton(button, i))}
       </div>
     </form>
   );

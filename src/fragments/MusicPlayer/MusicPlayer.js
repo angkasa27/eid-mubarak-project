@@ -4,8 +4,8 @@ import { useState } from "react";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 
-export default function MusicPlayer({ className }) {
-  const [play, setPlay] = useState(true);
+export default function MusicPlayer({ className, music }) {
+  const [play, setPlay] = useState(false);
 
   return (
     <>
@@ -13,7 +13,7 @@ export default function MusicPlayer({ className }) {
         loop={true}
         playing={play}
         style={{ display: "none" }}
-        url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+        url={music}
       />
       <div className="fixed bottom-0 w-full max-w-screen-sm z-50">
         <div className="relative">
@@ -37,8 +37,10 @@ export default function MusicPlayer({ className }) {
 
 MusicPlayer.propTypes = {
   className: PropTypes.string,
+  music: PropTypes.string,
 };
 
 MusicPlayer.defaultProps = {
   className: "bg-white",
+  music: "",
 };

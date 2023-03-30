@@ -96,6 +96,15 @@ export default function Form() {
         rows: 2,
         disabled: loading,
       },
+      {
+        field: "text",
+        control,
+        label: "Background musik",
+        placeholder: "https://youtu.be/b-4xoVoAldA",
+        helperText: `Background musik dari link youtube`,
+        name: "data.music",
+        disabled: loading,
+      },
     ],
     buttons: [
       {

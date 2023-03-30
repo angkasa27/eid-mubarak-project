@@ -28,7 +28,7 @@ export default function Container(props) {
         <Detail {...data} />
         <Comment name={name} />
         <Footer {...data} />
-        <MusicPlayer />
+        <MusicPlayer music={data?.data?.music} />
       </div>
     </div>
   );

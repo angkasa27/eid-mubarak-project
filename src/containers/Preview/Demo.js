@@ -47,6 +47,7 @@ const data = {
   link: "https://localhost:3000/angkasa",
   username: "angkasa",
   data: {
+    music: "https://youtu.be/b-4xoVoAldA",
     name: "Dimas Angkasa",
     message:
       "Jika jemari ini tak sempat untuk berjabat. Seiring dengan beduk yang menggema. Serta seruan takbir yang berkumandang. Tak ada hadiah terindah serta perilaku yang mulia selain maaf memaafkan. Taqabalallahu minna wa minkum",

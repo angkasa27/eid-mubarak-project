@@ -27,7 +27,7 @@ export default function Container(props) {
         <Detail {...data} />
         <Comment name={name} />
         <Footer {...data} />
-        <MusicPlayer />
+        <MusicPlayer music={data?.data?.music} />
       </div>
     </div>
   );
@@ -92,7 +92,7 @@ function Main(props) {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-0 left-[40%] z-10  w-screen max-w-screen-sm md:-bottom-12"
+        className="absolute bottom-0 left-[35%] z-10 w-[28rem]"
         variants={UpVariant}
       >
         <Mosque className="h-auto w-full  drop-shadow-lg" />
