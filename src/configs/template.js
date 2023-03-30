@@ -21,7 +21,11 @@ export const STACKED = {
 export const FRAME = {
   name: "Frame",
   theme: "frame",
-  variants: [{ name: "Blue", variant: "blue", color: "bg-main" }],
+  variants: [
+    { name: "Blue", variant: "blue", color: "bg-[#173461]" },
+    { name: "Purple", variant: "purple", color: "bg-[#361b57]" },
+    { name: "Brown", variant: "brown", color: "bg-[#8b501c]" },
+  ],
 };
 
 export const CLOUDY = {
