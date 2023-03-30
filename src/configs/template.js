@@ -31,7 +31,10 @@ export const FRAME = {
 export const CLOUDY = {
   name: "Cloudy",
   theme: "cloudy",
-  variants: [{ name: "Blue", variant: "blue", color: "bg-main" }],
+  variants: [
+    { name: "Evening", variant: "evening", color: "bg-blue-700" },
+    { name: "Afternoon", variant: "afternoon", color: "bg-[#0f172a]" },
+  ],
 };
 
 export const THEME_LIST = [MANDALA, STACKED, FRAME, CLOUDY];

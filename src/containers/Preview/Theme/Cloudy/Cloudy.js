@@ -16,18 +16,18 @@ import {
 } from "src/configs/animation";
 import CommentCard from "src/fragments/CommentCard";
 import { IKImage } from "imagekitio-react";
-import { containerCard } from "./variant";
+import { cloudCard, cloudStyle, containerCard } from "./variant";
 import MusicPlayer from "src/fragments/MusicPlayer";
 
 export default function Container(props) {
   const { data, name } = props;
 
   return (
-    <div className={containerCard("bg-[#474e7a]")(data)}>
+    <div className={containerCard()(data)}>
       <div className="max-w-screen-sm mx-auto relative">
-        <Main name={name} />
+        <Main name={name} variant={data?.variant} />
         <Detail {...data} />
-        <Comment name={name} />
+        <Comment name={name} variant={data?.variant} />
         <Footer {...data} />
         <MusicPlayer music={data?.data?.music} />
       </div>
@@ -45,7 +45,7 @@ Container.defaultProps = {
 };
 
 function Main(props) {
-  const { name } = props;
+  const { name, variant } = props;
 
   const _topProps = (
     <div className="relative">
@@ -56,15 +56,59 @@ function Main(props) {
 
   const _bottomProps = (
     <div className="relative">
-      <CloudSilhouette2 className="h-auto w-40 absolute -translate-x-1/2 left-1/2 bottom-6 z-20" />
-      <CloudSilhouette3 className="h-auto w-full absolute -bottom-6 z-20" />
+      <CloudSilhouette2
+        className={cloudStyle(
+          "h-auto w-40 absolute -translate-x-1/2 left-1/2 bottom-6 z-20"
+        )({ variant })}
+      />
+      <CloudSilhouette3
+        className={cloudStyle("h-auto w-full absolute -bottom-6 z-20")({
+          variant,
+        })}
+      />
       <Moon2 className="h-auto w-72 absolute bottom-16 -translate-x-1/2 left-[48%] z-10" />
       <Mosque className="h-auto w-40 absolute bottom-16 -translate-x-1/2 left-[67%] z-10" />
       <CloudSilhouette3 className="h-auto w-full absolute bottom-6 text-blue-gray-900/30" />
 
-      <CloudSilhouette1 className="h-auto w-36 absolute -translate-x-1/2 left-[85%] bottom-44" />
-      <CloudSilhouette1 className="h-auto w-36 absolute -translate-x-1/2 left-[20%] bottom-60 z-10" />
-      <CloudSilhouette1 className="h-auto w-16 absolute -translate-x-1/2 left-1/2 bottom-72" />
+      {/* Cloud Animation */}
+      <motion.div
+        animate={{
+          translateX: ["-55%", "-45%", "-55%"],
+        }}
+        className="absolute left-[85%] bottom-44"
+        transition={{
+          repeat: Infinity,
+          duration: 3,
+        }}
+      >
+        <CloudSilhouette1 className={cloudStyle("h-auto w-36")({ variant })} />
+      </motion.div>
+      <motion.div
+        animate={{
+          translateX: ["-45%", "-55%", "-45%"],
+        }}
+        className="absolute left-[20%] bottom-60 z-10"
+        transition={{
+          repeat: Infinity,
+          duration: 3,
+          delay: 1,
+        }}
+      >
+        <CloudSilhouette1 className={cloudStyle("h-auto w-36")({ variant })} />
+      </motion.div>
+      <motion.div
+        animate={{
+          translateX: ["-43%", "-57%", "-43%"],
+        }}
+        className=" absolute left-1/2 bottom-72"
+        transition={{
+          repeat: Infinity,
+          duration: 3,
+          delay: 1.5,
+        }}
+      >
+        <CloudSilhouette1 className={cloudStyle("h-auto w-16")({ variant })} />
+      </motion.div>
     </div>
   );
 
@@ -93,17 +137,23 @@ function Main(props) {
 
 Main.propTypes = {
   name: PropTypes.string,
+  variant: PropTypes.string,
 };
 
 Main.defaultProps = {
   name: "",
+  variant: "",
 };
 
 function Detail(props) {
-  const { data, image } = props;
+  const { data, image, variant } = props;
 
   return (
-    <div className="flex flex-col justify-center overflow-hidden bg-white text-blue-gray-800">
+    <div
+      className={cloudCard("flex flex-col justify-center overflow-hidden ")({
+        variant,
+      })}
+    >
       <div className="px-8 z-10 flex flex-col items-center text-center gap-2 py-10">
         <div className="w-24 rotate-180">
           <Ornament1 className="h-auto w-full text-[#f9be65]" />
@@ -144,33 +194,39 @@ function Detail(props) {
 Detail.propTypes = {
   data: PropTypes.object,
   image: PropTypes.object,
+  variant: PropTypes.string,
 };
 
 Detail.defaultProps = {
   data: {},
   image: {},
+  variant: "",
 };
 
 function Comment(props) {
-  const { name } = props;
+  const { name, variant } = props;
 
   const _topProps = (
     <div className="relative h-40">
-      <CloudSilhouette3 className="h-auto w-full absolute -mt-1 z-20 rotate-180" />
+      <CloudSilhouette3
+        className={cloudStyle("h-auto w-full absolute -mt-1 z-20 rotate-180")({
+          variant,
+        })}
+      />
       <Lantern1 className="h-auto w-12 absolute top-4 -translate-x-1/2 left-1/2  z-10" />
     </div>
   );
 
   const _bottomProps = (
     <div className="relative">
-      <CloudSilhouette3 className="h-auto w-full absolute bottom-0 text-blue-gray-900/30" />
+      <CloudSilhouette3 className="h-auto w-full absolute bottom-0 text-blue-gray-900/30 z-10" />
     </div>
   );
 
   return (
-    <div className="flex flex-col justify-between min-h-screen ">
+    <div className="flex flex-col justify-between min-h-screen">
       {_topProps}
-      <div className="px-8 z-10 py-24">
+      <div className="px-8 z-20 py-24">
         <div className="text-center mb-8">
           <h1 className="title-2 bold ">Kirim Ucapan</h1>
           <p className="body-3 mx-6 mt-2">
@@ -187,10 +243,12 @@ function Comment(props) {
 
 Comment.propTypes = {
   name: PropTypes.string,
+  variant: PropTypes.string,
 };
 
 Comment.defaultProps = {
   name: "",
+  variant: "",
 };
 
 function Footer({ data }) {
@@ -206,6 +264,10 @@ function Footer({ data }) {
   );
 }
 
-Footer.propTypes = { data: PropTypes.object };
+Footer.propTypes = {
+  data: PropTypes.object,
+};
 
-Footer.defaultProps = { data: {} };
+Footer.defaultProps = {
+  data: {},
+};
