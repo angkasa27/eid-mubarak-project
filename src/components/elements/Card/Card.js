@@ -22,9 +22,9 @@ export default function Card(props) {
         {
           ["cursor-pointer hover:border-blue-500"]: hover,
           ["drop-shadow-xl"]: shadow,
-          ["border border-default"]: border,
           ["bg-white"]: !className?.includes("bg-"),
         },
+        border,
         className
       )}
       {...cardProps}
@@ -37,7 +37,7 @@ export default function Card(props) {
 }
 
 Card.propTypes = {
-  border: PropTypes.bool,
+  border: PropTypes.string,
   childClass: PropTypes.string,
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
@@ -49,7 +49,7 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  border: true,
+  border: "border border-default",
   childClass: "",
   className: "",
   footer: undefined,

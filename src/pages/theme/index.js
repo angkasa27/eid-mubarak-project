@@ -1,6 +1,6 @@
 import MainLayout from "@layouts/Adapter/MainLayout";
-import Theme from "@containers/Dashboard/Theme";
+import Theme from "@containers/Dashboard/ThemeSelector";
 
 export default function Pages() {
-  return <MainLayout containers={Theme} />;
+  return <MainLayout compact containers={Theme} />;
 }

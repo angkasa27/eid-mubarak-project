@@ -14,7 +14,6 @@ import { ROUTES } from "src/configs";
 const useAction = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [variantOption, setVariantOption] = useState([]);
   const { setFailedAlert, setSuccessAlert } = usePopupAlert();
   const { getUsername } = useUserData();
   const username = getUsername();
@@ -23,11 +22,6 @@ const useAction = () => {
     resolver: validation,
     mode: "onChange",
   });
-
-  const updateOption = (theme) => {
-    const themeData = THEME_LIST.find((item) => item.theme === theme);
-    setVariantOption(themeData?.variants);
-  };
 
   const onSubmit = async (values) => {
     setLoading(true);
@@ -47,7 +41,6 @@ const useAction = () => {
     try {
       const { data } = await detailCard(username);
       reset({ ...data });
-      updateOption(data.theme);
     } catch (error) {
       if (error?.code === 404) router.push(ROUTES.THEME());
       else setFailedAlert({ message: error.message });
@@ -60,7 +53,7 @@ const useAction = () => {
     fetchDetail();
   }, []);
 
-  return { control, handleSubmit, loading, onSubmit, username, variantOption };
+  return { control, handleSubmit, loading, onSubmit, username };
 };
 
 export default useAction;
