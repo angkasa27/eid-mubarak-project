@@ -43,7 +43,7 @@ const Nav = () => {
           { "border-b": !showMenu }
         )}
       >
-        <div className="flex items-center justify-between p-4">
+        <div className="flex items-center justify-between p-4 container">
           <Link className="flex items-end gap-2 md:gap-4" href={ROUTES.MAIN()}>
             <Logo className="h-10" />
             <h4 className="title-3">EidMubarak!</h4>
