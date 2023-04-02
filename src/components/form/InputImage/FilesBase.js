@@ -136,7 +136,7 @@ const ImagePreview = ({ value, onDelete, loading }) => {
             <>
               <IKImage
                 alt={value?.name}
-                height={400}
+                height={500}
                 loading="lazy"
                 lqip={{ active: true, quality: 20 }}
                 path={value?.filePath}
@@ -146,7 +146,7 @@ const ImagePreview = ({ value, onDelete, loading }) => {
                     width: 400,
                   },
                 ]}
-                width={400}
+                width={500}
               />
               <button
                 className="absolute right-2 top-2  bg-blue-gray-800/50 rounded hover:bg-blue-500 hover:text-white transition-all disabled:bg-gray-400/50  disabled:text-gray-500 text-gray-200"

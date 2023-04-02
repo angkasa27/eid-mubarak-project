@@ -8,7 +8,7 @@ export default function Auth(props) {
         <Logo className="h-8" />
         <Chip className="ml-2" color="blue" value="Beta" />
       </div>
-      <div className="w-full px-4 max-w-md my-6">{props.children}</div>
+      <div className="w-full px-4 max-w-screen-sm my-6">{props.children}</div>
     </div>
   );
 }

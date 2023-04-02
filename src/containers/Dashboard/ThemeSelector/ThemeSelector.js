@@ -36,7 +36,7 @@ export default function Main() {
     }
   };
 
-  return <div className="px-4 flex flex-col gap-6">{_renderChild()}</div>;
+  return <div className="flex flex-col gap-6">{_renderChild()}</div>;
 }
 
 export function ThemeSelector({ redirectDemo, useTheme, setTab }) {

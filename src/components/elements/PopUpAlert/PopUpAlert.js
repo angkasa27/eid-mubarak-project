@@ -9,7 +9,7 @@ export default function PopUpAlert() {
     message,
     onClose = () => {},
     color,
-    autoClose = 5000,
+    autoClose = 3000,
   } = alertData;
 
   useEffect(() => {
