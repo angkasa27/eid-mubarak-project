@@ -20,7 +20,7 @@ export default function Main() {
         }
       />
       <Card>
-        <Button onClick={() => router.push(ROUTES.EDIT())} size="sm">
+        <Button onClick={() => router.push(ROUTES.THEME())} size="sm">
           Ubah Data
         </Button>
       </Card>
