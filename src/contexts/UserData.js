@@ -20,7 +20,7 @@ export const UserDataProvider = (props) => {
     <Provider
       value={{
         data: userData,
-        setUserData: setUserData,
+        setData: setUserData,
       }}
     >
       {props.children}

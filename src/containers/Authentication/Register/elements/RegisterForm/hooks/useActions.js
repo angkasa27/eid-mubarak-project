@@ -5,12 +5,14 @@ import validation from "../validation";
 import usePopupAlert from "@utils/hooks/usePopupAlert";
 import { useRouter } from "next/router";
 import { ROUTES } from "src/configs";
-import { setAccessToken, setRefreshToken, setUserData } from "@utils/common";
+import { setAccessToken, setRefreshToken } from "@utils/common";
+import useUserData from "@utils/hooks/useUserData";
 
 const useActions = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const { setFailedAlert, setSuccessAlert } = usePopupAlert();
+  const { setUserData } = useUserData();
 
   const { control, handleSubmit, watch } = useForm({
     resolver: validation,

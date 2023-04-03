@@ -2,17 +2,14 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import login from "@repositories/auth/login";
 import validation from "../validation";
-import {
-  setAccessToken,
-  setRefreshToken,
-  setUserData,
-  baseRedirect,
-} from "@utils/common";
+import { setAccessToken, setRefreshToken, baseRedirect } from "@utils/common";
 import usePopupAlert from "@utils/hooks/usePopupAlert";
+import useUserData from "@utils/hooks/useUserData";
 
 const useActions = () => {
   const [loading, setLoading] = useState(false);
   const { setFailedAlert } = usePopupAlert();
+  const { setUserData } = useUserData();
   const { control, handleSubmit } = useForm({
     resolver: validation,
     mode: "onChange",

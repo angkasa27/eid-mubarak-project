@@ -3,17 +3,9 @@ import { key, ROUTES } from "../configs";
 const storageName = key.storageName;
 
 // Local Storage - User Data
-export const setUserData = (value) => {
+export const setLocalUserData = (value) => {
   localStorage.setItem(storageName.userData, JSON.stringify(value));
 };
-
-// Move to hooks/getUserData
-// export const getUserData = () => {
-//   // eslint-disable-next-line react-hooks/rules-of-hooks
-//   const { data } = useContext(UserDataContext);
-
-//   return data || {};
-// };
 
 // Local Storage - Access Token
 export const setAccessToken = (value) => {
