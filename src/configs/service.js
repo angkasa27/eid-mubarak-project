@@ -30,6 +30,7 @@ const service = {
   CARD_THEME: (username) => `${domain}/card/theme/${username}`,
   CARD_DETAIL: (username) => `${domain}/card/detail/${username}`,
   IMAGE_DETAIL: (username) => `${domain}/image/${username}`,
+  COMMENT: (username) => `${domain}/comment/${username}`,
 };
 
 export default service;

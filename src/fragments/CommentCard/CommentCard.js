@@ -4,6 +4,7 @@ import useComment from "./useComment";
 import FormGenerator from "../FormGenerator";
 import PropTypes from "prop-types";
 import clsx from "clsx";
+import moment from "moment";
 
 export default function CommentCard(props) {
   const {
@@ -14,7 +15,9 @@ export default function CommentCard(props) {
     commentClass,
     ...cardProps
   } = props;
-  const { control, handleSubmit, onSubmit, loading } = useComment({ name });
+  const { control, handleSubmit, onSubmit, loading, comments } = useComment({
+    name,
+  });
 
   const getFirtsLetter = (str) => {
     const strArray = str.split(" ");
@@ -73,7 +76,7 @@ export default function CommentCard(props) {
         padding="p-4"
         {...cardProps}
       >
-        {COMMENT.map((item, index) => (
+        {comments.map((item, index) => (
           <div className="w-full flex gap-2" key={index}>
             <div
               className={clsx(
@@ -88,7 +91,9 @@ export default function CommentCard(props) {
             <div>
               <div className="inline-flex items-baseline gap-2">
                 <p className="body-3 font-bold">{item.name}</p>
-                <p className="body-4 text-default-secondary">2 Jam yang lalu</p>
+                <p className="body-4 text-default-secondary">
+                  {moment(item.createdAt).fromNow()}
+                </p>
               </div>
               <p className="body-3">{item.message}</p>
             </div>
