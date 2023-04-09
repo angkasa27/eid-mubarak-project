@@ -81,7 +81,7 @@ function Main(props) {
           duration: 3,
         }}
       >
-        <CloudSilhouette1 className={cloudStyle("h-auto w-36")({ variant })} />
+        <CloudSilhouette1 className={"h-auto w-36 text-white"} />
       </motion.div>
       <motion.div
         animate={{
@@ -94,7 +94,7 @@ function Main(props) {
           delay: 1,
         }}
       >
-        <CloudSilhouette1 className={cloudStyle("h-auto w-36")({ variant })} />
+        <CloudSilhouette1 className={"h-auto w-36 text-white"} />
       </motion.div>
       <motion.div
         animate={{
@@ -107,7 +107,7 @@ function Main(props) {
           delay: 1.5,
         }}
       >
-        <CloudSilhouette1 className={cloudStyle("h-auto w-16")({ variant })} />
+        <CloudSilhouette1 className={"h-auto w-16 text-white"} />
       </motion.div>
     </div>
   );
