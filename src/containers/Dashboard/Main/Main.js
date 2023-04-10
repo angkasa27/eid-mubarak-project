@@ -45,7 +45,7 @@ export default function Main() {
         {MENU.map(({ label, className, onClick }, index) => (
           <div
             className={clsx(
-              "cursor-pointer rounded-lg p-4 h-36 hover:outline outline-2 outline-offset-2 outline-light-blue-500 animate-pulse",
+              "cursor-pointer rounded-lg p-4 h-36 hover:outline outline-2 outline-offset-2 outline-light-blue-500",
               className
             )}
             key={index}
