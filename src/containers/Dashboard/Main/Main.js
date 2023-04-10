@@ -20,13 +20,13 @@ export default function Main() {
       className: "bg-gradient-to-br from-green-800 to-light-blue-500",
     },
     {
-      label: "Ganti Tema",
-      onClick: () => router.push(ROUTES.THEME()),
+      label: "Komentar Balasan",
+      onClick: () => {},
       className: "bg-gradient-to-br from-indigo-800 to-light-blue-500",
     },
     {
-      label: "Ubah Data",
-      onClick: () => router.push(ROUTES.EDIT()),
+      label: "Edit Ucapan",
+      onClick: () => router.push(ROUTES.THEME()),
       className: "bg-gradient-to-br from-indigo-800 to-light-blue-500",
     },
   ];
@@ -41,12 +41,7 @@ export default function Main() {
           <Button size="sm">Preview</Button>
         </a>
       </div>
-      {/* <Card>
-        <Button onClick={() => router.push(ROUTES.THEME())} size="sm">
-          Ubah Data
-        </Button>
-      </Card> */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {MENU.map(({ label, className, onClick }, index) => (
           <div
             className={clsx(
