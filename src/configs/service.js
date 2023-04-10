@@ -1,4 +1,4 @@
-let domain = "http://eid-mubarak-system.angkasa27.com";
+let domain = "https://eid-mubarak-system.angkasa27.com";
 
 // const environment = process.env.NEXT_PUBLIC_ENVIRONMENT;
 
