@@ -1,15 +1,6 @@
 import WhatsappShare from "@containers/Dashboard/WhatsappShare";
-import AuthLayout from "@layouts/Adapter/AuthLayout";
-import Head from "next/head";
-import { Fragment } from "react";
+import MainLayout from "@layouts/Adapter/MainLayout";
 
 export default function Pages() {
-  return (
-    <Fragment>
-      <Head>
-        <title>Bagikan</title>
-      </Head>
-      <AuthLayout containers={WhatsappShare} />
-    </Fragment>
-  );
+  return <MainLayout containers={WhatsappShare} />;
 }
