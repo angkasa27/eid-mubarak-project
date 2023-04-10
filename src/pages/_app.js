@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }) {
           <PopupAlertProvider>
             <UserDataProvider>
               <IKContext
-                authenticationEndpoint={SERVICES.AUTHENTICATION_ENDPOINT}
+                authenticationEndpoint={SERVICES.IMAGE_AUTH}
                 publicKey={publicKey}
                 urlEndpoint={urlEndpoint}
               >
