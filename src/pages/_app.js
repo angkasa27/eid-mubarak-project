@@ -20,6 +20,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 const urlEndpoint = "https://ik.imagekit.io/sd3osdoco/";
 const publicKey = "public_dH7uH0U5VmvL4AZY4KepRYWujNU=";
+const imageAuth = "http://eid-mubarak-system.angkasa27.com/image/auth";
 
 export default function App({ Component, pageProps }) {
   const defaultClass = "font-jakarta text-default bg-main";
@@ -34,7 +35,7 @@ export default function App({ Component, pageProps }) {
           <PopupAlertProvider>
             <UserDataProvider>
               <IKContext
-                authenticationEndpoint={SERVICES.IMAGE_AUTH}
+                authenticationEndpoint={imageAuth}
                 publicKey={publicKey}
                 urlEndpoint={urlEndpoint}
               >
