@@ -10,6 +10,7 @@ export const DASHBOARD = () => `/dashboard`;
 export const THEME = () => `/theme`;
 export const DEMO = (theme, variant) => `/theme/${theme}/${variant}`;
 export const EDIT = () => `/edit`;
+export const SHARE = () => `/whatsapp-share`;
 
 export const NOT_FOUND = () => `/404`;
 
@@ -25,4 +26,5 @@ export const USED_PATH = [
   EDIT(),
   THEME(),
   DEMO(),
+  SHARE(),
 ];
