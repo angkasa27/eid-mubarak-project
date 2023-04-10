@@ -33,7 +33,7 @@ const useAction = () => {
   };
 
   const redirectDemo = (theme, variant) => {
-    router.push(ROUTES.DEMO(theme, variant));
+    window.open(`${DOMAIN}${ROUTES.DEMO(theme, variant)}`, "_blank");
   };
 
   return {
