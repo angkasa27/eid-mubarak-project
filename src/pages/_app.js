@@ -12,6 +12,7 @@ import PropTypes from "prop-types";
 import PopUpAlert from "@components/elements/PopUpAlert";
 import { IKContext } from "imagekitio-react";
 import SERVICES from "src/configs";
+import Script from "next/script";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: ["--plus-jakarta-sans"],
@@ -27,6 +28,19 @@ export default function App({ Component, pageProps }) {
 
   return (
     <Fragment>
+      <Script
+        dangerouslySetInnerHTML={{
+          __html: `
+        (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "gmbat8atg7");
+      `,
+        }}
+        id="microsoft-clarity"
+        strategy="afterInteractive"
+      />
       <Head>
         <title>Dashboard | SuratBahagia</title>
       </Head>
