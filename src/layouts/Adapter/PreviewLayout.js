@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { ROUTES } from "src/configs";
 import Head from "next/head";
 
-const AuthLayout = ({ containers }) => {
+const AuthLayout = ({ containers, ...props }) => {
   const Containers = containers;
   const router = useRouter();
 
@@ -21,7 +21,7 @@ const AuthLayout = ({ containers }) => {
       <Head>
         <title>Selamat Hari Raya Idul Fitri 144H</title>
       </Head>
-      <Containers />
+      <Containers {...props} />
     </>
   );
 };
