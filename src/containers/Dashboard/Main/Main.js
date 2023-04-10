@@ -1,49 +1,46 @@
-import Card from "@components/elements/Card";
 import { Button } from "@material-tailwind/react";
-import Header from "src/fragments/Header";
 import { useRouter } from "next/router";
 import { ROUTES } from "src/configs";
 import useAction from "./hooks/useAction";
-import Link from "next/link";
 import clsx from "clsx";
 
 export default function Main() {
   const router = useRouter();
-  const { loading, cardData, username } = useAction();
+  const { loading, cardData, username, copyLink } = useAction();
 
   const MENU = [
     {
       label: "Salin Link Ucapan",
-      onClick: () => navigator.clipboard.writeText(cardData.link),
-      className: "bg-gradient-to-br from-lime-800 to-lime-300",
+      onClick: () => copyLink(),
+      className: "bg-gradient-to-br from-indigo-800 to-light-blue-500",
     },
     {
       label: "Share ke Whatsapp",
       onClick: () => router.push(ROUTES.SHARE()),
-      className: "bg-gradient-to-br from-teal-800 to-teal-300",
+      className: "bg-gradient-to-br from-green-800 to-light-blue-500",
     },
     {
       label: "Ganti Tema",
       onClick: () => router.push(ROUTES.THEME()),
-      className: "bg-gradient-to-br from-blue-800 to-blue-300",
+      className: "bg-gradient-to-br from-indigo-800 to-light-blue-500",
     },
     {
       label: "Ubah Data",
       onClick: () => router.push(ROUTES.EDIT()),
-      className: "bg-gradient-to-br from-indigo-800 to-indigo-300",
+      className: "bg-gradient-to-br from-indigo-800 to-light-blue-500",
     },
   ];
 
   return (
     <div className="py-6 px-4">
-      <Header
-        name="Selamat Datang!"
-        right={
-          <a href={cardData.link} rel="noreferrer" target="_blank">
-            <Button size="sm">Preview</Button>
-          </a>
-        }
-      />
+      <div className="flex justify-between mb-6">
+        <div>
+          <h2 className="md:text-3xl text-2xl bold">Selamat Datang!</h2>
+        </div>
+        <a href={cardData.link} rel="noreferrer" target="_blank">
+          <Button size="sm">Preview</Button>
+        </a>
+      </div>
       {/* <Card>
         <Button onClick={() => router.push(ROUTES.THEME())} size="sm">
           Ubah Data

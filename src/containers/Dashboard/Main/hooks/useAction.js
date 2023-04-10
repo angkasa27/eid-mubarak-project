@@ -26,11 +26,20 @@ const useAction = () => {
     }
   };
 
+  const copyLink = () => {
+    try {
+      navigator.clipboard.writeText(cardData.link);
+      setSuccessAlert({ message: "Berhasil disalin!" });
+    } catch (error) {
+      setSuccessAlert({ message: error.message });
+    }
+  };
+
   useEffect(() => {
     fetchDetail();
   }, []);
 
-  return { loading, cardData, username };
+  return { loading, cardData, username, copyLink };
 };
 
 export default useAction;

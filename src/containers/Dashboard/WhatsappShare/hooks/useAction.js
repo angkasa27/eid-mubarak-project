@@ -56,13 +56,18 @@ const useAction = () => {
   };
 
   const addReceiver = () => {
-    const list = customReceiver.split("\n").map((item) => {
-      const [name, phone] = item.split("#");
-      return { name, phone: normalizePhoneNumber(phone) };
-    });
+    try {
+      const list = customReceiver.split("\n").map((item) => {
+        const [name, phone] = item.split("#");
+        return { name, phone: normalizePhoneNumber(phone) };
+      });
 
-    setCustomReceiver("");
-    setReceiverList([...receiverList, ...list]);
+      setCustomReceiver("");
+      setReceiverList([...receiverList, ...list]);
+      setSuccessAlert({ message: "Berhasil menambahkan penerima" });
+    } catch (error) {
+      setFailedAlert({ message: error.message });
+    }
   };
 
   const importFromContatcs = async () => {
