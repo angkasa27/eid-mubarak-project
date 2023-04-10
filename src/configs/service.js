@@ -1,4 +1,4 @@
-let domain = "http://localhost:5000";
+let domain = "http://eid-mubarak-system.angkasa27.com";
 
 // const environment = process.env.NEXT_PUBLIC_ENVIRONMENT;
 
@@ -30,6 +30,7 @@ const service = {
   CARD_THEME: (username) => `${domain}/card/theme/${username}`,
   CARD_DETAIL: (username) => `${domain}/card/detail/${username}`,
   IMAGE_DETAIL: (username) => `${domain}/image/${username}`,
+  IMAGE_AUTH: `${domain}/image/auth`,
   COMMENT: (username) => `${domain}/comment/${username}`,
 };
 

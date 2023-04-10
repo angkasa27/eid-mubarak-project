@@ -11,6 +11,7 @@ import { PopupAlertProvider } from "src/contexts/PopupAlert";
 import PropTypes from "prop-types";
 import PopUpAlert from "@components/elements/PopUpAlert";
 import { IKContext } from "imagekitio-react";
+import SERVICES from "src/configs";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: ["--plus-jakarta-sans"],
@@ -19,7 +20,6 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 const urlEndpoint = "https://ik.imagekit.io/sd3osdoco/";
 const publicKey = "public_dH7uH0U5VmvL4AZY4KepRYWujNU=";
-const authenticationEndpoint = "http://localhost:5000/image/auth";
 
 export default function App({ Component, pageProps }) {
   const defaultClass = "font-jakarta text-default bg-main";
@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }) {
           <PopupAlertProvider>
             <UserDataProvider>
               <IKContext
-                authenticationEndpoint={authenticationEndpoint}
+                authenticationEndpoint={SERVICES.AUTHENTICATION_ENDPOINT}
                 publicKey={publicKey}
                 urlEndpoint={urlEndpoint}
               >
