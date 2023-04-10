@@ -4,6 +4,7 @@ import Card from "@components/elements/Card";
 import { Button } from "@material-tailwind/react";
 import clsx from "clsx";
 import useAction from "./hooks/useAction";
+import Header from "src/fragments/Header";
 
 export default function WhatsappShare() {
   const {
@@ -24,9 +25,7 @@ export default function WhatsappShare() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 py-6 px-4">
-      <div className="mx-0 text-center lg:col-span-3">
-        <h2 className="lg:text-3xl text-2xl bold">Bagikan ke WhatsApp</h2>
-      </div>
+      <Header className="lg:col-span-3" name="Share ke WhatsApp" />
       <div>
         <Card
           childClass="text-blue-gray-800 flex flex-col gap-4"

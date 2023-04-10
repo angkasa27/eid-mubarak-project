@@ -1,29 +1,41 @@
-// import { Breadcrumbs } from "@material-tailwind/react";
-// import Link from "next/link";
-// import { ROUTES } from "src/configs";
+import clsx from "clsx";
+import { useRouter } from "next/router";
 import PropTypes from "prop-types";
+import { ArrowLeftIcon } from "@heroicons/react/20/solid";
 
 export default function Header(props) {
-  const { name, right } = props;
+  const { name, right, className, routeBack } = props;
+  const router = useRouter();
+
+  const onClickBack = () =>
+    !!routeBack ? router.push(routeBack) : router.back();
+
   return (
-    <div className="flex justify-between mb-6">
-      <div>
-        <h2 className="md:text-3xl text-2xl bold">{name}</h2>
-        {/* <Breadcrumbs>
-          <Link href={ROUTES.DASHBOARD()}>UCAPAN</Link>
-          <p className="bold">Form</p>
-        </Breadcrumbs> */}
+    <div className={clsx("", className)}>
+      <div className="flex justify-between mb-1">
+        <button
+          className="text-light-blue-500 flex items-center"
+          onClick={() => onClickBack()}
+        >
+          <ArrowLeftIcon className="h-5 w-5" />
+          <p className="">Kembali</p>
+        </button>
+        <div>{right}</div>
       </div>
-      {right}
+      <h2 className="lg:text-3xl text-2xl">{name}</h2>
     </div>
   );
 }
 
 Header.propTypes = {
+  className: PropTypes.string,
   name: PropTypes.string.isRequired,
   right: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  routeBack: PropTypes.string,
 };
 
 Header.defaultProps = {
+  className: undefined,
   right: undefined,
+  routeBack: "",
 };

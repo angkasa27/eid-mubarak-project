@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { EyeIcon } from "@heroicons/react/24/solid";
 import useAction from "./hooks/useAction";
 import PropTypes from "prop-types";
+import Header from "src/fragments/Header";
 
 export default function Main() {
   const { submitTheme, loading, redirectDemo, useTheme, useTab } = useAction();
@@ -36,7 +37,7 @@ export default function Main() {
     }
   };
 
-  return <div className="flex flex-col gap-6">{_renderChild()}</div>;
+  return <div className="flex flex-col gap-4">{_renderChild()}</div>;
 }
 
 export function ThemeSelector({ redirectDemo, useTheme, setTab }) {
@@ -44,9 +45,7 @@ export function ThemeSelector({ redirectDemo, useTheme, setTab }) {
 
   return (
     <>
-      <div className="mx-0 text-center">
-        <h2 className="md:text-3xl text-2xl bold">Pilih Tema</h2>
-      </div>
+      <Header name="Pilih Tema" />
       <CardPreview
         data={THEME_LIST}
         isSelected={(item) => selected.theme === item.theme}
@@ -78,9 +77,7 @@ export function VariantSelector(props) {
 
   return (
     <>
-      <div className="mx-0 text-center">
-        <h2 className="md:text-3xl text-2xl bold">Pilih Variant</h2>
-      </div>
+      <Header name="Pilih Variant" />
       <CardPreview
         data={selected?.variants}
         isSelected={(item) => selectedVariant === item.variant}
