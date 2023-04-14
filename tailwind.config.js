@@ -13,7 +13,20 @@ module.exports = withMT({
         potrait: "9 / 16",
       },
       fontFamily: {
-        jakarta: ["var(--plus-jakarta-sans)", ...defaultTheme.fontFamily.serif],
+        jakarta: ["var(--plus-jakarta-sans)", ...defaultTheme.fontFamily.sans],
+        berkshireSwash: [
+          "var(--berkshire-swash)",
+          ...defaultTheme.fontFamily.serif,
+        ],
+        grandHotel: ["var(--grand-hotel)", ...defaultTheme.fontFamily.serif],
+        cinzel: ["var(--cinzel)", ...defaultTheme.fontFamily.serif],
+        pacifico: ["var(--pacifico)", ...defaultTheme.fontFamily.serif],
+        acme: ["var(--acme)", ...defaultTheme.fontFamily.serif],
+        croissantOne: [
+          "var(--croissant-one)",
+          ...defaultTheme.fontFamily.serif,
+        ],
+        poppins: ["var(--poppins)", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         main: "#0f172a",

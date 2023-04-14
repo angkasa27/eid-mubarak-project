@@ -3,7 +3,6 @@ import "@styles/style.css";
 import { ThemeProvider } from "@material-tailwind/react";
 import Head from "next/head";
 import { Fragment } from "react";
-import { Plus_Jakarta_Sans } from "@next/font/google";
 import clsx from "clsx";
 import theme from "@styles/theme";
 import { UserDataProvider } from "src/contexts/UserData";
@@ -11,13 +10,9 @@ import { PopupAlertProvider } from "src/contexts/PopupAlert";
 import PropTypes from "prop-types";
 import PopUpAlert from "@components/elements/PopUpAlert";
 import { IKContext } from "imagekitio-react";
-import SERVICES from "src/configs";
 import Script from "next/script";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: ["--plus-jakarta-sans"],
-  subsets: ["latin"],
-});
+import { fontsVariable } from "src/configs/font";
 
 const urlEndpoint = "https://ik.imagekit.io/sd3osdoco/";
 const publicKey = "public_dH7uH0U5VmvL4AZY4KepRYWujNU=";
@@ -65,7 +60,7 @@ export default function App({ Component, pageProps }) {
         <meta content="#da532c" name="msapplication-TileColor" />
         <meta content="#ffffff" name="theme-color" />
       </Head>
-      <main className={clsx(plusJakartaSans.variable, defaultClass)}>
+      <main className={clsx(...fontsVariable, defaultClass)}>
         <ThemeProvider value={theme}>
           <PopupAlertProvider>
             <UserDataProvider>

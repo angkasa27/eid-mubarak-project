@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import Mosque from "@ramadhan/Mosque1";
-import Ornament1 from "@ramadhan/Ornament1";
 import CloudSilhouette1 from "@ramadhan/CloudSilhouette1";
 import CloudSilhouette2 from "@ramadhan/CloudSilhouette2";
 import CloudSilhouette3 from "@ramadhan/CloudSilhouette3";
@@ -18,13 +17,17 @@ import CommentCard from "src/fragments/CommentCard";
 import { IKImage } from "imagekitio-react";
 import { cloudCard, cloudStyle, containerCard } from "./variant";
 import MusicPlayer from "src/fragments/MusicPlayer";
+import clsx from "clsx";
+
+const headingFont = "font-berkshireSwash";
+const bodyFont = "font-jakarta";
 
 export default function Container(props) {
   const { data, name } = props;
 
   return (
     <div className={containerCard()(data)}>
-      <div className="max-w-screen-sm mx-auto relative">
+      <div className={clsx(bodyFont, "max-w-screen-sm mx-auto relative")}>
         <Main name={name} variant={data?.variant} />
         <Detail {...data} />
         <Comment name={name} variant={data?.variant} />
@@ -124,15 +127,15 @@ function Main(props) {
       {_topProps}
       <div className="px-8 flex flex-col items-center text-center gap-6 z-10">
         <div>
-          <p className="title-3 bold">Selamat Hari Raya</p>
-          <h1 className="title-1 bold ">Idul Fitri</h1>
+          <p className="title-3 font-semibold">Selamat Hari Raya</p>
+          <h1 className={clsx("title-1", headingFont)}>Idul Fitri</h1>
           <p className="body-1">1 Syawal 1444H</p>
         </div>
         <div className="mb-40">
           {!!name && (
             <>
               <p className="body-1">Kepada</p>
-              <p className="title-3 bold">{name}</p>
+              <p className={clsx("title-3", headingFont)}>{name}</p>
             </>
           )}
         </div>
@@ -162,12 +165,12 @@ function Detail(props) {
       })}
     >
       <div className="px-8 z-10 flex flex-col items-center text-center gap-2 py-10">
-        <div className="w-24 rotate-180">
-          <Ornament1 className="h-auto w-full text-[#f9be65]" />
+        <div className="w-20">
+          <CloudSilhouette2 className="h-auto w-full text-[#f9be65]" />
         </div>
         <div>
           <p className="title-3">Keluarga Besar</p>
-          <h1 className="title-2 bold ">{data?.name}</h1>
+          <h1 className={clsx("title-2", headingFont)}>{data?.name}</h1>
         </div>
         <div className="rounded-md border-4 border-[#f9be65] overflow-hidden">
           <IKImage
@@ -186,11 +189,8 @@ function Detail(props) {
         </div>
         <div>
           <p className="body-1 ">Mengucapkan</p>
-          <h1 className="title-2 bold">{data?.mainQuotes}</h1>
+          <h1 className={clsx("title-2", headingFont)}>{data?.mainQuotes}</h1>
           <h2 className="title-3">{data?.secondaryQuotes}</h2>
-        </div>
-        <div className="w-24">
-          <Ornament1 className="h-auto w-full text-[#f9be65]" />
         </div>
         <p className="body-2 pt-12">{data?.message}</p>
       </div>
@@ -235,7 +235,7 @@ function Comment(props) {
       {_topProps}
       <div className="px-8 z-20 py-24">
         <div className="text-center mb-8">
-          <h1 className="title-2 bold ">Kirim Ucapan</h1>
+          <h1 className={clsx("title-2", headingFont)}>Kirim Ucapan</h1>
           <p className="body-3 mx-6 mt-2">
             Tanpa jabatan tangan atau pelukan hangat, masih ada simpul-simpul
             senyum dan doa-doa baik yang bisa diberikan
@@ -262,7 +262,7 @@ function Footer({ data }) {
   return (
     <div className="flex flex-col justify-between px-8 text-center bg-blue-gray-900/30">
       <p className="body-2 mx-6 mb-2">{data?.closing}</p>
-      <p className="subtitle-1 ">{data.name}</p>
+      <p className={clsx("body-1", headingFont)}>{data.name}</p>
       <div className="mt-8">
         <p>Eid Mubarak</p>
         <p>Bikin ucapan versimu sendiri!</p>
