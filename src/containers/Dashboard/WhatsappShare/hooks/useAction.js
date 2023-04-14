@@ -111,5 +111,4 @@ const useAction = () => {
 export default useAction;
 
 // eslint-disable-next-line max-len
-const defaultMessage = `Tanpa mengurangi rasa hormat, izinkan kami mengundang Bapak/Ibu/Saudara/i {penerima} untuk menghadiri acara pernikahan kami.\n\nBerikut link website undangan dari kami beserta informasi lengkap dari acara pernikahan kami: \n{url}\n\nMerupakan suatu kerbahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.\n\nMohon maaf perihal undangan hanya di bagikan melalui  pesan ini. Karena suasana masih pandemi diharapakan untuk menggunakan masker dan datang pada jam yang telah ditentukan.
-Atas perhatiannya kami ucapkan terima kasih.\n\nKami yang berbahagia\n{pengirim}`;
+const defaultMessage = `Assalamu'alaikum warahmatullah wabarakatuh\n\nkepada {penerima},\n\nSaya & keluarga mengucapkan :\n\nTaqabbalallahu minnaa wa minkum, shiyaamanaa wa shiyaamakum \n"Semoga Allah SWT menerima seluruh amal ibadah kita, shaum kita dan sholat kita".\n\n"Selamat Hari Raya Idul Fitri 1443 H, Mohon Maaf Lahir & Batin".\n\n{url}\n\nSemoga kita dipertemukan kembali dengan Ramadhan tahun depan.\nAamiin Yaa Robbal Aalamiin...\n\n{pengirim}`;

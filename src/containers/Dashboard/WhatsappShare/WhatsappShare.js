@@ -84,7 +84,11 @@ export default function WhatsappShare() {
           >
             Pilih Dari kontak
           </Button>
-          <Button color="blue" onClick={() => addReceiver()}>
+          <Button
+            color="blue"
+            disabled={!customReceiver}
+            onClick={() => addReceiver()}
+          >
             Simpan
           </Button>
         </Card>
@@ -101,25 +105,30 @@ export default function WhatsappShare() {
           </p>
         ) : (
           <ul className="flex flex-col gap-4">
-            {receiverList.map((item, i) => (
-              <li className="flex items-center justify-between gap-4" key={i}>
-                <p
-                  className={clsx("font-medium", {
-                    "line-through": item.submitted,
-                  })}
-                >
-                  {item.name}{" "}
-                  <span className="text-gray-400">({item.phone})</span>
-                </p>
-                <Button
-                  color="blue"
-                  onClick={() => onClickShare(item)}
-                  size="sm"
-                >
-                  Bagikan
-                </Button>
-              </li>
-            ))}
+            {receiverList
+              .filter((v) => !!v?.phone)
+              .map((item, i) => (
+                <li className="flex items-center justify-between gap-4" key={i}>
+                  <div>
+                    <p
+                      className={clsx("font-medium body-1", {
+                        "line-through": item.submitted,
+                      })}
+                    >
+                      {item.name}{" "}
+                    </p>
+
+                    <p className="text-gray-400 text-sm">({item.phone})</p>
+                  </div>
+                  <Button
+                    color="blue"
+                    onClick={() => onClickShare(item)}
+                    size="sm"
+                  >
+                    Bagikan
+                  </Button>
+                </li>
+              ))}
           </ul>
         )}
       </Card>
