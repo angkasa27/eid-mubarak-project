@@ -49,8 +49,15 @@ function Main(props) {
 
   const _topProps = (
     <div className="relative">
-      <Lantern1 className="h-auto w-12 absolute -top-20 left-16" />
-      <Lantern1 className="h-auto w-16 absolute -top-16 right-16" />
+      <CloudSilhouette3
+        className={cloudStyle(
+          "h-auto w-full absolute -mt-1 -top-8 z-20 rotate-180"
+        )({
+          variant,
+        })}
+      />
+      <Lantern1 className="h-auto w-8 absolute top-6 left-28" />
+      <Lantern1 className="h-auto w-10 absolute top-10 right-20" />
     </div>
   );
 
