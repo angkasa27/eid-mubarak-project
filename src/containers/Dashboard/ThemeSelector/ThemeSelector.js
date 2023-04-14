@@ -7,6 +7,7 @@ import { EyeIcon } from "@heroicons/react/24/solid";
 import useAction from "./hooks/useAction";
 import PropTypes from "prop-types";
 import Header from "src/fragments/Header";
+import Image from "next/image";
 
 export default function Main() {
   const { submitTheme, loading, redirectDemo, useTheme, useTab } = useAction();
@@ -50,6 +51,7 @@ export function ThemeSelector({ redirectDemo, useTheme, setTab }) {
         data={THEME_LIST}
         isSelected={(item) => selected.theme === item.theme}
         mapColor={(item) => item.variants[0].color}
+        mapImage={(item) => item.variants[0].image}
         mapPreview={(item) =>
           redirectDemo(item.theme, item.variants[0].variant)
         }
@@ -83,6 +85,7 @@ export function VariantSelector(props) {
         isSelected={(item) => selectedVariant === item.variant}
         loading={loading}
         mapColor={(item) => item.color}
+        mapImage={(item) => item.image}
         mapPreview={(item) => redirectDemo(selected.theme, item.variant)}
         setSelected={(item) => setSelected(item.variant)}
       />
@@ -120,6 +123,7 @@ function CardPreview(props) {
     loading,
     mapPreview,
     setSelected,
+    mapImage,
   } = props;
 
   return (
@@ -132,7 +136,19 @@ function CardPreview(props) {
             isSelected(item) && "ring ring-blue-500"
           )}
           header={
-            <div className={clsx("aspect-square w-full", mapColor(item))} />
+            <div
+              className={clsx(
+                "aspect-[3/4] w-full overflow-hidden",
+                mapColor(item)
+              )}
+            >
+              <Image
+                alt={mapName(item)}
+                className="h-full w-auto mx-auto rounded drop-shadow"
+                placeholder="blur"
+                src={mapImage(item)}
+              />
+            </div>
           }
           key={i}
           padding="lg:p-4 p-2"
@@ -170,6 +186,7 @@ CardPreview.propTypes = {
   isSelected: PropTypes.func,
   loading: PropTypes.bool,
   mapColor: PropTypes.func,
+  mapImage: PropTypes.func,
   mapName: PropTypes.func,
   mapPreview: PropTypes.func,
   setSelected: PropTypes.func,
@@ -180,6 +197,7 @@ CardPreview.defaultProps = {
   isSelected: () => false,
   loading: false,
   mapColor: () => "",
+  mapImage: () => "",
   mapName: (v) => v.name,
   mapPreview: () => {},
   setSelected: () => {},
