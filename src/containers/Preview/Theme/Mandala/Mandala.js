@@ -16,13 +16,17 @@ import { IKImage } from "imagekitio-react";
 import Background from "@ramadhan/background";
 import { containerCard } from "./variant";
 import MusicPlayer from "src/fragments/MusicPlayer";
+import clsx from "clsx";
+
+const headingFont = "font-pacifico";
+const bodyFont = "font-poppins";
 
 export default function Container(props) {
   const { data, name } = props;
 
   return (
     <div className={containerCard()(data)}>
-      <div className="max-w-screen-sm mx-auto relative">
+      <div className={clsx(bodyFont, "max-w-screen-sm mx-auto relative")}>
         <Main name={name} />
         <Detail {...data} />
         <Comment name={name} />
@@ -121,11 +125,11 @@ function Main(props) {
         variants={previewVariant}
       >
         <div>
-          <motion.p className="title-3 bold" variants={RightVariant}>
+          <motion.p className={"title-3 font-semibold"} variants={RightVariant}>
             Selamat Hari Raya
           </motion.p>
           <motion.h1
-            className="title-1 bold text-amber-400"
+            className={clsx(headingFont, "title-1 text-amber-400 my-2")}
             variants={ZoomVariant}
           >
             Idul Fitri
@@ -138,7 +142,7 @@ function Main(props) {
           {!!name && (
             <>
               <p className="body-1">Kepada</p>
-              <p className="title-3 bold">{name}</p>
+              <p className="title-3 font-semibold">{name}</p>
             </>
           )}
         </motion.div>
@@ -183,13 +187,13 @@ function Detail(props) {
       {_topProps}
       <div className="px-8 py-24 z-10 flex flex-col items-center text-center gap-2">
         <div className="w-24 rotate-180">
-          <Ornament1 className="h-auto w-full text-[#f9be65]" />
+          <Ornament1 className="h-auto w-full text-amber-400" />
         </div>
         <div>
           <p className="title-3">Keluarga Besar</p>
-          <h1 className="title-2 bold text-amber-400">{data?.name}</h1>
+          <h1 className="title-2 font-semibold text-amber-400">{data?.name}</h1>
         </div>
-        <div className="rounded-md border-2 border-amber-400 overflow-hidden">
+        <div className="rounded-md overflow-hidden">
           <IKImage
             alt={image?.name}
             height={300}
@@ -205,12 +209,14 @@ function Detail(props) {
           />
         </div>
         <div>
-          <p className="body-1 text-amber-400">Mengucapkan</p>
-          <h1 className="title-2 bold">{data?.mainQuotes}</h1>
-          <h2 className="title-3">{data?.secondaryQuotes}</h2>
+          <p className="title-3">Mengucapkan</p>
+          <h1 className={clsx(headingFont, "title-2 my-2 text-amber-400")}>
+            {data?.mainQuotes}
+          </h1>
+          <h2 className="body-1">{data?.secondaryQuotes}</h2>
         </div>
         <div className="w-24">
-          <Ornament1 className="h-auto w-full text-[#f9be65]" />
+          <Ornament1 className="h-auto w-full text-amber-400" />
         </div>
         <p className="body-2 pt-12">{data?.message}</p>
       </div>
@@ -257,7 +263,9 @@ function Comment(props) {
       {_topProps}
       <div className="px-8 z-10 py-24">
         <div className="text-center mb-8">
-          <h1 className="title-2 bold text-amber-400">Kirim Ucapan</h1>
+          <h1 className={"title-2 font-semibold text-amber-400"}>
+            Kirim Ucapan
+          </h1>
           <p className="body-3 mx-6 mt-2">
             Tanpa jabatan tangan atau pelukan hangat, masih ada simpul-simpul
             senyum dan doa-doa baik yang bisa diberikan
@@ -282,7 +290,7 @@ function Footer({ data }) {
   return (
     <div className="flex flex-col justify-between bg-blue-gray-300/5 px-8 text-center">
       <p className="body-2 mx-6 mb-2">{data?.closing}</p>
-      <p className="subtitle-1 text-amber-400">{data.name}</p>
+      <p className="body-1 font-semibold text-amber-400">{data.name}</p>
       <div className="mt-8">
         <p>Eid Mubarak</p>
         <p>Bikin ucapan versimu sendiri!</p>
