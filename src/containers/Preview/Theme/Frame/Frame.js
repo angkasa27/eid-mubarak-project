@@ -18,13 +18,17 @@ import { componentCard, containerCard } from "./variant";
 import Image from "next/image";
 import MusicPlayer from "src/fragments/MusicPlayer";
 import Card from "@components/elements/Card";
+import clsx from "clsx";
+
+const headingFont = "font-cinzel font-semibold";
+const bodyFont = "font-poppins";
 
 export default function Container(props) {
   const { data, name } = props;
 
   return (
     <div className={containerCard()(data)}>
-      <div className="max-w-screen-sm mx-auto relative">
+      <div className={clsx(bodyFont, "max-w-screen-sm mx-auto relative")}>
         <Main name={name} />
         <Detail {...data} />
         <Comment name={name} />
@@ -70,15 +74,15 @@ function Main(props) {
       <div className="px-8 flex flex-col items-center text-center gap-6 z-10">
         <Moon1 className="h-auto w-32 my-12" />
         <div>
-          <p className="title-3 bold">Selamat Hari Raya</p>
-          <h1 className="title-1 bold ">Idul Fitri</h1>
+          <p className="title-3 font-semibold">Selamat Hari Raya</p>
+          <h1 className={clsx(headingFont, "title-1")}>Idul Fitri</h1>
           <p className="body-1">1 Syawal 1444H</p>
         </div>
         <div className="">
           {!!name && (
             <>
               <p className="body-1">Kepada</p>
-              <p className="title-3 bold">{name}</p>
+              <p className={clsx(headingFont, "title-3")}>{name}</p>
             </>
           )}
         </div>
@@ -116,8 +120,8 @@ function Detail(props) {
           <Ornament1 className="h-auto w-full text-[#f9be65]" />
         </div>
         <div className="">
-          <p className="title-2 bold">{data?.mainQuotes}</p>
-          <h1 className="title-3 ">{data?.secondaryQuotes}</h1>
+          <p className={clsx(headingFont, "title-2")}>{data?.mainQuotes}</p>
+          <h1 className="body-1">{data?.secondaryQuotes}</h1>
         </div>
         <Card className="z-10 mx-4" padding="p-3">
           <IKImage
@@ -135,7 +139,7 @@ function Detail(props) {
           />
           <div className="text-blue-gray-800 mt-3">
             <h1 className="body-2">Keluarga Besar</h1>
-            <h2 className="subtitle-1">{data?.name}</h2>
+            <h2 className={clsx(headingFont, "title-3")}>{data?.name}</h2>
           </div>
         </Card>
         <div className="w-24">
@@ -173,7 +177,7 @@ function Comment(props) {
     <div className="flex flex-col justify-between min-h-screen">
       <div className="px-8 z-10 py-24">
         <div className="text-center mb-8">
-          <h1 className="title-2 bold ">Kirim Ucapan</h1>
+          <h1 className={clsx(headingFont, "title-2")}>Kirim Ucapan</h1>
           <p className="body-3 mx-6 mt-2">
             Tanpa jabatan tangan atau pelukan hangat, masih ada simpul-simpul
             senyum dan doa-doa baik yang bisa diberikan
@@ -198,7 +202,7 @@ function Footer({ data }) {
   return (
     <div className="flex flex-col justify-between px-8 text-center bg-[#ffeec0] text-blue-gray-800 z-0">
       <p className="body-2 mb-2 mt-6">{data?.closing}</p>
-      <p className="subtitle-1 ">{data.name}</p>
+      <p className={clsx(headingFont, "title-3 ")}>{data.name}</p>
       <div className="mt-8">
         <p>Eid Mubarak</p>
         <p>Bikin ucapan versimu sendiri!</p>
