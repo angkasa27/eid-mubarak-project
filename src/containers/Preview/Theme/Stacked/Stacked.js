@@ -19,6 +19,9 @@ import BulanBintangIcon from "@ramadhan/MoonStarIcon";
 import MasjidIcon from "@ramadhan/MosqueIcon";
 import LanternIcon from "@ramadhan/LanternIcon";
 import MusicPlayer from "src/fragments/MusicPlayer";
+import clsx from "clsx";
+
+const bodyFont = "font-poppins";
 
 export default function Container(props) {
   const { data, name } = props;
@@ -34,7 +37,7 @@ export default function Container(props) {
 
   return (
     <div className={container(data)}>
-      <div className="max-w-screen-sm mx-auto relative">
+      <div className={clsx(bodyFont, "max-w-screen-sm mx-auto relative")}>
         <Main name={name} variant={data?.variant} />
         <Detail {...data} />
         <Comment name={name} variant={data?.variant} />
@@ -84,8 +87,8 @@ function Main(props) {
           variants={UpVariant}
         >
           <div>
-            <p className="subtitle-3">Selamat Hari Raya</p>
-            <h1 className="title-1 bold text-amber-400">Idul Fitri</h1>
+            <p className="body-3 font-bold">Selamat Hari Raya</p>
+            <h1 className="title-1 font-bold text-amber-400">Idul Fitri</h1>
           </div>
         </MotionCard>
 
@@ -99,7 +102,7 @@ function Main(props) {
           variants={LeftVariant}
         >
           <p className="body-1">1 Syawal</p>
-          <p className="title-3 bold">1442H</p>
+          <p className="title-3 font-bold">1442H</p>
         </MotionCard>
         <MotionCard
           border={false}
@@ -120,11 +123,11 @@ function Main(props) {
           variants={LeftVariant}
         >
           <div>
-            <h1 className="title-2 bold">
+            <h1 className="title-2 font-bold">
               Happy
               <span className="text-amber-400"> Eid</span>
             </h1>
-            <h1 className="title-2 bold text-amber-400"> Mubarak!</h1>
+            <h1 className="title-2 font-bold text-amber-400"> Mubarak!</h1>
           </div>
         </MotionCard>
         <motion.div className="col-span-3" variants={UpVariant}>
@@ -136,7 +139,7 @@ function Main(props) {
               shadow={false}
             >
               <p className="body-1">Kepada</p>
-              <p className="title-3 bold">{name}</p>
+              <p className="title-3 font-bold">{name}</p>
             </Card>
           )}
         </motion.div>
@@ -176,8 +179,8 @@ function Detail(props) {
         padding="p-4"
         shadow={false}
       >
-        <p className="subtitle-2">Keluarga Besar</p>
-        <h1 className="title-3 bold text-amber-400">{data?.name}</h1>
+        <p className="font-bold subtitle-2">Keluarga Besar</p>
+        <h1 className="title-3 font-bold text-amber-400">{data?.name}</h1>
       </Card>
       <Card
         border={false}
@@ -207,7 +210,7 @@ function Detail(props) {
         padding="p-4"
         shadow={false}
       >
-        <p className="title-3 bold">
+        <p className="title-3 font-bold">
           MENG
           <br />
           UCAP
@@ -221,7 +224,7 @@ function Detail(props) {
         padding="p-4"
         shadow={false}
       >
-        <h1 className="title-3 bold text-amber-400">{data?.mainQuotes}</h1>
+        <h1 className="title-3 font-bold text-amber-400">{data?.mainQuotes}</h1>
       </Card>
       <Card
         border={false}
@@ -229,7 +232,7 @@ function Detail(props) {
         padding="p-4"
         shadow={false}
       >
-        <h2 className="title-3 bold">{data?.secondaryQuotes}</h2>
+        <h2 className="title-3 font-bold">{data?.secondaryQuotes}</h2>
       </Card>
 
       <Card
@@ -287,7 +290,7 @@ function Comment(props) {
         padding="p-4"
         shadow={false}
       >
-        <h1 className="title-2 bold">KIRIM UCAPAN</h1>
+        <h1 className="title-2 font-bold">KIRIM UCAPAN</h1>
       </Card>
       <CommentCard
         avatarColor={["bg-amber-500", "bg-light-blue-500"]}
@@ -328,7 +331,7 @@ function Footer({ data, variant }) {
         padding="p-4"
         shadow={false}
       >
-        <p className="subtitle-2 ">{data.name}</p>
+        <p className="font-bold subtitle-2 ">{data.name}</p>
       </Card>
       <Card
         border={false}
