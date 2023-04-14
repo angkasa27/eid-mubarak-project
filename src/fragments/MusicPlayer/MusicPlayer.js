@@ -6,7 +6,12 @@ import PropTypes from "prop-types";
 
 export default function MusicPlayer({ className, music }) {
   const [play, setPlay] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
+  const handleClick = () => {
+    setPlay(!play);
+    setClicked(true);
+  };
   return (
     <>
       <ReactPlayer
@@ -22,13 +27,16 @@ export default function MusicPlayer({ className, music }) {
               "absolute bottom-6 right-6 p-2 rounded-full z-50",
               className
             )}
-            onClick={() => setPlay(!play)}
+            onClick={() => handleClick()}
           >
             <MusicalNoteIcon className="w-6 h-6 text-blue-gray-800" />
           </button>
-          {play && (
-            <div className="absolute bottom-6 right-6 bg-white rounded-full animate-ping w-10 h-10" />
-          )}
+          <div
+            className={clsx(
+              "absolute bottom-6 right-6 rounded-full animate-ping w-10 h-10",
+              play ? className : !clicked && "bg-light-blue-400"
+            )}
+          />
         </div>
       </div>
     </>
