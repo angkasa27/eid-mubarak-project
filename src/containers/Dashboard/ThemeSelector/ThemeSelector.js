@@ -144,7 +144,7 @@ function CardPreview(props) {
             >
               <Image
                 alt={mapName(item)}
-                className="h-full w-auto mx-auto rounded drop-shadow"
+                className="h-full w-auto mx-auto "
                 placeholder="blur"
                 src={mapImage(item)}
               />

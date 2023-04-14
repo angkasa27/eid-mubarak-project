@@ -5,16 +5,16 @@ export const MANDALA = {
   theme: "mandala",
   variants: [
     {
-      name: "Blue",
-      variant: "blue",
-      color: "bg-indigo-900",
-      image: PREVIEW_IMAGES.MandalaBlue,
-    },
-    {
       name: "Purple",
       variant: "purple",
       color: "bg-purple-900",
       image: PREVIEW_IMAGES.MandalaPurple,
+    },
+    {
+      name: "Blue",
+      variant: "blue",
+      color: "bg-indigo-900",
+      image: PREVIEW_IMAGES.MandalaBlue,
     },
     {
       name: "Magenta",
@@ -36,16 +36,16 @@ export const STACKED = {
   theme: "stacked",
   variants: [
     {
-      name: "Dark Mode",
-      variant: "dark",
-      color: "bg-main",
-      image: PREVIEW_IMAGES.StackedDark,
-    },
-    {
       name: "Light Mode",
       variant: "light",
       color: "bg-yellow-50",
       image: PREVIEW_IMAGES.StackedLight,
+    },
+    {
+      name: "Dark Mode",
+      variant: "dark",
+      color: "bg-main",
+      image: PREVIEW_IMAGES.StackedDark,
     },
   ],
 };
