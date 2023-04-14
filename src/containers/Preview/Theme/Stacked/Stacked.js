@@ -70,14 +70,15 @@ function Main(props) {
       >
         <MotionCard
           border={false}
-          className={mosqueCard("col-span-2 row-start-1 row-end-3")({
+          childClass="relative h-full"
+          className={mosqueCard("col-span-2 row-start-1 row-end-4")({
             variant,
           })}
           padding
           shadow={false}
           variants={RightVariant}
         >
-          <Mosque className="w-full h-auto mt-16 " />
+          <Mosque className="w-full h-auto mt-16 bottom-0 absolute" />
         </MotionCard>
         <MotionCard
           border={false}
@@ -87,22 +88,41 @@ function Main(props) {
           variants={UpVariant}
         >
           <div>
-            <p className="body-3 font-bold">Selamat Hari Raya</p>
-            <h1 className="title-1 font-bold text-amber-400">Idul Fitri</h1>
+            <p className="body-3 font-semibold">Selamat Hari Raya</p>
+            <h1 className="text-4xl font-bold text-amber-400">Idul Fitri</h1>
           </div>
         </MotionCard>
-
+        <div className="col-span-1 row-start-1 w-full aspect-video" />
         <MotionCard
           border={false}
-          className={secondaryCard("col-span-1 row-start-2 row-end-4")({
+          className={mandalaCard("col-span-1 row-start-2 ")({
             variant,
           })}
           padding="p-4"
           shadow={false}
           variants={LeftVariant}
         >
-          <p className="body-1">1 Syawal</p>
-          <p className="title-3 font-bold">1442H</p>
+          <p className="title-1 font-semibold text-center">01</p>
+          <p className="body-1 font-semibold text-center ">Syawal</p>
+        </MotionCard>
+        <MotionCard
+          border={false}
+          childClass="flex items-center justify-center"
+          className={secondaryCard("col-span-1 row-start-3 row-end-5")({
+            variant,
+          })}
+          padding="p-4"
+          shadow={false}
+          variants={LeftVariant}
+        >
+          <p className="text-6xl font-semibold text-right">
+            <span className="text-white">
+              14
+              <br />
+              42
+            </span>
+            <br />H
+          </p>
         </MotionCard>
         <MotionCard
           border={false}
@@ -139,7 +159,7 @@ function Main(props) {
               shadow={false}
             >
               <p className="body-1">Kepada</p>
-              <p className="title-3 font-bold">{name}</p>
+              <p className="title-3 font-semibold">{name}</p>
             </Card>
           )}
         </motion.div>
@@ -179,7 +199,7 @@ function Detail(props) {
         padding="p-4"
         shadow={false}
       >
-        <p className="font-bold subtitle-2">Keluarga Besar</p>
+        <p className="font-semibold subtitle-2">Keluarga Besar</p>
         <h1 className="title-3 font-bold text-amber-400">{data?.name}</h1>
       </Card>
       <Card
@@ -210,7 +230,7 @@ function Detail(props) {
         padding="p-4"
         shadow={false}
       >
-        <p className="title-3 font-bold">
+        <p className="title-3 font-semibold">
           MENG
           <br />
           UCAP
@@ -224,7 +244,9 @@ function Detail(props) {
         padding="p-4"
         shadow={false}
       >
-        <h1 className="title-3 font-bold text-amber-400">{data?.mainQuotes}</h1>
+        <h1 className="title-3 font-semibold text-amber-400">
+          {data?.mainQuotes}
+        </h1>
       </Card>
       <Card
         border={false}
@@ -232,7 +254,7 @@ function Detail(props) {
         padding="p-4"
         shadow={false}
       >
-        <h2 className="title-3 font-bold">{data?.secondaryQuotes}</h2>
+        <h2 className="title-3 font-semibold">{data?.secondaryQuotes}</h2>
       </Card>
 
       <Card
