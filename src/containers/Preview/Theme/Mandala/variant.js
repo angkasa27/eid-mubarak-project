@@ -6,8 +6,8 @@ export const containerCard = (classes) =>
       variant: {
         indigo: "bg-indigo-900",
         purple: "bg-purple-900",
-        pink: "bg-pink-900",
-        teal: "bg-teal-900",
+        magenta: "bg-pink-900",
+        green: "bg-teal-900",
       },
     },
   });

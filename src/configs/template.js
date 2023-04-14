@@ -4,8 +4,8 @@ export const MANDALA = {
   variants: [
     { name: "Indigo", variant: "indigo", color: "bg-indigo-900" },
     { name: "Purple", variant: "purple", color: "bg-purple-900" },
-    { name: "Pink", variant: "pink", color: "bg-pink-900" },
-    { name: "Teal", variant: "teal", color: "bg-teal-900" },
+    { name: "Magenta", variant: "magenta", color: "bg-pink-900" },
+    { name: "Green", variant: "green", color: "bg-teal-900" },
   ],
 };
 

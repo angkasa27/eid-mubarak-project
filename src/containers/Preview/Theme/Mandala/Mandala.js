@@ -179,9 +179,9 @@ function Detail(props) {
   );
 
   return (
-    <div className="flex flex-col justify-between overflow-hidden min-h-screen">
+    <div className="flex flex-col justify-between overflow-hidden min-h-screen ">
       {_topProps}
-      <div className="px-8 z-10 pb-24 flex flex-col items-center text-center gap-2">
+      <div className="px-8 py-24 z-10 flex flex-col items-center text-center gap-2">
         <div className="w-24 rotate-180">
           <Ornament1 className="h-auto w-full text-[#f9be65]" />
         </div>
