@@ -94,7 +94,26 @@ export const CLOUDY = {
   ],
 };
 
-export const THEME_LIST = [MANDALA, STACKED, FRAME, CLOUDY];
+export const FLAT = {
+  name: "Flat",
+  theme: "flat",
+  variants: [
+    {
+      name: "Amber",
+      variant: "amber",
+      color: "bg-amber-500",
+      image: PREVIEW_IMAGES.FlatAmber,
+    },
+    {
+      name: "Cyan",
+      variant: "cyan",
+      color: "bg-cyan-500",
+      image: PREVIEW_IMAGES.FlatCyan,
+    },
+  ],
+};
+
+export const THEME_LIST = [MANDALA, STACKED, FRAME, CLOUDY, FLAT];
 
 export const FLATTENED_THEME_LIST = THEME_LIST.reduce((acc, currentValue) => {
   currentValue.variants.forEach((variant) => {

@@ -1,5 +1,7 @@
 import CloudyAfternoon from "./CloudyAfternoon.png";
 import CloudyEvening from "./CloudyEvening.png";
+import FlatAmber from "./FlatAmber.png";
+import FlatCyan from "./FlatCyan.png";
 import FrameBlue from "./FrameBlue.png";
 import FrameBrown from "./FrameBrown.png";
 import FramePurple from "./FramePurple.png";
@@ -13,6 +15,8 @@ import StackedLight from "./StackedLight.png";
 const PREVIEW_IMAGES = {
   CloudyAfternoon,
   CloudyEvening,
+  FlatAmber,
+  FlatCyan,
   FrameBlue,
   FrameBrown,
   FramePurple,
