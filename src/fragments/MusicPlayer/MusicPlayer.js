@@ -1,5 +1,9 @@
 import ReactPlayer from "react-player/youtube";
-import { MusicalNoteIcon } from "@heroicons/react/20/solid";
+import {
+  MusicalNoteIcon,
+  PlayIcon,
+  PauseIcon,
+} from "@heroicons/react/20/solid";
 import { useState } from "react";
 import clsx from "clsx";
 import PropTypes from "prop-types";
@@ -29,7 +33,11 @@ export default function MusicPlayer({ className, music }) {
             )}
             onClick={() => handleClick()}
           >
-            <MusicalNoteIcon className="w-6 h-6 text-blue-gray-800" />
+            {play ? (
+              <PauseIcon className="w-6 h-6 text-blue-gray-800" />
+            ) : (
+              <PlayIcon className="w-6 h-6 text-blue-gray-800" />
+            )}
           </button>
           <div
             className={clsx(
