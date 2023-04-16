@@ -126,6 +126,11 @@ function CardPreview(props) {
     mapImage,
   } = props;
 
+  const handleClick = async (item) => {
+    await setSelected(item);
+    window.scrollTo({ top: 9999, behavior: "smooth" });
+  };
+
   return (
     <div className="grid grid-cols-2 gap-4">
       {data?.map((item, i) => (
@@ -169,7 +174,7 @@ function CardPreview(props) {
             <Button
               className="w-full"
               disabled={isSelected(item) || loading}
-              onClick={() => setSelected(item)}
+              onClick={() => handleClick(item)}
               size="sm"
             >
               {isSelected(item) ? "Terpilih" : "Pilih"}
