@@ -100,7 +100,7 @@ export default function WhatsappShare() {
           *Klik tombol bagikan untuk mengirim pesan melalui WhatsApp
         </p>
         {receiverList.length === 0 ? (
-          <p className="text-4xl font-bold text-gray-300">
+          <p className="title-2 font-bold text-gray-300">
             Belum ada penerima :(
           </p>
         ) : (
