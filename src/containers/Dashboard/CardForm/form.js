@@ -32,7 +32,7 @@ export default function Form() {
         field: "text",
         control,
         label: "Nama",
-        placeholder: "Masukan Nama",
+        placeholder: "Dimas Angkasa",
         name: "data.name",
         disabled: loading,
       },
