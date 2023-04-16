@@ -71,36 +71,38 @@ export default function CommentCard(props) {
       <Card className={clsx(formClass)} padding="p-4" {...cardProps}>
         <FormGenerator {...formProps} />
       </Card>
-      <Card
-        childClass="flex flex-col gap-4"
-        className={clsx("max-h-[36rem] overflow-y-auto", commentClass)}
-        padding="p-4"
-        {...cardProps}
-      >
-        {comments.map((item, index) => (
-          <div className="w-full flex gap-2" key={index}>
-            <div
-              className={clsx(
-                "h-10 w-10 shrink-0 mt-1 rounded-full flex items-center justify-center",
-                getRandomeColor(avatarColor)
-              )}
-            >
-              <p className="text-white body-3 bold">
-                {getFirtsLetter(item.name)}
-              </p>
-            </div>
-            <div>
-              <div className="inline-flex items-baseline gap-2">
-                <p className="body-3 font-bold">{item.name}</p>
-                <p className="body-4 text-default-secondary">
-                  {moment(item.createdAt).fromNow()}
+      {!!comments.length && (
+        <Card
+          childClass="flex flex-col gap-4"
+          className={clsx("max-h-[36rem] overflow-y-auto", commentClass)}
+          padding="p-4"
+          {...cardProps}
+        >
+          {comments.map((item, index) => (
+            <div className="w-full flex gap-2" key={index}>
+              <div
+                className={clsx(
+                  "h-10 w-10 shrink-0 mt-1 rounded-full flex items-center justify-center",
+                  getRandomeColor(avatarColor)
+                )}
+              >
+                <p className="text-white body-3 bold">
+                  {getFirtsLetter(item.name)}
                 </p>
               </div>
-              <p className="body-3">{item.message}</p>
+              <div>
+                <div className="inline-flex items-baseline gap-2">
+                  <p className="body-3 font-bold">{item.name}</p>
+                  <p className="body-4 text-default-secondary">
+                    {moment(item.createdAt).fromNow()}
+                  </p>
+                </div>
+                <p className="body-3">{item.message}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </Card>
+          ))}
+        </Card>
+      )}
     </>
   );
 }
