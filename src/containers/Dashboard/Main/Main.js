@@ -10,8 +10,18 @@ export default function Main() {
 
   const MENU = [
     {
+      label: "Buka Ucapan",
+      onClick: () => window.open(cardData.link, "_blank"),
+      className: "bg-gradient-to-br from-indigo-800 to-light-blue-500",
+    },
+    {
       label: "Salin Link Ucapan",
       onClick: () => copyLink(),
+      className: "bg-gradient-to-br from-indigo-800 to-light-blue-500",
+    },
+    {
+      label: "Generate QR Code",
+      onClick: () => {},
       className: "bg-gradient-to-br from-indigo-800 to-light-blue-500",
     },
     {
@@ -20,12 +30,12 @@ export default function Main() {
       className: "bg-gradient-to-br from-green-800 to-light-blue-500",
     },
     {
-      label: "Komentar Balasan",
+      label: "Lihat Komentar",
       onClick: () => {},
       className: "bg-gradient-to-br from-indigo-800 to-light-blue-500",
     },
     {
-      label: "Edit Ucapan",
+      label: "Ubah Ucapan",
       onClick: () => router.push(ROUTES.THEME()),
       className: "bg-gradient-to-br from-indigo-800 to-light-blue-500",
     },
@@ -37,9 +47,6 @@ export default function Main() {
         <div>
           <h2 className="md:text-3xl text-2xl bold">Selamat Datang!</h2>
         </div>
-        <a href={cardData.link} rel="noreferrer" target="_blank">
-          <Button size="sm">Preview</Button>
-        </a>
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {MENU.map(({ label, className, onClick }, index) => (
