@@ -11,7 +11,7 @@ export default function Container() {
     query: { theme, variant, name: nameQuery },
   } = useRouter();
 
-  const name = nameQuery || "Dimas Angkasa";
+  const name = nameQuery || "Nama Penerima";
 
   const props = {
     data: {
