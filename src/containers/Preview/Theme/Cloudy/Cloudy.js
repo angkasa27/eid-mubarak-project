@@ -61,8 +61,8 @@ function Main(props) {
           variant,
         })}
       />
-      <Lantern1 className="h-auto w-8 absolute top-6 left-28" />
-      <Lantern1 className="h-auto w-10 absolute top-10 right-20" />
+      <Lantern1 className="h-auto w-8 absolute top-6 left-[25%]" />
+      <Lantern1 className="h-auto w-10 absolute top-10 right-[18%]" />
     </div>
   );
 
@@ -127,7 +127,7 @@ function Main(props) {
   return (
     <div className="h-screen flex flex-col justify-between">
       {_topProps}
-      <div className="px-8 flex flex-col items-center text-center gap-6 z-10">
+      <div className="px-8 flex flex-col items-center text-center gap-6 z-40">
         <div>
           <p className="title-3 font-semibold">Selamat Hari Raya</p>
           <h1 className={clsx("title-1", headingFont)}>Idul Fitri</h1>
