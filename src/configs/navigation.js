@@ -6,10 +6,6 @@ export const MAIN = [
     href: DASHBOARD(),
   },
   {
-    label: "Tentang",
-    href: ABOUT(),
-  },
-  {
     label: "Keluar",
     href: LOGOUT(),
   },

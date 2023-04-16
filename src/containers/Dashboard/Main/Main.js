@@ -31,7 +31,7 @@ export default function Main() {
     },
     {
       label: "Lihat Komentar",
-      onClick: () => {},
+      onClick: () => router.push(ROUTES.COMMENTS()),
       className: "bg-gradient-to-br from-indigo-800 to-light-blue-500",
     },
     {

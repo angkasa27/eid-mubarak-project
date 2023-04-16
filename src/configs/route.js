@@ -11,6 +11,7 @@ export const THEME = () => `/theme`;
 export const DEMO = (theme, variant) => `/theme/${theme}/${variant}`;
 export const EDIT = () => `/edit`;
 export const SHARE = () => `/whatsapp-share`;
+export const COMMENTS = () => `/comments`;
 
 export const NOT_FOUND = () => `/404`;
 
@@ -27,4 +28,5 @@ export const USED_PATH = [
   THEME(),
   DEMO(),
   SHARE(),
+  COMMENTS(),
 ];
