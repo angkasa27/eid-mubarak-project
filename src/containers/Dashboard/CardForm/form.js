@@ -59,7 +59,7 @@ export default function Form() {
         control,
         label: "Pesan",
         placeholder:
-          "Saya dan Keluarga memohon maaf lahir batin atas segala salah & khilaf, baik disengaja maupun tidak",
+          "Jika jemari ini tak sempat untuk berjabat. Seiring dengan beduk yang menggema. Serta seruan takbir yang berkumandang. Tak ada hadiah terindah serta perilaku yang mulia selain maaf memaafkan. Taqabalallahu minna wa minkum",
         name: "data.message",
         helperText: `Dibawah quotes`,
         rows: 4,
@@ -69,7 +69,8 @@ export default function Form() {
         field: "textarea",
         control,
         label: "Penutup",
-        placeholder: "Taqabbalallahu minna wa minkum",
+        placeholder:
+          "Mawar indah harum mewangi, aromanya menyentuh nurani Pesan Ini sebagai pengganti diri, selamat Hari Raya Idul Fitri",
         helperText: `Berada di paling bawah ucapan`,
         name: "data.closing",
         rows: 2,

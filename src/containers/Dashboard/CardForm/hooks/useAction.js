@@ -4,12 +4,10 @@ import validation from "../validation";
 import usePopupAlert from "@utils/hooks/usePopupAlert";
 import detailCard from "@repositories/card/detailCard";
 import updateCard from "@repositories/card/updateCard";
-import createCard from "@repositories/card/updateTheme";
 import useUserData from "@utils/hooks/useUserData";
-import { DOMAIN } from "src/constants";
-import { THEME_LIST } from "src/configs/template";
 import { useRouter } from "next/router";
 import { ROUTES } from "src/configs";
+import defaultValues from "@constants/defaultValue";
 
 const useAction = () => {
   const router = useRouter();
@@ -21,6 +19,7 @@ const useAction = () => {
   const { control, handleSubmit, reset } = useForm({
     resolver: validation,
     mode: "onChange",
+    defaultValues,
   });
 
   const onSubmit = async (values) => {
