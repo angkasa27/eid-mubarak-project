@@ -7,6 +7,7 @@ import Link from "next/link";
 import Logo from "src/assets/svg/Logo";
 import { ROUTES, NAV } from "src/configs";
 import clsx from "clsx";
+import Github from "src/assets/svg/Github";
 
 const menuVariant = {
   visible: {
@@ -60,7 +61,7 @@ const Nav = () => {
               <Burger className="h-5 w-5" />
             )}
           </IconButton>
-          <ul className="gap-12 md:flex hidden">
+          <ul className="gap-12 md:flex hidden items-center">
             {NAV.MAIN.map((v, i) => (
               <li key={i} onClick={() => setShowMenu(false)}>
                 <Link className="body-2" href={v.href}>
@@ -68,6 +69,17 @@ const Nav = () => {
                 </Link>
               </li>
             ))}
+
+            <div className="flex justify-center gap-4">
+              <a
+                className="text-white text-opacity-80 hover:text-opacity-100"
+                href="https://github.com/angkasa27/eid-mubarak-project"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Github className="h-8 w-8" />
+              </a>
+            </div>
           </ul>
         </div>
       </nav>
@@ -95,18 +107,17 @@ const Nav = () => {
                 </motion.li>
               ))}
             </ul>
-            {/* <div className="flex justify-center gap-4">
+            <div className="flex justify-center gap-4">
               <a
-                href={CONTACT.INSTAGRAM}
+                href="https://github.com/angkasa27/eid-mubarak-project"
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 <motion.div variants={listVariant}>
-                  <Instagram className="h-8 w-8" />
+                  <Github className="h-8 w-8" />
                 </motion.div>
               </a>
-
-            </div> */}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
