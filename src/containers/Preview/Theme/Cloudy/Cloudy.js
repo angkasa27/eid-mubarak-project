@@ -33,7 +33,7 @@ export default function Container(props) {
         <Detail {...data} />
         <Comment isDemoMode={isDemoMode} name={name} variant={data?.variant} />
         <ClosingSection {...data} />
-        <Footer />
+        <Footer className="bg-main text-white" />
         <MusicPlayer music={data?.data?.music} />
       </div>
     </div>
@@ -266,13 +266,9 @@ Comment.defaultProps = {
 
 function ClosingSection({ data }) {
   return (
-    <div className="flex flex-col justify-between px-8 text-center bg-blue-gray-900/30">
+    <div className="flex flex-col justify-between px-8 text-center bg-blue-gray-900/30 pb-6">
       <p className="body-2 mx-6 mb-2">{data?.closing}</p>
       <p className={clsx("body-1", headingFont)}>{data.name}</p>
-      <div className="mt-8">
-        <p>Eid Mubarak</p>
-        <p>Bikin ucapan versimu sendiri!</p>
-      </div>
     </div>
   );
 }

@@ -37,7 +37,7 @@ export default function Container(props) {
         <Detail {...data} />
         <Comment isDemoMode={isDemoMode} name={name} variant={data?.variant} />
         <ClosingSection {...data} />
-        <Footer />
+        <Footer className="bg-main text-white" />
         <MusicPlayer music={data?.data?.music} />
       </div>
     </div>
@@ -100,7 +100,7 @@ function Main(props) {
 
   return (
     <div
-      className="h-screen flex flex-col justify-between"
+      className="h-screen flex flex-col justify-between overflow-x-hidden overflow-y-hidden"
       style={{
         background: `url("${Background.Pattern3?.src}")`,
         backgroundSize: "72px",
@@ -269,13 +269,9 @@ function ClosingSection({ data, variant }) {
   return (
     <div className="flex flex-col justify-between px-8 text-center bg-white z-0">
       <p className="body-2 mb-2 mt-6">{data?.closing}</p>
-      <p className={textVariant([headingFont, "title-3 "])({ variant })}>
+      <p className={textVariant([headingFont, "title-3 mb-6"])({ variant })}>
         {data.name}
       </p>
-      <div className="mt-8">
-        <p>Eid Mubarak</p>
-        <p>Bikin ucapan versimu sendiri!</p>
-      </div>
     </div>
   );
 }

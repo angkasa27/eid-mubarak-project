@@ -44,7 +44,7 @@ export default function Container(props) {
         <Detail {...data} />
         <Comment isDemoMode={isDemoMode} name={name} variant={data?.variant} />
         <ClosingSection {...data} />
-        <Footer />
+        <Footer className="bg-main text-white" />
         <MusicPlayer music={data?.data?.music} />
       </div>
     </div>
