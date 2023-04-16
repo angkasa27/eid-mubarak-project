@@ -20,6 +20,7 @@ export default function Container() {
       variant,
     },
     name,
+    isDemoMode: true,
   };
 
   const _renderTheme = () => {

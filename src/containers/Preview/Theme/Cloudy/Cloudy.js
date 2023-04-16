@@ -23,14 +23,14 @@ const headingFont = "font-berkshireSwash";
 const bodyFont = "font-jakarta";
 
 export default function Container(props) {
-  const { data, name } = props;
+  const { data, name, isDemoMode } = props;
 
   return (
     <div className={containerCard()(data)}>
       <div className={clsx(bodyFont, "max-w-screen-sm mx-auto relative")}>
         <Main name={name} variant={data?.variant} />
         <Detail {...data} />
-        <Comment name={name} variant={data?.variant} />
+        <Comment isDemoMode={isDemoMode} name={name} variant={data?.variant} />
         <Footer {...data} />
         <MusicPlayer music={data?.data?.music} />
       </div>
@@ -40,10 +40,12 @@ export default function Container(props) {
 
 Container.propTypes = {
   data: PropTypes.object.isRequired,
+  isDemoMode: PropTypes.bool,
   name: PropTypes.string,
 };
 
 Container.defaultProps = {
+  isDemoMode: false,
   name: "",
 };
 
@@ -211,7 +213,7 @@ Detail.defaultProps = {
 };
 
 function Comment(props) {
-  const { name, variant } = props;
+  const { name, variant, isDemoMode } = props;
 
   const _topProps = (
     <div className="relative h-40">
@@ -241,7 +243,7 @@ function Comment(props) {
             senyum dan doa-doa baik yang bisa diberikan
           </p>
         </div>
-        <CommentCard name={name} />
+        <CommentCard isDemoMode={isDemoMode} name={name} />
       </div>
       {_bottomProps}
     </div>
@@ -249,11 +251,13 @@ function Comment(props) {
 }
 
 Comment.propTypes = {
+  isDemoMode: PropTypes.bool,
   name: PropTypes.string,
   variant: PropTypes.string,
 };
 
 Comment.defaultProps = {
+  isDemoMode: false,
   name: "",
   variant: "",
 };

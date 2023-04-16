@@ -13,6 +13,7 @@ export default function CommentCard(props) {
     buttonColor,
     formClass,
     commentClass,
+    isDemoMode,
     ...cardProps
   } = props;
   const { control, handleSubmit, onSubmit, loading, comments } = useComment({
@@ -51,7 +52,7 @@ export default function CommentCard(props) {
     ],
     buttons: [
       {
-        disabled: loading,
+        disabled: loading || isDemoMode,
         type: "submit",
         children: "Simpan",
         color: buttonColor,
@@ -109,6 +110,7 @@ CommentCard.propTypes = {
   buttonColor: PropTypes.string,
   commentClass: PropTypes.string,
   formClass: PropTypes.string,
+  isDemoMode: PropTypes.bool,
   name: PropTypes.string,
 };
 
@@ -117,6 +119,7 @@ CommentCard.defaultProps = {
   buttonColor: "blue",
   commentClass: "mt-4 text-blue-gray-800",
   formClass: "text-blue-gray-800",
+  isDemoMode: false,
   name: "",
 };
 
@@ -142,49 +145,3 @@ CommentCard.defaultProps = {
 <p className="body-3 pt-1">{item.message}</p>
 </div> */
 }
-
-const COMMENT = [
-  {
-    name: "Dimas Angkasa",
-    message: "Semoga yang disemogakan segera tersemogakan...",
-  },
-  {
-    name: "Dimas Angkasa",
-    message:
-      "Ucapan selamat dan kebahagiaan bisa dari mana saja. Tanpa jabatan tangan atau pelukan hangat, ",
-  },
-  {
-    name: "Dimas Angkasa",
-    message:
-      " masih ada simpul-simpul senyum dan doa doa baik yang kami harapkan. ",
-  },
-  {
-    name: "Dimas Angkasa",
-    message: "Semoga yang disemogakan segera tersemogakan...",
-  },
-  {
-    name: "Dimas Angkasa",
-    message:
-      "Ucapan selamat dan kebahagiaan bisa dari mana saja. Tanpa jabatan tangan atau pelukan hangat, masih ada simpul-simpul senyum dan doa doa baik yang kami harapkan. ",
-  },
-  {
-    name: "Dimas Angkasa",
-    message:
-      " masih ada simpul-simpul senyum dan doa doa baik yang kami harapkan. ",
-  },
-  {
-    name: "Dimas Angkasa",
-    message:
-      "Ucapan selamat dan kebahagiaan bisa dari mana saja. Tanpa jabatan tangan atau pelukan hangat, masih ada simpul-simpul senyum dan doa doa baik yang kami harapkan. ",
-  },
-  {
-    name: "Dimas Angkasa",
-    message:
-      "Ucapan selamat dan kebahagiaan bisa dari mana saja. Tanpa jabatan tangan atau pelukan hangat, ",
-  },
-  {
-    name: "Dimas Angkasa",
-    message:
-      " masih ada simpul-simpul senyum dan doa doa baik yang kami harapkan. ",
-  },
-];

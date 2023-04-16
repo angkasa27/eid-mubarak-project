@@ -24,7 +24,7 @@ import clsx from "clsx";
 const bodyFont = "font-poppins";
 
 export default function Container(props) {
-  const { data, name } = props;
+  const { data, name, isDemoMode } = props;
 
   const container = cva("", {
     variants: {
@@ -40,7 +40,7 @@ export default function Container(props) {
       <div className={clsx(bodyFont, "max-w-screen-sm mx-auto relative")}>
         <Main name={name} variant={data?.variant} />
         <Detail {...data} />
-        <Comment name={name} variant={data?.variant} />
+        <Comment isDemoMode={isDemoMode} name={name} variant={data?.variant} />
         <Footer {...data} />
         <MusicPlayer music={data?.data?.music} />
       </div>
@@ -50,10 +50,12 @@ export default function Container(props) {
 
 Container.propTypes = {
   data: PropTypes.object.isRequired,
+  isDemoMode: PropTypes.bool,
   name: PropTypes.string,
 };
 
 Container.defaultProps = {
+  isDemoMode: false,
   name: "",
 };
 
@@ -292,7 +294,7 @@ Detail.defaultProps = {
 };
 
 function Comment(props) {
-  const { name, variant } = props;
+  const { name, variant, isDemoMode } = props;
 
   return (
     <div className="p-8 grid gap-3 grid-cols-3 w-full">
@@ -319,6 +321,7 @@ function Comment(props) {
         border={false}
         commentClass={mainCard("col-span-3")({ variant })}
         formClass={mainCard("col-span-3")({ variant })}
+        isDemoMode={isDemoMode}
         name={name}
         shadow={false}
       />
@@ -327,11 +330,13 @@ function Comment(props) {
 }
 
 Comment.propTypes = {
+  isDemoMode: PropTypes.bool,
   name: PropTypes.string,
   variant: PropTypes.string,
 };
 
 Comment.defaultProps = {
+  isDemoMode: false,
   name: "",
   variant: "",
 };
