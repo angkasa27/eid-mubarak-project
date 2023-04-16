@@ -11,10 +11,16 @@ import {
   PencilSquareIcon,
   DeviceTabletIcon,
 } from "@heroicons/react/24/outline";
+import { Dialog, DialogHeader, DialogBody } from "@material-tailwind/react";
+import { XMarkIcon } from "@heroicons/react/20/solid";
+import PropTypes from "prop-types";
+import Input from "@components/elements/Input";
+import { useState } from "react";
 
 export default function Main() {
   const router = useRouter();
-  const { loading, cardData, username, copyLink } = useAction();
+  const { loading, cardData, copyLink, openDialog, setOpenDialog } =
+    useAction();
 
   const MENU = [
     {
@@ -46,7 +52,8 @@ export default function Main() {
           Ucapan
         </>
       ),
-      onClick: () => copyLink(),
+      // onClick: () => copyLink(),
+      onClick: () => setOpenDialog(true),
       className: "bg-gradient-to-br from-indigo-800 to-light-blue-500",
       icon: LinkIcon,
     },
@@ -109,6 +116,53 @@ export default function Main() {
           </div>
         ))}
       </div>
+      <DialogShare
+        copyLink={copyLink}
+        useDialog={[openDialog, setOpenDialog]}
+      />
     </div>
   );
 }
+
+function DialogShare({ useDialog, copyLink }) {
+  const [name, setName] = useState("");
+  const [openDialog, setOpenDialog] = useDialog;
+
+  return (
+    <Dialog handler={setOpenDialog} open={openDialog} size="md">
+      <DialogHeader className="justify-between">
+        <p className="title-3">Salin Link</p>{" "}
+        <button onClick={() => setOpenDialog(false)}>
+          <XMarkIcon className="h-5 w-5" strokeWidth={2} />
+        </button>
+      </DialogHeader>
+      <DialogBody>
+        <div className="mb-4">
+          <Input
+            label="Nama Penerima"
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Masukan nama penerima"
+            value={name}
+          />
+          <p className="text-xs text-slate-500">
+            *Tulisan <span className="font-bold">kepada</span> akan
+            disembunyikan bila nama penerima kosong
+          </p>
+        </div>
+        <Button className="w-full" onClick={() => copyLink(name)}>
+          Salin
+        </Button>
+      </DialogBody>
+    </Dialog>
+  );
+}
+
+DialogShare.propTypes = {
+  copyLink: PropTypes.func,
+  useDialog: PropTypes.array,
+};
+
+DialogShare.defaultProps = {
+  copyLink: () => {},
+  useDialog: [false, () => {}],
+};

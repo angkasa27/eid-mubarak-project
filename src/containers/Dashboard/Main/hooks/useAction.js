@@ -8,6 +8,7 @@ import { ROUTES } from "src/configs";
 const useAction = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
   const { setFailedAlert, setSuccessAlert } = usePopupAlert();
   const { getUsername } = useUserData();
   const username = getUsername();
@@ -26,10 +27,13 @@ const useAction = () => {
     }
   };
 
-  const copyLink = () => {
+  const copyLink = (name) => {
     try {
-      navigator.clipboard.writeText(cardData.link);
+      let url = cardData.link;
+      if (name) url = `${cardData.link}?name=${name}`;
+      navigator.clipboard.writeText(url);
       setSuccessAlert({ message: "Berhasil disalin!" });
+      setOpenDialog(false);
     } catch (error) {
       setSuccessAlert({ message: error.message });
     }
@@ -39,7 +43,13 @@ const useAction = () => {
     fetchDetail();
   }, []);
 
-  return { loading, cardData, username, copyLink };
+  return {
+    loading,
+    cardData,
+    copyLink,
+    openDialog,
+    setOpenDialog,
+  };
 };
 
 export default useAction;

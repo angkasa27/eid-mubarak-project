@@ -1,4 +1,23 @@
 const customTheme = {
+  dialog: {
+    defaultProps: {
+      size: "md",
+    },
+    styles: {
+      sizes: {
+        md: {
+          width: "w-full",
+          minWidth: "",
+          maxWidth: "max-w-screen-md",
+        },
+        sm: {
+          width: "w-full",
+          minWidth: "",
+          maxWidth: "max-w-screen-sm",
+        },
+      },
+    },
+  },
   textarea: {
     defaultProps: {
       className: "font-jakarta",
