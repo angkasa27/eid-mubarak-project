@@ -21,7 +21,7 @@ export default function Main() {
     },
     {
       label: "Generate QR Code",
-      onClick: () => {},
+      onClick: () => router.push(ROUTES.GENERATE_QR()),
       className: "bg-gradient-to-br from-indigo-800 to-light-blue-500",
     },
     {
