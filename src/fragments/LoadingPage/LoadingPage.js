@@ -8,7 +8,7 @@ export default function LoadingPage({ loading }) {
       {loading && (
         <motion.div
           animate={{ opacity: 1 }}
-          className="absolute inset-0 z-50 bg-main flex items-center justify-center flex-col"
+          className="absolute inset-0 z-[99] bg-main flex items-center justify-center flex-col"
           exit={{ opacity: 0 }}
           initial={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
