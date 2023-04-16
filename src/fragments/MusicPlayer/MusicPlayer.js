@@ -34,15 +34,15 @@ export default function MusicPlayer({ className, music }) {
             onClick={() => handleClick()}
           >
             {play ? (
-              <PauseIcon className="w-6 h-6 text-blue-gray-800" />
+              <PauseIcon className="w-6 h-6" />
             ) : (
-              <PlayIcon className="w-6 h-6 text-blue-gray-800" />
+              <PlayIcon className="w-6 h-6" />
             )}
           </button>
           <div
             className={clsx(
               "absolute bottom-6 right-6 rounded-full animate-ping w-10 h-10",
-              play ? className : !clicked && "bg-light-blue-400"
+              !play && className
             )}
           />
         </div>
@@ -57,6 +57,6 @@ MusicPlayer.propTypes = {
 };
 
 MusicPlayer.defaultProps = {
-  className: "bg-white",
+  className: "bg-white text-blue-gray-800",
   music: "",
 };
