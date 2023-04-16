@@ -22,6 +22,7 @@ import Card from "@components/elements/Card";
 import clsx from "clsx";
 import CloudSilhouette3 from "@ramadhan/CloudSilhouette3";
 import Background from "@ramadhan/background";
+import Footer from "src/fragments/Footer";
 
 const headingFont = "font-croissantOne font-semibold";
 const bodyFont = "font-poppins";
@@ -35,7 +36,8 @@ export default function Container(props) {
         <Main name={name} variant={data?.variant} />
         <Detail {...data} />
         <Comment isDemoMode={isDemoMode} name={name} variant={data?.variant} />
-        <Footer {...data} />
+        <ClosingSection {...data} />
+        <Footer />
         <MusicPlayer music={data?.data?.music} />
       </div>
     </div>
@@ -263,7 +265,7 @@ Comment.defaultProps = {
   variant: "",
 };
 
-function Footer({ data, variant }) {
+function ClosingSection({ data, variant }) {
   return (
     <div className="flex flex-col justify-between px-8 text-center bg-white z-0">
       <p className="body-2 mb-2 mt-6">{data?.closing}</p>
@@ -278,12 +280,12 @@ function Footer({ data, variant }) {
   );
 }
 
-Footer.propTypes = {
+ClosingSection.propTypes = {
   data: PropTypes.object,
   variant: PropTypes.string,
 };
 
-Footer.defaultProps = {
+ClosingSection.defaultProps = {
   data: {},
   variant: "",
 };

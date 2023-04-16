@@ -19,6 +19,7 @@ import Image from "next/image";
 import MusicPlayer from "src/fragments/MusicPlayer";
 import Card from "@components/elements/Card";
 import clsx from "clsx";
+import Footer from "src/fragments/Footer";
 
 const headingFont = "font-cinzel font-semibold";
 const bodyFont = "font-poppins";
@@ -32,7 +33,8 @@ export default function Container(props) {
         <Main name={name} />
         <Detail {...data} />
         <Comment isDemoMode={isDemoMode} name={name} />
-        <Footer {...data} />
+        <ClosingSection {...data} />
+        <Footer />
         <MusicPlayer music={data?.data?.music} />
       </div>
     </div>
@@ -202,7 +204,7 @@ Comment.defaultProps = {
   name: "",
 };
 
-function Footer({ data }) {
+function ClosingSection({ data }) {
   return (
     <div className="flex flex-col justify-between px-8 text-center bg-[#ffeec0] text-blue-gray-800 z-0">
       <p className="body-2 mb-2 mt-6">{data?.closing}</p>
@@ -215,6 +217,6 @@ function Footer({ data }) {
   );
 }
 
-Footer.propTypes = { data: PropTypes.object };
+ClosingSection.propTypes = { data: PropTypes.object };
 
-Footer.defaultProps = { data: {} };
+ClosingSection.defaultProps = { data: {} };

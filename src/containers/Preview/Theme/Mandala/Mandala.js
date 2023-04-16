@@ -17,6 +17,7 @@ import Background from "@ramadhan/background";
 import { containerCard } from "./variant";
 import MusicPlayer from "src/fragments/MusicPlayer";
 import clsx from "clsx";
+import Footer from "src/fragments/Footer";
 
 const headingFont = "font-pacifico";
 const bodyFont = "font-poppins";
@@ -30,7 +31,8 @@ export default function Container(props) {
         <Main name={name} />
         <Detail {...data} />
         <Comment isDemoMode={isDemoMode} name={name} />
-        <Footer {...data} />
+        <ClosingSection {...data} />
+        <Footer />
         <MusicPlayer music={data?.data?.music} />
       </div>
     </div>
@@ -290,7 +292,7 @@ Comment.defaultProps = {
   name: "",
 };
 
-function Footer({ data }) {
+function ClosingSection({ data }) {
   return (
     <div className="flex flex-col justify-between bg-blue-gray-300/5 px-8 text-center">
       <p className="body-2 mx-6 mb-2">{data?.closing}</p>
@@ -303,6 +305,6 @@ function Footer({ data }) {
   );
 }
 
-Footer.propTypes = { data: PropTypes.object };
+ClosingSection.propTypes = { data: PropTypes.object };
 
-Footer.defaultProps = { data: {} };
+ClosingSection.defaultProps = { data: {} };

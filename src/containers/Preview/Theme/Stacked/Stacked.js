@@ -18,8 +18,10 @@ import KetupatIcon from "@ramadhan/KetupatIcon";
 import BulanBintangIcon from "@ramadhan/MoonStarIcon";
 import MasjidIcon from "@ramadhan/MosqueIcon";
 import LanternIcon from "@ramadhan/LanternIcon";
+import BedugIcon from "@ramadhan/BedugIcon";
 import MusicPlayer from "src/fragments/MusicPlayer";
 import clsx from "clsx";
+import Footer from "src/fragments/Footer";
 
 const bodyFont = "font-poppins";
 
@@ -41,7 +43,8 @@ export default function Container(props) {
         <Main name={name} variant={data?.variant} />
         <Detail {...data} />
         <Comment isDemoMode={isDemoMode} name={name} variant={data?.variant} />
-        <Footer {...data} />
+        <ClosingSection {...data} />
+        <Footer />
         <MusicPlayer music={data?.data?.music} />
       </div>
     </div>
@@ -341,7 +344,7 @@ Comment.defaultProps = {
   variant: "",
 };
 
-function Footer({ data, variant }) {
+function ClosingSection({ data, variant }) {
   return (
     <div className="p-8 grid gap-3 grid-cols-3 w-full">
       <Card
@@ -354,36 +357,30 @@ function Footer({ data, variant }) {
       </Card>
       <Card
         border={false}
-        className={secondaryCard("col-span-1")({ variant })}
+        className={mandalaCard("col-span-1")({ variant })}
         padding="p-4"
         shadow={false}
       >
-        <p className="font-bold subtitle-2 ">{data.name}</p>
+        <BedugIcon className="w-20 h-20" />
       </Card>
       <Card
         border={false}
-        className={mandalaCard("col-span-1")({ variant })}
-        shadow={false}
-      />
-      <Card
-        border={false}
-        className={mainCard("col-span-2")({ variant })}
+        className={secondaryCard("col-span-3")({ variant })}
         padding="p-4"
         shadow={false}
       >
-        <p>Eid Mubarak</p>
-        <p>Bikin ucapan versimu sendiri!</p>
+        <p className="font-bold subtitle-2 text-center">{data.name}</p>
       </Card>
     </div>
   );
 }
 
-Footer.propTypes = {
+ClosingSection.propTypes = {
   data: PropTypes.object,
   variant: PropTypes.string,
 };
 
-Footer.defaultProps = {
+ClosingSection.defaultProps = {
   data: {},
   variant: "",
 };

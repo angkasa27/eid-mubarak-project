@@ -18,6 +18,7 @@ import { IKImage } from "imagekitio-react";
 import { cloudCard, cloudStyle, containerCard } from "./variant";
 import MusicPlayer from "src/fragments/MusicPlayer";
 import clsx from "clsx";
+import Footer from "src/fragments/Footer";
 
 const headingFont = "font-berkshireSwash";
 const bodyFont = "font-jakarta";
@@ -31,7 +32,8 @@ export default function Container(props) {
         <Main name={name} variant={data?.variant} />
         <Detail {...data} />
         <Comment isDemoMode={isDemoMode} name={name} variant={data?.variant} />
-        <Footer {...data} />
+        <ClosingSection {...data} />
+        <Footer />
         <MusicPlayer music={data?.data?.music} />
       </div>
     </div>
@@ -262,7 +264,7 @@ Comment.defaultProps = {
   variant: "",
 };
 
-function Footer({ data }) {
+function ClosingSection({ data }) {
   return (
     <div className="flex flex-col justify-between px-8 text-center bg-blue-gray-900/30">
       <p className="body-2 mx-6 mb-2">{data?.closing}</p>
@@ -275,10 +277,10 @@ function Footer({ data }) {
   );
 }
 
-Footer.propTypes = {
+ClosingSection.propTypes = {
   data: PropTypes.object,
 };
 
-Footer.defaultProps = {
+ClosingSection.defaultProps = {
   data: {},
 };
