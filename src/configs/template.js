@@ -113,7 +113,7 @@ export const FLAT = {
   ],
 };
 
-export const THEME_LIST = [MANDALA, STACKED, FRAME, CLOUDY, FLAT];
+export const THEME_LIST = [CLOUDY, FLAT, FRAME, MANDALA, STACKED];
 
 export const FLATTENED_THEME_LIST = THEME_LIST.reduce((acc, currentValue) => {
   currentValue.variants.forEach((variant) => {
