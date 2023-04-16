@@ -79,7 +79,7 @@ export function VariantSelector(props) {
 
   return (
     <>
-      <Header name="Pilih Variant" />
+      <Header name="Pilih Varian Tema" />
       <CardPreview
         data={selected?.variants}
         isSelected={(item) => selectedVariant === item.variant}
