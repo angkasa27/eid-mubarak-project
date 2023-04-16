@@ -25,16 +25,16 @@ export default function Form() {
         control,
         label: "Foto",
         name: "image",
-        helperText: "Upload foto",
+        description: "Upload fotomu atau foto yang ingin kamu gunakan",
         username,
       },
       {
         field: "text",
         control,
         label: "Nama",
-        placeholder: "Dimas Angkasa",
         name: "data.name",
         disabled: loading,
+        helperText: "Masukan nama lengkapmu atau nama pengirim ucapan",
       },
       {
         field: "text",

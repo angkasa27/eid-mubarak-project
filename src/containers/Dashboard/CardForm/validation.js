@@ -11,6 +11,7 @@ const validation = yup.object().shape({
     closing: yup.string().required(ERROR_MESSAGE.REQUIRED("Penutup")),
   }),
   variant: yup.string().required(ERROR_MESSAGE.REQUIRED("Variant")),
+  image: yup.string().required(ERROR_MESSAGE.REQUIRED("Foto")),
 });
 
 export default yupResolver(validation);

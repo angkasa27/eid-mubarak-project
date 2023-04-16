@@ -7,7 +7,7 @@ import updateCard from "@repositories/card/updateCard";
 import useUserData from "@utils/hooks/useUserData";
 import { useRouter } from "next/router";
 import { ROUTES } from "src/configs";
-import defaultValues from "@constants/defaultValue";
+import defaultValues from "src/constants/defaultValue";
 
 const useAction = () => {
   const router = useRouter();

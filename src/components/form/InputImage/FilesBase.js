@@ -17,7 +17,7 @@ const Files = (props) => {
     onChange,
     className,
     error,
-    helperText,
+    description,
     value: val,
     username,
     type,
@@ -61,7 +61,7 @@ const Files = (props) => {
   return (
     <div
       className={clsx(
-        "relative w-full border rounded-md p-3 mb-[16px]",
+        "relative w-full border rounded-md p-3",
         className,
         error ? "border-red-500" : "border-blue-gray-200"
       )}
@@ -76,7 +76,7 @@ const Files = (props) => {
         <div>
           <label className="subtitle-2">{label}</label>
           <p className="text-xs text-default-secondary whitespace-pre-line">
-            {helperText}
+            {description}
           </p>
         </div>
         <IKUpload
@@ -105,9 +105,9 @@ export default Files;
 
 Files.propTypes = {
   className: PropTypes.string,
+  description: PropTypes.string,
   disabled: PropTypes.bool,
   error: PropTypes.bool,
-  helperText: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
@@ -119,9 +119,9 @@ Files.propTypes = {
 
 Files.defaultProps = {
   className: "",
+  description: "",
   disabled: false,
   error: false,
-  helperText: "",
   id: "",
   label: "",
   value: undefined,

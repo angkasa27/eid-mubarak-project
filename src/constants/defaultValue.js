@@ -9,3 +9,5 @@ const defaultValue = {
     music: "https://youtu.be/b-4xoVoAldA",
   },
 };
+
+export default defaultValue;
