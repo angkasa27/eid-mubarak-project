@@ -5,7 +5,8 @@ import Stacked from "./Theme/Stacked";
 import Frame from "./Theme/Frame";
 import Cloudy from "./Theme/Cloudy";
 import Flat from "./Theme/Flat";
-import { MANDALA, STACKED, FRAME, CLOUDY, FLAT } from "src/configs/template";
+import Desert from "./Theme/Desert";
+import * as TEMPLATE from "src/configs/template";
 // import Head from "next/head";
 import { Fragment } from "react";
 
@@ -19,16 +20,18 @@ export default function Container() {
 
   const _renderTheme = () => {
     switch (data?.theme) {
-      case MANDALA.theme:
+      case TEMPLATE.MANDALA.theme:
         return <Mandala {...props} />;
-      case STACKED.theme:
+      case TEMPLATE.STACKED.theme:
         return <Stacked {...props} />;
-      case FRAME.theme:
+      case TEMPLATE.FRAME.theme:
         return <Frame {...props} />;
-      case CLOUDY.theme:
+      case TEMPLATE.CLOUDY.theme:
         return <Cloudy {...props} />;
-      case FLAT.theme:
+      case TEMPLATE.FLAT.theme:
         return <Flat {...props} />;
+      case TEMPLATE.DESERT.theme:
+        return <Desert {...props} />;
       default:
         break;
     }

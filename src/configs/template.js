@@ -113,7 +113,26 @@ export const FLAT = {
   ],
 };
 
-export const THEME_LIST = [CLOUDY, FLAT, FRAME, MANDALA, STACKED];
+export const DESERT = {
+  name: "Desert",
+  theme: "desert",
+  variants: [
+    {
+      name: "Pink",
+      variant: "pink",
+      color: "bg-gray-900",
+      image: PREVIEW_IMAGES.FlatAmber,
+    },
+    {
+      name: "Amber",
+      variant: "amber",
+      color: "bg-gray-900",
+      image: PREVIEW_IMAGES.FlatCyan,
+    },
+  ],
+};
+
+export const THEME_LIST = [CLOUDY, DESERT, FLAT, FRAME, MANDALA, STACKED];
 
 export const FLATTENED_THEME_LIST = THEME_LIST.reduce((acc, currentValue) => {
   currentValue.variants.forEach((variant) => {
