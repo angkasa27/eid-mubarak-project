@@ -158,9 +158,9 @@ function CardPreview(props) {
           key={i}
           padding="lg:p-4 p-2"
         >
-          <div className="flex justify-between flex-col lg:flex-row mb-1">
+          {/* <div className="flex justify-between flex-col lg:flex-row mb-1">
             <h5 className="title-3 bold">{mapName(item)}</h5>
-          </div>
+          </div> */}
           <div className="flex gap-2">
             <IconButton
               className="px-3"
