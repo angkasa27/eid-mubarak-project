@@ -57,24 +57,24 @@ function Main(props) {
 
   const _bottomProps = (
     <div className="relative">
-      <PalmSilhouette className="h-auto w-36 absolute bottom-10 left-0 text-gray-900" />
+      <motion.div variants={RightVariant}>
+        <PalmSilhouette className="h-auto w-36 absolute bottom-10 left-0 text-gray-900" />
+      </motion.div>
       <CamelSilhouette className="h-auto w-full absolute bottom-0 text-gray-900" />
     </div>
   );
 
   return (
-    <div
+    <motion.div
+      animate="visible"
       className={backgroundVariant("h-screen flex flex-col justify-between")({
         variant,
       })}
+      initial="hidden"
+      variants={previewVariant}
     >
       {_topProps}
-      <motion.div
-        animate="visible"
-        className="px-8 flex flex-col items-center text-center gap-6 z-10 mb-[20vh]"
-        initial="hidden"
-        variants={previewVariant}
-      >
+      <div className="px-8 flex flex-col items-center text-center gap-6 z-10 mb-[20vh]">
         <motion.div variants={FadeInVariant}>
           <Moon3 className="h-auto w-24 mb-12" />
         </motion.div>
@@ -100,9 +100,9 @@ function Main(props) {
             </>
           )}
         </motion.div>
-      </motion.div>
+      </div>
       {_bottomProps}
-    </div>
+    </motion.div>
   );
 }
 

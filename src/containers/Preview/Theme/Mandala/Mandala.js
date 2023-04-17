@@ -122,12 +122,7 @@ function Main(props) {
       variants={previewVariant}
     >
       {_topProps}
-      <motion.div
-        animate="visible"
-        className="px-8"
-        initial="hidden"
-        variants={previewVariant}
-      >
+      <div className="px-8">
         <div>
           <motion.p className={"title-3 font-semibold"} variants={RightVariant}>
             Selamat Hari Raya
@@ -150,7 +145,7 @@ function Main(props) {
             </>
           )}
         </motion.div>
-      </motion.div>
+      </div>
       {_bottomProps}
     </motion.div>
   );

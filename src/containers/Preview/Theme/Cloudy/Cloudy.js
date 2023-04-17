@@ -11,6 +11,8 @@ import {
   UpVariant,
   RightVariant,
   ZoomVariant,
+  FadeInVariant,
+  DownVariant,
 } from "src/configs/animation";
 import CommentCard from "src/fragments/CommentCard";
 import { IKImage } from "imagekitio-react";
@@ -62,8 +64,12 @@ function Main(props) {
           variant,
         })}
       />
-      <Lantern1 className="h-auto w-8 absolute top-6 left-[25%]" />
-      <Lantern1 className="h-auto w-10 absolute top-10 right-[18%]" />
+      <motion.div variants={DownVariant}>
+        <Lantern1 className="h-auto w-8 absolute top-6 left-[25%]" />
+      </motion.div>
+      <motion.div variants={DownVariant}>
+        <Lantern1 className="h-auto w-10 absolute top-10 right-[18%]" />
+      </motion.div>
     </div>
   );
 
@@ -79,8 +85,12 @@ function Main(props) {
           variant,
         })}
       />
-      <Moon2 className="h-auto w-72 absolute bottom-16 -translate-x-1/2 left-[48%] z-10" />
-      <Mosque className="h-auto w-40 absolute bottom-16 -translate-x-1/2 left-[67%] z-10" />
+      <motion.div variants={UpVariant}>
+        <Moon2 className="h-auto w-72 absolute bottom-16 -translate-x-1/2 left-[48%] z-10" />
+      </motion.div>
+      <motion.div variants={UpVariant}>
+        <Mosque className="h-auto w-40 absolute bottom-16 -translate-x-1/2 left-[67%] z-10" />
+      </motion.div>
       <CloudSilhouette3 className="h-auto w-full absolute bottom-6 text-blue-gray-900/30" />
 
       {/* Cloud Animation */}
@@ -93,6 +103,7 @@ function Main(props) {
           repeat: Infinity,
           duration: 3,
         }}
+        variants={FadeInVariant}
       >
         <CloudSilhouette1 className={"h-auto w-36 text-white"} />
       </motion.div>
@@ -106,6 +117,7 @@ function Main(props) {
           duration: 3,
           delay: 1,
         }}
+        variants={FadeInVariant}
       >
         <CloudSilhouette1 className={"h-auto w-36 text-white"} />
       </motion.div>
@@ -119,6 +131,7 @@ function Main(props) {
           duration: 3,
           delay: 1.5,
         }}
+        variants={FadeInVariant}
       >
         <CloudSilhouette1 className={"h-auto w-16 text-white"} />
       </motion.div>
@@ -126,14 +139,14 @@ function Main(props) {
   );
 
   return (
-    <div className="h-screen flex flex-col justify-between">
+    <motion.div
+      animate="visible"
+      className="h-screen flex flex-col justify-between"
+      initial="hidden"
+      variants={previewVariant}
+    >
       {_topProps}
-      <motion.div
-        animate="visible"
-        className="px-8 flex flex-col items-center text-center gap-6 z-40"
-        initial="hidden"
-        variants={previewVariant}
-      >
+      <div className="px-8 flex flex-col items-center text-center gap-6 z-40">
         <div>
           <motion.p className="title-3 font-semibold" variants={RightVariant}>
             Selamat Hari Raya
@@ -156,9 +169,9 @@ function Main(props) {
             </>
           )}
         </motion.div>
-      </motion.div>
+      </div>
       {_bottomProps}
-    </div>
+    </motion.div>
   );
 }
 

@@ -67,19 +67,21 @@ function Main(props) {
   const _bottomProps = (
     <div className="relative">
       <Mosque className="h-auto w-full absolute bottom-0 text-gray-900/30 z-0" />
-      <CloudFrame className="h-auto w-full absolute -bottom-1" />
+      <motion.div variants={UpVariant}>
+        <CloudFrame className="h-auto w-full absolute -bottom-1" />
+      </motion.div>
     </div>
   );
 
   return (
-    <div className="h-screen flex flex-col justify-between">
+    <motion.div
+      animate="visible"
+      className="h-screen flex flex-col justify-between"
+      initial="hidden"
+      variants={previewVariant}
+    >
       {_topProps}
-      <motion.div
-        animate="visible"
-        className="px-8 flex flex-col items-center text-center gap-6 z-10"
-        initial="hidden"
-        variants={previewVariant}
-      >
+      <div className="px-8 flex flex-col items-center text-center gap-6 z-10">
         <motion.div variants={ZoomVariant}>
           <Moon1 className="h-auto w-32 my-12" />
         </motion.div>
@@ -105,9 +107,9 @@ function Main(props) {
             </>
           )}
         </motion.div>
-      </motion.div>
+      </div>
       {_bottomProps}
-    </div>
+    </motion.div>
   );
 }
 

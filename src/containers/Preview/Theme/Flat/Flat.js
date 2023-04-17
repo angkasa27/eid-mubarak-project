@@ -7,6 +7,7 @@ import {
   UpVariant,
   RightVariant,
   ZoomVariant,
+  DownVariant,
 } from "src/configs/animation";
 import CommentCard from "src/fragments/CommentCard";
 import { IKImage } from "imagekitio-react";
@@ -59,60 +60,72 @@ function Main(props) {
 
   const _topProps = (
     <div className="relative">
-      <Lantern
-        className={ornamentVariant("absolute -top-36 left-12 h-auto w-6")({
-          variant,
-        })}
-      />
-      <Lantern
-        className={ornamentVariant("absolute -top-44 left-20 h-auto w-10")({
-          variant,
-        })}
-      />
-      <Lantern
-        className={ornamentVariant("absolute -top-24 left-1/3 h-auto w-6")({
-          variant,
-        })}
-      />
-      <Lantern
-        className={ornamentVariant("absolute -top-36 right-32 h-auto w-6")({
-          variant,
-        })}
-      />
-      <Lantern
-        className={ornamentVariant("absolute -top-44 right-12 h-auto w-10")({
-          variant,
-        })}
-      />
+      <motion.div variants={DownVariant}>
+        <Lantern
+          className={ornamentVariant("absolute -top-32 left-20 h-auto w-[8%]")({
+            variant,
+          })}
+        />
+        <Lantern
+          className={ornamentVariant("absolute -top-32 right-32 h-auto w-[5%]")(
+            {
+              variant,
+            }
+          )}
+        />
+      </motion.div>
+      <motion.div variants={DownVariant}>
+        <Lantern
+          className={ornamentVariant("absolute -top-32 left-12 h-auto w-[5%]")({
+            variant,
+          })}
+        />
+        <Lantern
+          className={ornamentVariant("absolute -top-32 right-12 h-auto w-[8%]")(
+            {
+              variant,
+            }
+          )}
+        />
+      </motion.div>
+      <motion.div variants={DownVariant}>
+        <Lantern
+          className={ornamentVariant("absolute -top-20 left-1/3 h-auto w-[5%]")(
+            {
+              variant,
+            }
+          )}
+        />
+      </motion.div>
     </div>
   );
 
   const _bottomProps = (
     <div className="relative">
-      <Mosque
-        className={ornamentVariant(
-          "h-auto w-full absolute bottom-0 z-0 scale-125"
-        )({ variant })}
-      />
+      <motion.div variants={UpVariant}>
+        <Mosque
+          className={ornamentVariant(
+            "h-auto w-full absolute bottom-0 z-0 scale-125"
+          )({ variant })}
+        />
+      </motion.div>
     </div>
   );
 
   return (
-    <div
+    <motion.div
+      animate="visible"
       className="h-screen flex flex-col justify-between overflow-x-hidden overflow-y-hidden"
+      initial="hidden"
       style={{
         background: `url("${Background.Pattern3?.src}")`,
         backgroundSize: "72px",
         backgroundBlendMode: "overlay",
       }}
+      variants={previewVariant}
     >
       {_topProps}
-      <motion.div
-        animate="visible"
-        className="px-8 flex flex-col items-center text-center gap-20 z-10"
-        initial="hidden"
-        variants={previewVariant}
-      >
+      <div className="px-8 flex flex-col items-center text-center gap-20 z-10">
         <div>
           <motion.p className="title-3 font-semibold " variants={ZoomVariant}>
             Selamat Hari Raya
@@ -141,9 +154,9 @@ function Main(props) {
             </>
           )}
         </motion.div>
-      </motion.div>
+      </div>
       {_bottomProps}
-    </div>
+    </motion.div>
   );
 }
 
@@ -234,11 +247,11 @@ function Comment(props) {
   );
   const _topProps = (
     <div className="relative">
-      <Lantern className="absolute -top-44 left-12 h-auto w-6 text-white" />
-      <Lantern className="absolute -top-56 left-20 h-auto w-10 text-white" />
-      <Lantern className="absolute -top-36 left-1/3 h-auto w-6 text-white" />
-      <Lantern className="absolute -top-44 right-32 h-auto w-6 text-white" />
-      <Lantern className="absolute -top-56 right-12 h-auto w-10 text-white" />
+      <Lantern className="absolute -top-44 left-12 h-auto w-[5%] text-white" />
+      <Lantern className="absolute -top-56 left-20 h-auto w-[8%] text-white" />
+      <Lantern className="absolute -top-36 left-1/3 h-auto w-[5%] text-white" />
+      <Lantern className="absolute -top-44 right-32 h-auto w-[5%] text-white" />
+      <Lantern className="absolute -top-56 right-12 h-auto w-[8%] text-white" />
     </div>
   );
 
