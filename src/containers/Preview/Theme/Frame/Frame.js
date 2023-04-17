@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import {
   previewVariant,
   UpVariant,
-  FadeInVariant,
   RightVariant,
   ZoomVariant,
 } from "src/configs/animation";
