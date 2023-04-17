@@ -75,22 +75,38 @@ function Main(props) {
   return (
     <div className="h-screen flex flex-col justify-between">
       {_topProps}
-      <div className="px-8 flex flex-col items-center text-center gap-6 z-10">
-        <Moon1 className="h-auto w-32 my-12" />
+      <motion.div
+        animate="visible"
+        className="px-8 flex flex-col items-center text-center gap-6 z-10"
+        initial="hidden"
+        variants={previewVariant}
+      >
+        <motion.div variants={ZoomVariant}>
+          <Moon1 className="h-auto w-32 my-12" />
+        </motion.div>
         <div>
-          <p className="title-3 font-semibold">Selamat Hari Raya</p>
-          <h1 className={clsx(headingFont, "title-1")}>Idul Fitri</h1>
-          <p className="body-1">1 Syawal 1444H</p>
+          <motion.p className="title-3 font-semibold" variants={RightVariant}>
+            Selamat Hari Raya
+          </motion.p>
+          <motion.h1
+            className={clsx(headingFont, "title-1")}
+            variants={ZoomVariant}
+          >
+            Idul Fitri
+          </motion.h1>
+          <motion.p className="body-1" variants={UpVariant}>
+            1 Syawal 1444H
+          </motion.p>
         </div>
-        <div className="">
+        <motion.div variants={RightVariant}>
           {!!name && (
             <>
               <p className="body-1">Kepada</p>
               <p className={clsx(headingFont, "title-3")}>{name}</p>
             </>
           )}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       {_bottomProps}
     </div>
   );

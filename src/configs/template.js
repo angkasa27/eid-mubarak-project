@@ -118,8 +118,8 @@ export const DESERT = {
   theme: "desert",
   variants: [
     {
-      name: "Pink",
-      variant: "pink",
+      name: "Purple",
+      variant: "purple",
       color: "bg-indigo-900",
       image: PREVIEW_IMAGES.DesertPink,
     },

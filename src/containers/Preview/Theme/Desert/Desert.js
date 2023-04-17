@@ -69,22 +69,38 @@ function Main(props) {
       })}
     >
       {_topProps}
-      <div className="px-8 flex flex-col items-center text-center gap-6 z-10 mb-[20vh]">
-        <Moon3 className="h-auto w-24 mb-12" />
+      <motion.div
+        animate="visible"
+        className="px-8 flex flex-col items-center text-center gap-6 z-10 mb-[20vh]"
+        initial="hidden"
+        variants={previewVariant}
+      >
+        <motion.div variants={FadeInVariant}>
+          <Moon3 className="h-auto w-24 mb-12" />
+        </motion.div>
         <div>
-          <p className="title-3 font-semibold">Selamat Hari Raya</p>
-          <h1 className={clsx(headingFont, "title-1")}>Idul Fitri</h1>
-          <p className="body-1">1 Syawal 1444H</p>
+          <motion.p className="title-3 font-semibold" variants={UpVariant}>
+            Selamat Hari Raya
+          </motion.p>
+          <motion.h1
+            className={clsx(headingFont, "title-1")}
+            variants={ZoomVariant}
+          >
+            Idul Fitri
+          </motion.h1>
+          <motion.p className="body-1" variants={RightVariant}>
+            1 Syawal 1444H
+          </motion.p>
         </div>
-        <div>
+        <motion.div variants={UpVariant}>
           {!!name && (
             <>
               <p className="body-1">Kepada</p>
               <p className={clsx(headingFont, "title-3")}>{name}</p>
             </>
           )}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       {_bottomProps}
     </div>
   );

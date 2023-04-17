@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import {
   previewVariant,
   UpVariant,
-  FadeInVariant,
   RightVariant,
   ZoomVariant,
 } from "src/configs/animation";
@@ -108,18 +107,31 @@ function Main(props) {
       }}
     >
       {_topProps}
-      <div className="px-8 flex flex-col items-center text-center gap-20 z-10">
+      <motion.div
+        animate="visible"
+        className="px-8 flex flex-col items-center text-center gap-20 z-10"
+        initial="hidden"
+        variants={previewVariant}
+      >
         <div>
-          <p className="title-3 font-semibold ">Selamat Hari Raya</p>
-          <h1 className={textVariant([headingFont, "title-1"])({ variant })}>
+          <motion.p className="title-3 font-semibold " variants={ZoomVariant}>
+            Selamat Hari Raya
+          </motion.p>
+          <motion.h1
+            className={textVariant([headingFont, "title-1"])({ variant })}
+            variants={UpVariant}
+          >
             Idul Fitri
-          </h1>
-          <p className="body-1">1 Syawal 1444H</p>
-          <div
+          </motion.h1>
+          <motion.p className="body-1" variants={UpVariant}>
+            1 Syawal 1444H
+          </motion.p>
+          <motion.div
             className={backgroundVariant("w-24 h-1 mx-auto mt-2")({ variant })}
+            variants={RightVariant}
           />
         </div>
-        <div className="">
+        <motion.div variants={UpVariant}>
           {!!name && (
             <>
               <p className="body-1">Kepada</p>
@@ -128,8 +140,8 @@ function Main(props) {
               </p>
             </>
           )}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       {_bottomProps}
     </div>
   );
