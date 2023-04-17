@@ -121,7 +121,7 @@ export const DESERT = {
       name: "Purple",
       variant: "purple",
       color: "bg-indigo-900",
-      image: PREVIEW_IMAGES.DesertPink,
+      image: PREVIEW_IMAGES.DesertPurple,
     },
     {
       name: "Amber",

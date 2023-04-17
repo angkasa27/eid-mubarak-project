@@ -1,7 +1,7 @@
 import CloudyAfternoon from "./CloudyAfternoon.png";
 import CloudyEvening from "./CloudyEvening.png";
 import DesertAmber from "./DesertAmber.png";
-import DesertPink from "./DesertPink.png";
+import DesertPurple from "./DesertPurple.png";
 import FlatAmber from "./FlatAmber.png";
 import FlatCyan from "./FlatCyan.png";
 import FrameBlue from "./FrameBlue.png";
@@ -18,7 +18,7 @@ const PREVIEW_IMAGES = {
   CloudyAfternoon,
   CloudyEvening,
   DesertAmber,
-  DesertPink,
+  DesertPurple,
   FlatAmber,
   FlatCyan,
   FrameBlue,
