@@ -120,14 +120,14 @@ export const DESERT = {
     {
       name: "Pink",
       variant: "pink",
-      color: "bg-gray-900",
-      image: PREVIEW_IMAGES.FlatAmber,
+      color: "bg-indigo-900",
+      image: PREVIEW_IMAGES.DesertPink,
     },
     {
       name: "Amber",
       variant: "amber",
-      color: "bg-gray-900",
-      image: PREVIEW_IMAGES.FlatCyan,
+      color: "bg-indigo-900",
+      image: PREVIEW_IMAGES.DesertAmber,
     },
   ],
 };
