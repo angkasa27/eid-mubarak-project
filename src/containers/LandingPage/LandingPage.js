@@ -7,6 +7,7 @@ import { getAccessToken } from "@utils/common";
 import { useRouter } from "next/router";
 import { ROUTES } from "src/configs";
 import { THEME_LIST } from "src/configs/template";
+import { DOMAIN } from "src/constants";
 import Image from "next/image";
 
 export default function LandingPage() {
@@ -15,6 +16,19 @@ export default function LandingPage() {
       <Main />
       {/* <Feature /> */}
       <Theme />
+      <div className="bg-gray-900 pt-2 pb-3">
+        <p className=" text-center text-sm md:text-base text-gray-300">
+          Created by{" "}
+          <a
+            className="hover:underline text-amber-400"
+            href="https://github.com/angkasa27"
+            rel="noreferrer"
+            target="_blank"
+          >
+            angkasa27
+          </a>
+        </p>
+      </div>
     </div>
   );
 }
@@ -83,7 +97,7 @@ function Main() {
           </div>
         </div>
         <div className="w-full">
-          <Mosque className="min-w-[18rem] w-[50%] max-w-[30rem] h-auto text-main absolute bottom-12 -right-12 z-0" />
+          <Mosque className="min-w-[20rem] w-[50%] max-w-[30rem] h-auto text-main absolute bottom-12 -right-16 z-0" />
         </div>
       </div>
       <WaveSilhouette className="absolute -bottom-1 h-24 w-screen text-main -scale-x-150 md:-scale-x-100" />
@@ -121,14 +135,22 @@ function Feature() {
 }
 
 function Theme() {
+  const redirectDemo = (theme, variant) => {
+    window.open(`${DOMAIN}${ROUTES.DEMO(theme, variant)}`, "_blank");
+  };
+
   return (
-    <div className="container p-8">
+    <div className="container px-8 py-16">
       <h1 className="text-center text-2xl md:text-3xl bold">
         Beragam Pilihan Tema
       </h1>
       <div className="mt-8 grid grid-cols-3 gap-2 md:gap-4 md:grid-cols-6">
         {THEME_LIST.map(({ theme, name, variants }) => (
-          <div className="rounded-lg overflow-hidden" key={theme}>
+          <div
+            className="rounded-lg overflow-hidden hover:ring ring-blue-500 cursor-pointer"
+            key={theme}
+            onClick={() => redirectDemo(theme, variants[0].variant)}
+          >
             <Image
               alt={name}
               className="w-full h-auto"
