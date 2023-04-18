@@ -57,7 +57,7 @@ export default function CardPreview(props) {
           <div className="flex gap-2">
             {previewOnly ? (
               <Button
-                className="w-full flex justify-center gap-2"
+                className="!w-full flex justify-center gap-2"
                 onClick={() => mapPreview(item)}
                 size="sm"
                 variant="outlined"

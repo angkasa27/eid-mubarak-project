@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 
-export default function Logo({ className }) {
+export default function Logo(props) {
   return (
     <svg
-      className={className}
+      {...props}
       fill="none"
       viewBox="0 0 540 790"
       xmlns="http://www.w3.org/2000/svg"
