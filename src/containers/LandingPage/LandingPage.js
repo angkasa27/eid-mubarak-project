@@ -9,6 +9,7 @@ import { ROUTES } from "src/configs";
 import { THEME_LIST } from "src/configs/template";
 import { DOMAIN } from "src/constants";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function LandingPage() {
   return (
@@ -36,15 +37,100 @@ export default function LandingPage() {
 function Main() {
   const [hasToken, setHasToken] = useState(false);
   const router = useRouter();
+  // eslint-disable-next-line object-curly-spacing
+  const blink = { opacity: [1, 0, 1] };
 
   useEffect(() => {
     setHasToken(!!getAccessToken());
   }, []);
 
+  const _blinkStar = (
+    <div>
+      <motion.div
+        animate={blink}
+        className="absolute top-[8vh] right-[15%] h-0.5 w-0.5 rounded-full bg-white"
+        transition={{
+          delay: 3,
+          repeat: Infinity,
+          ease: "easeOut",
+          duration: 4,
+        }}
+      />
+      <motion.div
+        animate={blink}
+        className="absolute top-[18vh] right-[36%] h-0.5 w-0.5 rounded-full bg-white"
+        transition={{
+          delay: 1,
+          repeat: Infinity,
+          ease: "easeOut",
+          duration: 4,
+        }}
+      />
+      <motion.div
+        animate={blink}
+        className="absolute top-[33vh] right-[10%] h-0.5 w-0.5 rounded-full bg-white"
+        transition={{
+          delay: 2,
+          repeat: Infinity,
+          ease: "easeOut",
+          duration: 4,
+        }}
+      />
+      <motion.div
+        animate={blink}
+        className="absolute top-[16vh] left-[10%] h-0.5 w-0.5 rounded-full bg-white"
+        transition={{
+          delay: 4,
+          repeat: Infinity,
+          ease: "easeOut",
+          duration: 4,
+        }}
+      />
+      <motion.div
+        animate={blink}
+        className="absolute top-[38vh] left-[17%] h-0.5 w-0.5 rounded-full bg-white"
+        transition={{
+          delay: 2,
+          repeat: Infinity,
+          ease: "easeOut",
+          duration: 4,
+        }}
+      />
+      <motion.div
+        animate={blink}
+        className="absolute top-[5vh] left-[36%] h-0.5 w-0.5 rounded-full bg-white"
+        transition={{
+          delay: 3,
+          repeat: Infinity,
+          ease: "easeOut",
+          duration: 4,
+        }}
+      />
+      <motion.div
+        animate={blink}
+        className="absolute bottom-[24vh] left-[22%] h-0.5 w-0.5 rounded-full bg-white"
+        transition={{
+          delay: 1,
+          repeat: Infinity,
+          ease: "easeOut",
+          duration: 4,
+        }}
+      />
+    </div>
+  );
+
+  const _shootingStar = (
+    <div className="">
+      <span className="shooting-star" />
+      <span className="shooting-star" />
+    </div>
+  );
+
   return (
-    <div className="relative bg-gradient-to-b from-main  to-indigo-900 bg-fixed">
+    <div className="relative bg-gradient-to-b from-main  to-indigo-900 bg-fixed  overflow-hidden">
+      {_shootingStar}
       <div className="h-screen flex flex-col justify-between relative container">
-        <div />
+        {_blinkStar}
         <div className="z-10">
           <div className="flex items-center flex-col md:flex-row md:items-end justify-center gap-4 ">
             <Logo
