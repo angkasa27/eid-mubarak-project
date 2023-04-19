@@ -131,7 +131,6 @@ function Main() {
       {_shootingStar}
       <div className="h-screen flex flex-col justify-between relative container">
         {_blinkStar}
-        <div />
         <div className="z-10">
           <div className="flex items-center flex-col md:flex-row md:items-end justify-center gap-4 ">
             <Logo
