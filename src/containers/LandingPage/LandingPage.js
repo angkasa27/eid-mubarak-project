@@ -16,7 +16,7 @@ export default function LandingPage() {
       <Main />
       {/* <Feature /> */}
       <Theme />
-      <div className="bg-gray-900 pt-2 pb-3">
+      <div className="bg-[#121212] pt-2 pb-3">
         <p className=" text-center text-sm md:text-base text-gray-300">
           Created by{" "}
           <a
