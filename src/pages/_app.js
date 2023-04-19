@@ -11,6 +11,7 @@ import PropTypes from "prop-types";
 import PopUpAlert from "@components/elements/PopUpAlert";
 import { IKContext } from "imagekitio-react";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 
 import { fontsVariable } from "src/configs/font";
 
@@ -22,6 +23,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <Fragment>
+      <Analytics />
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-V5N6QP5EJP"
         strategy="afterInteractive"
