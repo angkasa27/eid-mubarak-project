@@ -34,6 +34,7 @@ const Files = (props) => {
     onUploadProgress,
     onUploadStart,
     onError,
+    validateFile,
   } = useUploader({
     value,
     onChange,
@@ -93,6 +94,7 @@ const Files = (props) => {
           ref={ikUploadRefTest}
           style={{ display: "none" }}
           tags={[username]}
+          validateFile={(file) => validateFile(file)}
         />
         {!compact && <div className="hidden md:block">{buttonUpload}</div>}
       </div>
