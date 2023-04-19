@@ -24,3 +24,15 @@ export const getFirstWord = (val) => {
   }
   return "";
 };
+
+export const getFirtsTwoLetter = (str) => {
+  const strArray = str?.split(" ");
+  if (strArray.length > 1) {
+    const firstLetter = strArray[0]?.charAt(0);
+    const secondLetter = strArray[1]?.charAt(0);
+    return firstLetter + secondLetter;
+  }
+  const firstLetter = strArray[0]?.charAt(0);
+  const secondLetter = strArray[0]?.charAt(1);
+  return firstLetter + secondLetter;
+};

@@ -5,6 +5,7 @@ import FormGenerator from "../FormGenerator";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import moment from "moment";
+import { getFirtsTwoLetter } from "@utils/text";
 
 export default function CommentCard(props) {
   const {
@@ -91,8 +92,8 @@ export default function CommentCard(props) {
                   getRandomeColor(avatarColor)
                 )}
               >
-                <p className="text-white body-3 bold">
-                  {getFirtsLetter(item.name)}
+                <p className="text-white body-3 bold uppercase">
+                  {getFirtsTwoLetter(item.name)}
                 </p>
               </div>
               <div>

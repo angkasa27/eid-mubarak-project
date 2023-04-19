@@ -3,21 +3,10 @@ import clsx from "clsx";
 import useAction from "./hooks/useAction";
 import Header from "src/fragments/Header";
 import moment from "moment";
+import { getFirtsTwoLetter } from "@utils/text";
 
 export default function WhatsappShare() {
   const { comments } = useAction();
-
-  const getFirtsLetter = (str) => {
-    const strArray = str?.split(" ");
-    if (strArray.length > 1) {
-      const firstLetter = strArray[0]?.charAt(0);
-      const secondLetter = strArray[1]?.charAt(0);
-      return firstLetter + secondLetter;
-    }
-    const firstLetter = strArray[0]?.charAt(0);
-    const secondLetter = strArray[0]?.charAt(1);
-    return firstLetter + secondLetter;
-  };
 
   const getRandomeColor = (color = []) => {
     const randomIndex = Math.floor(Math.random() * color.length);
@@ -47,8 +36,8 @@ export default function WhatsappShare() {
                     getRandomeColor(avatarColor)
                   )}
                 >
-                  <p className="text-white body-3 bold">
-                    {getFirtsLetter(item.name)}
+                  <p className="text-white body-3 bold uppercase">
+                    {getFirtsTwoLetter(item.name)}
                   </p>
                 </div>
                 <div>
