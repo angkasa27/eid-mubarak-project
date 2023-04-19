@@ -18,8 +18,7 @@ export default function App({ Component, pageProps }) {
   const defaultClass = "font-jakarta text-default bg-main";
   const urlEndpoint = `${process.env.IMAGEKIT_URL_ENDPOINT}`;
   const publicKey = `${process.env.IMAGEKIT_PUBLIC_KEY}=`;
-  const imageAuth = "http://localhost:5000/image/auth";
-  // const imageAuth = "https://api-eid-mubarak.angkasa27.com/image/auth";
+  const imageAuth = `${process.env.IMAGEKIT_AUTH_ENDPOINT}`;
 
   return (
     <Fragment>
