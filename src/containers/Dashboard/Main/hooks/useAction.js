@@ -7,7 +7,7 @@ import { ROUTES } from "src/configs";
 
 const useAction = () => {
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [openDialog, setOpenDialog] = useState(false);
   const { setFailedAlert, setSuccessAlert } = usePopupAlert();
   const { getUsername } = useUserData();

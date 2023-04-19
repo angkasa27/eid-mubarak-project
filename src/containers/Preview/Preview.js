@@ -1,4 +1,3 @@
-import LoadingPage from "src/fragments/LoadingPage";
 import Mandala from "./Theme/Mandala";
 import Stacked from "./Theme/Stacked";
 import Frame from "./Theme/Frame";
@@ -48,7 +47,6 @@ export default function Container(props) {
       </Head>
       <div className="h-screen w-full overflow-y-scroll  text-white overflow-x-hidden">
         {_renderTheme()}
-        {/* <LoadingPage loading={loading || !_renderTheme()} /> */}
       </div>
     </Fragment>
   );

@@ -16,6 +16,7 @@ import { XMarkIcon } from "@heroicons/react/20/solid";
 import PropTypes from "prop-types";
 import Input from "@components/elements/Input";
 import { useState } from "react";
+import LoadingPage from "src/fragments/LoadingPage";
 
 export default function Main() {
   const router = useRouter();
@@ -120,6 +121,7 @@ export default function Main() {
         copyLink={copyLink}
         useDialog={[openDialog, setOpenDialog]}
       />
+      <LoadingPage loading={loading} />
     </div>
   );
 }
