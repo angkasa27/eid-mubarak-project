@@ -1,4 +1,3 @@
-import useAction from "./hooks/useAction";
 import LoadingPage from "src/fragments/LoadingPage";
 import Mandala from "./Theme/Mandala";
 import Stacked from "./Theme/Stacked";
@@ -7,13 +6,18 @@ import Cloudy from "./Theme/Cloudy";
 import Flat from "./Theme/Flat";
 import Desert from "./Theme/Desert";
 import * as TEMPLATE from "src/configs/template";
-// import Head from "next/head";
 import { Fragment } from "react";
+import { useRouter } from "next/router";
+import PropTypes from "prop-types";
+import Head from "next/head";
 
-export default function Container() {
-  const { data, loading, name } = useAction();
+export default function Container(props) {
+  const { data } = props;
+  const {
+    query: { name },
+  } = useRouter();
 
-  const props = {
+  const themeProps = {
     data,
     name,
   };
@@ -21,17 +25,17 @@ export default function Container() {
   const _renderTheme = () => {
     switch (data?.theme) {
       case TEMPLATE.MANDALA.theme:
-        return <Mandala {...props} />;
+        return <Mandala {...themeProps} />;
       case TEMPLATE.STACKED.theme:
-        return <Stacked {...props} />;
+        return <Stacked {...themeProps} />;
       case TEMPLATE.FRAME.theme:
-        return <Frame {...props} />;
+        return <Frame {...themeProps} />;
       case TEMPLATE.CLOUDY.theme:
-        return <Cloudy {...props} />;
+        return <Cloudy {...themeProps} />;
       case TEMPLATE.FLAT.theme:
-        return <Flat {...props} />;
+        return <Flat {...themeProps} />;
       case TEMPLATE.DESERT.theme:
-        return <Desert {...props} />;
+        return <Desert {...themeProps} />;
       default:
         break;
     }
@@ -39,13 +43,17 @@ export default function Container() {
 
   return (
     <Fragment>
-      {/* <Head>
+      <Head>
         <link href={data?.image} rel="image_src" />
-      </Head> */}
+      </Head>
       <div className="h-screen w-full overflow-y-scroll  text-white overflow-x-hidden">
         {_renderTheme()}
-        <LoadingPage loading={loading || !_renderTheme()} />
+        {/* <LoadingPage loading={loading || !_renderTheme()} /> */}
       </div>
     </Fragment>
   );
 }
+
+Container.propTypes = {
+  data: PropTypes.object.isRequired,
+};

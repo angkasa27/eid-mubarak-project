@@ -1,12 +1,13 @@
-import ReactPlayer from "react-player/youtube";
-import {
-  MusicalNoteIcon,
-  PlayIcon,
-  PauseIcon,
-} from "@heroicons/react/20/solid";
+// import ReactPlayer from "react-player/youtube";
+import { PlayIcon, PauseIcon } from "@heroicons/react/20/solid";
 import { useState } from "react";
 import clsx from "clsx";
 import PropTypes from "prop-types";
+import dynamic from "next/dynamic";
+
+const ReactPlayer = dynamic(() => import("react-player/youtube"), {
+  ssr: false,
+});
 
 export default function MusicPlayer({ className, music }) {
   const [play, setPlay] = useState(false);

@@ -1,13 +1,13 @@
 import fetch from "@utils/fetch";
 import { SERVICES } from "src/configs";
 
-const showCard = (username) => {
+const indexCard = () => {
   const options = {
     method: "GET",
-    url: SERVICES.CARD(username),
+    url: SERVICES.CARD_INDEX,
     withCancel: true,
   };
   return fetch(options);
 };
 
-export default showCard;
+export default indexCard;
