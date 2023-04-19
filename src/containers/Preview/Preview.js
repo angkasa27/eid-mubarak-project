@@ -8,7 +8,6 @@ import * as TEMPLATE from "src/configs/template";
 import { Fragment } from "react";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
-import Head from "next/head";
 
 export default function Container(props) {
   const { data } = props;
@@ -42,9 +41,6 @@ export default function Container(props) {
 
   return (
     <Fragment>
-      <Head>
-        <link href={data?.image} rel="image_src" />
-      </Head>
       <div className="h-screen w-full overflow-y-scroll  text-white overflow-x-hidden">
         {_renderTheme()}
       </div>
