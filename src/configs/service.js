@@ -1,4 +1,4 @@
-let domain = "https://api-eid-mubarak.angkasa27.com";
+let domain = "https://eid-mubarak.angkasa27.com";
 
 const service = {
   // GENERAL
