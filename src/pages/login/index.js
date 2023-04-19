@@ -7,7 +7,7 @@ export default function Pages() {
   return (
     <Fragment>
       <Head>
-        <title>Masuk | SuratBahagia</title>
+        <title>Masuk | EidMubarak!</title>
       </Head>
       <AuthLayout containers={Login} />
     </Fragment>

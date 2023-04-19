@@ -7,7 +7,7 @@ export default function Pages() {
   return (
     <Fragment>
       <Head>
-        <title>Daftar | SuratBahagia</title>
+        <title>Daftar | EidMubarak!</title>
       </Head>
       <AuthLayout containers={Register} />
     </Fragment>

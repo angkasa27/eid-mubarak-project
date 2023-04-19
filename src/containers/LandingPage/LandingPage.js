@@ -249,7 +249,7 @@ function Theme() {
             />
             <div
               className={clsx(
-                "w-full bg-white absolute left-0 overflow-hidden p-2 h-full flex flex-col justify-end md:justify-center gap-2",
+                "w-full bg-white absolute left-0 overflow-hidden p-2 h-full flex flex-col justify-center gap-2",
                 opened === theme ? " top-0" : "top-[100%]"
               )}
             >
