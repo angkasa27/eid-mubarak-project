@@ -14,8 +14,8 @@ import Script from "next/script";
 
 import { fontsVariable } from "src/configs/font";
 
-const urlEndpoint = "https://ik.imagekit.io/sd3osdoco/";
-const publicKey = "public_dH7uH0U5VmvL4AZY4KepRYWujNU=";
+const urlEndpoint = "https://ik.imagekit.io/angkasaproject/";
+const publicKey = "public_DfnlRMXYGsa8y7D9h4O0CEvdWx8=";
 const imageAuth = "https://api-eid-mubarak.angkasa27.com/image/auth";
 // const imageAuth = "http://localhost:5000/image/auth";
 
