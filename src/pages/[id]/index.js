@@ -33,6 +33,25 @@ export async function getStaticProps({ params }) {
   }
 }
 
+// export async function getServerSideProps({ params }) {
+//   const { id } = params;
+
+//   try {
+//     const { data } = await showCard(id);
+
+//     return {
+//       props: {
+//         id,
+//         data,
+//       },
+//     };
+//   } catch (error) {
+//     return {
+//       notFound: true,
+//     };
+//   }
+// }
+
 export default function Pages(props) {
   return <PreviewLayout containers={Preview} {...props} />;
 }
