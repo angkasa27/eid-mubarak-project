@@ -24,6 +24,7 @@ export default function Form(props) {
       {
         field: "image",
         control,
+        compact: true,
         label: "Foto",
         name: "image",
         description: "Upload fotomu atau foto yang ingin kamu gunakan",

@@ -22,6 +22,7 @@ const Files = (props) => {
     username,
     type,
     disabled,
+    compact,
   } = props;
 
   const value = val === null ? undefined : val;
@@ -93,10 +94,12 @@ const Files = (props) => {
           style={{ display: "none" }}
           tags={[username]}
         />
-        <div className="hidden md:block">{buttonUpload}</div>
+        {!compact && <div className="hidden md:block">{buttonUpload}</div>}
       </div>
       <ImagePreview {...previewProps} />
-      <div className="block md:hidden mt-4">{buttonUpload}</div>
+      <div className={clsx("block mt-4", { "md:hidden ": !compact })}>
+        {buttonUpload}
+      </div>
     </div>
   );
 };
@@ -105,6 +108,7 @@ export default Files;
 
 Files.propTypes = {
   className: PropTypes.string,
+  compact: PropTypes.bool,
   description: PropTypes.string,
   disabled: PropTypes.bool,
   error: PropTypes.bool,
@@ -119,6 +123,7 @@ Files.propTypes = {
 
 Files.defaultProps = {
   className: "",
+  compact: false,
   description: "",
   disabled: false,
   error: false,

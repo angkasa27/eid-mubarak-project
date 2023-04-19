@@ -33,6 +33,7 @@ const useUploader = (props) => {
 
   const onError = (error) => {
     setLoading(false);
+    onChange(undefined);
     setFailedAlert({ message: error.message });
   };
 

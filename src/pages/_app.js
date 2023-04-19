@@ -16,14 +16,15 @@ import { fontsVariable } from "src/configs/font";
 
 const urlEndpoint = "https://ik.imagekit.io/sd3osdoco/";
 const publicKey = "public_dH7uH0U5VmvL4AZY4KepRYWujNU=";
-const imageAuth = "https://eid-mubarak-system.angkasa27.com/image/auth";
+const imageAuth = "https://api-eid-mubarak.angkasa27.com/image/auth";
+// const imageAuth = "http://localhost:5000/image/auth";
 
 export default function App({ Component, pageProps }) {
   const defaultClass = "font-jakarta text-default bg-main";
 
   return (
     <Fragment>
-      <Script
+      {/* <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-V5N6QP5EJP"
         strategy="afterInteractive"
       />
@@ -51,7 +52,7 @@ export default function App({ Component, pageProps }) {
         }}
         id="microsoft-clarity"
         strategy="afterInteractive"
-      />
+      /> */}
       <Head>
         <title>EidMubarak!</title>
         <link
