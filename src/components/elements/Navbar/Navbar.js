@@ -69,7 +69,7 @@ const Nav = () => {
                 </Link>
               </li>
             ))}
-
+            {/*
             <div className="flex justify-center gap-4">
               <a
                 className="text-white text-opacity-80 hover:text-opacity-100"
@@ -79,7 +79,7 @@ const Nav = () => {
               >
                 <Github className="h-8 w-8" />
               </a>
-            </div>
+            </div> */}
           </ul>
         </div>
       </nav>
@@ -107,7 +107,7 @@ const Nav = () => {
                 </motion.li>
               ))}
             </ul>
-            <div className="flex justify-center gap-4">
+            {/* <div className="flex justify-center gap-4">
               <a
                 href="https://github.com/angkasa27/eid-mubarak-project"
                 rel="noopener noreferrer"
@@ -117,7 +117,7 @@ const Nav = () => {
                   <Github className="h-8 w-8" />
                 </motion.div>
               </a>
-            </div>
+            </div> */}
           </motion.div>
         )}
       </AnimatePresence>

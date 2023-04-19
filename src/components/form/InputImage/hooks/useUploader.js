@@ -62,6 +62,14 @@ const useUploader = (props) => {
     }
   };
 
+  const validateFile = (file) => {
+    if (file.size > 5000000) {
+      setFailedAlert({ message: "Ukuran foto maksimal 5MB" });
+      return false;
+    }
+    return true;
+  };
+
   return {
     onDeleteFile,
     loading,
@@ -69,6 +77,7 @@ const useUploader = (props) => {
     onUploadProgress,
     onUploadStart,
     onError,
+    validateFile,
   };
 };
 

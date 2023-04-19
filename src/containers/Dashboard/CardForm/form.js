@@ -27,7 +27,12 @@ export default function Form(props) {
         compact: true,
         label: "Foto",
         name: "image",
-        description: "Upload fotomu atau foto yang ingin kamu gunakan",
+        description: (
+          <>
+            Ukuran foto maksimal 5MB. <br />
+            Foto akan dipotong menjadi persegi.
+          </>
+        ),
         username,
       },
       {

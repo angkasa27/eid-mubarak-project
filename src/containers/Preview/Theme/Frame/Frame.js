@@ -149,11 +149,12 @@ function Detail(props) {
             alt={image?.name}
             height="auto"
             loading="lazy"
-            lqip={{ active: true, quality: 10 }}
+            lqip={{ active: true, quality: 20 }}
             path={image?.filePath}
             transformation={[
               {
-                ar: "3-4",
+                height: 400,
+                width: 400,
               },
             ]}
             width="100%"

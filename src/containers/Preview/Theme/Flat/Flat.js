@@ -194,16 +194,17 @@ function Detail(props) {
         <div className="rounded-md overflow-hidden">
           <IKImage
             alt={image?.name}
-            height={300}
+            height="auto"
             loading="lazy"
-            lqip={{ active: true, quality: 10 }}
+            lqip={{ active: true, quality: 20 }}
             path={image?.filePath}
             transformation={[
               {
-                ar: "4-3",
+                height: 400,
+                width: 400,
               },
             ]}
-            width={400}
+            width="100%"
           />
         </div>
         <div>
