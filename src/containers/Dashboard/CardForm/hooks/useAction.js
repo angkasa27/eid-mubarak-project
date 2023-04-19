@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import { ROUTES } from "src/configs";
 import defaultValues from "src/constants/defaultValue";
 
-const useAction = () => {
+const useAction = ({ setLoadData }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const { setFailedAlert, setSuccessAlert } = usePopupAlert();
@@ -36,7 +36,7 @@ const useAction = () => {
   };
 
   const fetchDetail = async () => {
-    setLoading(true);
+    setLoadData(true);
     try {
       const { data } = await detailCard(username);
       reset({ ...data });
@@ -44,7 +44,7 @@ const useAction = () => {
       if (error?.code === 404) router.push(ROUTES.THEME());
       else setFailedAlert({ message: error.message });
     } finally {
-      setLoading(false);
+      setLoadData(false);
     }
   };
 

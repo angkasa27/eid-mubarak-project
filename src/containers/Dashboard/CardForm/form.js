@@ -1,8 +1,9 @@
 import useAction from "./hooks/useAction";
 import FormGenerator from "src/fragments/FormGenerator";
 
-export default function Form() {
-  const { control, handleSubmit, loading, onSubmit, username } = useAction();
+export default function Form(props) {
+  const { control, handleSubmit, loading, onSubmit, username } =
+    useAction(props);
 
   const formProps = {
     fields: [
@@ -16,7 +17,7 @@ export default function Form() {
       {
         field: "text",
         control,
-        label: "Variant Warna",
+        label: "Varian Warna",
         name: "variant",
         disabled: true,
       },
@@ -100,5 +101,9 @@ export default function Form() {
     onSubmit,
     className: "flex flex-col gap-4 text-blue-gray-800",
   };
-  return <FormGenerator {...formProps} />;
+  return (
+    <>
+      <FormGenerator {...formProps} />
+    </>
+  );
 }
