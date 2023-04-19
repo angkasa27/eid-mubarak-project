@@ -11,6 +11,10 @@ const nextConfig = {
       },
     ],
   },
+  env: {
+    IMAGEKIT_URL_ENDPOINT: process.env.IMAGEKIT_URL_ENDPOINT,
+    IMAGEKIT_PUBLIC_KEY: process.env.IMAGEKIT_PUBLIC_KEY,
+  },
 };
 
 module.exports = nextConfig;
