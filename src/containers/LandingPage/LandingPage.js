@@ -10,6 +10,7 @@ import { THEME_LIST } from "src/configs/template";
 import { DOMAIN } from "src/constants";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import clsx from "clsx";
 
 export default function LandingPage() {
   return (
@@ -221,6 +222,9 @@ function Feature() {
 }
 
 function Theme() {
+  const router = useRouter();
+  const [opened, setOpened] = useState("");
+
   const redirectDemo = (theme, variant) => {
     window.open(`${DOMAIN}${ROUTES.DEMO(theme, variant)}`, "_blank");
   };
@@ -230,12 +234,12 @@ function Theme() {
       <h1 className="text-center text-2xl md:text-3xl bold">
         Beragam Pilihan Tema
       </h1>
-      <div className="mt-8 grid grid-cols-3 gap-2 md:gap-4 md:grid-cols-6">
+      <div className="mt-8 grid grid-cols-2 gap-2 md:gap-4 md:grid-cols-6">
         {THEME_LIST.map(({ theme, name, variants }) => (
           <div
-            className="rounded-lg overflow-hidden hover:ring ring-blue-500 cursor-pointer"
+            className="rounded-lg overflow-hidden hover:ring ring-blue-500 cursor-pointer relative"
             key={theme}
-            onClick={() => redirectDemo(theme, variants[0].variant)}
+            onClick={() => setOpened(theme)}
           >
             <Image
               alt={name}
@@ -243,6 +247,26 @@ function Theme() {
               placeholder="blur"
               src={variants[0].image}
             />
+            <div
+              className={clsx(
+                "w-full bg-white absolute left-0 overflow-hidden p-2 h-full flex flex-col justify-end md:justify-center gap-2",
+                opened === theme ? " top-0" : "top-[100%]"
+              )}
+            >
+              <Button
+                className="w-full"
+                onClick={() => redirectDemo(theme, variants[0].variant)}
+                variant="outlined"
+              >
+                Preview
+              </Button>
+              <Button
+                className="w-full"
+                onClick={() => router.push(ROUTES.REGISTER())}
+              >
+                Pilih
+              </Button>
+            </div>
           </div>
         ))}
       </div>
