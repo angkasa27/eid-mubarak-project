@@ -7,7 +7,7 @@ import { getFirtsTwoLetter } from "@utils/text";
 
 export default function WhatsappShare() {
   const { comments } = useAction();
-
+  const colors = ["bg-blue-500", "bg-green-500", "bg-yellow-500"];
   const getRandomeColor = (color = []) => {
     const randomIndex = Math.floor(Math.random() * color.length);
     return color[randomIndex];
@@ -33,7 +33,7 @@ export default function WhatsappShare() {
                 <div
                   className={clsx(
                     "h-10 w-10 shrink-0 mt-1 rounded-full flex items-center justify-center",
-                    getRandomeColor(avatarColor)
+                    getRandomeColor(colors)
                   )}
                 >
                   <p className="text-white body-3 bold uppercase">
