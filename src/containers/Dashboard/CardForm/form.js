@@ -7,20 +7,20 @@ export default function Form(props) {
 
   const formProps = {
     fields: [
-      {
-        field: "text",
-        control,
-        label: "Tema",
-        name: "theme",
-        disabled: true,
-      },
-      {
-        field: "text",
-        control,
-        label: "Varian Warna",
-        name: "variant",
-        disabled: true,
-      },
+      // {
+      //   field: "text",
+      //   control,
+      //   label: "Tema",
+      //   name: "theme",
+      //   disabled: true,
+      // },
+      // {
+      //   field: "text",
+      //   control,
+      //   label: "Varian Warna",
+      //   name: "variant",
+      //   disabled: true,
+      // },
       {
         field: "image",
         control,
