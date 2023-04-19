@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <Fragment>
-      {/* <Script
+      <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-V5N6QP5EJP"
         strategy="afterInteractive"
       />
@@ -52,7 +52,7 @@ export default function App({ Component, pageProps }) {
         }}
         id="microsoft-clarity"
         strategy="afterInteractive"
-      /> */}
+      />
       <Head>
         <title>EidMubarak!</title>
         <link
