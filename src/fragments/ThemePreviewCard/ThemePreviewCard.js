@@ -35,7 +35,7 @@ export default function CardPreview(props) {
           header={
             <div
               className={clsx(
-                "aspect-[3/4] w-full overflow-hidden",
+                "aspect-[3/4] w-full overflow-hidden rounded-t-lg",
                 mapColor(item)
               )}
             >
