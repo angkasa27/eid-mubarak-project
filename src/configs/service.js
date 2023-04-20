@@ -13,6 +13,7 @@ const service = {
   IMAGE_DETAIL: (username) => `${domain}/image/${username}`,
   IMAGE_AUTH: `${domain}/image/auth`,
   COMMENT: (username) => `${domain}/comment/${username}`,
+  COMMENT_REMOVE: (id) => `http://localhost:5000/comment/remove/${id}`,
 };
 
 export default service;

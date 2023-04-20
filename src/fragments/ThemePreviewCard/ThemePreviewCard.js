@@ -15,7 +15,6 @@ export default function CardPreview(props) {
     mapPreview,
     setSelected,
     mapImage,
-    previewOnly,
     className,
   } = props;
 
@@ -55,37 +54,23 @@ export default function CardPreview(props) {
             <h5 className="title-3 bold">{mapName(item)}</h5>
           </div> */}
           <div className="flex gap-2">
-            {previewOnly ? (
-              <Button
-                className="!w-full flex justify-center gap-2"
-                onClick={() => mapPreview(item)}
-                size="sm"
-                variant="outlined"
-              >
-                {/* <EyeIcon className="h-4" /> */}
-                Preview
-              </Button>
-            ) : (
-              <>
-                <IconButton
-                  className="px-3"
-                  disabled={loading}
-                  onClick={() => mapPreview(item)}
-                  size="sm"
-                  variant="outlined"
-                >
-                  <EyeIcon className="h-4" />
-                </IconButton>
-                <Button
-                  className="w-full"
-                  disabled={isSelected(item) || loading}
-                  onClick={() => handleClick(item)}
-                  size="sm"
-                >
-                  {isSelected(item) ? "Terpilih" : "Pilih"}
-                </Button>
-              </>
-            )}
+            <IconButton
+              className="px-3"
+              disabled={loading}
+              onClick={() => mapPreview(item)}
+              size="sm"
+              variant="outlined"
+            >
+              <EyeIcon className="h-4" />
+            </IconButton>
+            <Button
+              className="w-full"
+              disabled={isSelected(item) || loading}
+              onClick={() => handleClick(item)}
+              size="sm"
+            >
+              {isSelected(item) ? "Terpilih" : "Pilih"}
+            </Button>
           </div>
         </Card>
       ))}
@@ -102,7 +87,6 @@ CardPreview.propTypes = {
   mapImage: PropTypes.func,
   mapName: PropTypes.func,
   mapPreview: PropTypes.func,
-  previewOnly: PropTypes.bool,
   setSelected: PropTypes.func,
 };
 
@@ -115,6 +99,5 @@ CardPreview.defaultProps = {
   mapImage: () => "",
   mapName: (v) => v.name,
   mapPreview: () => {},
-  previewOnly: false,
   setSelected: () => {},
 };

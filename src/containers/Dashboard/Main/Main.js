@@ -1,4 +1,3 @@
-import { Button } from "@material-tailwind/react";
 import { useRouter } from "next/router";
 import { ROUTES } from "src/configs";
 import useAction from "./hooks/useAction";
@@ -11,7 +10,12 @@ import {
   PencilSquareIcon,
   DeviceTabletIcon,
 } from "@heroicons/react/24/outline";
-import { Dialog, DialogHeader, DialogBody } from "@material-tailwind/react";
+import {
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  Button,
+} from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import PropTypes from "prop-types";
 import Input from "@components/elements/Input";

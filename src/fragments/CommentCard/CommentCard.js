@@ -6,6 +6,8 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 import moment from "moment";
 import { getFirtsTwoLetter } from "@utils/text";
+import { IconButton } from "@material-tailwind/react";
+import { TrashIcon } from "@heroicons/react/20/solid";
 
 export default function CommentCard(props) {
   const {
@@ -93,7 +95,7 @@ CommentCard.defaultProps = {
 };
 
 export function CommentsList(props) {
-  const { comments, avatarColor } = props;
+  const { comments, avatarColor, onDelete, showButtonDelete } = props;
 
   const getRandomeColor = (color = []) => {
     const randomIndex = Math.floor(Math.random() * color.length);
@@ -112,13 +114,23 @@ export function CommentsList(props) {
           {getFirtsTwoLetter(item.name)}
         </p>
       </div>
-      <div>
+      <div className="w-full">
         <p className="body-3 font-bold">{item.name}</p>
         <p className="body-4 text-default-secondary ">
           {moment(item.createdAt).fromNow()}
         </p>
         <p className="body-3">{item.message}</p>
       </div>
+      {showButtonDelete && (
+        <IconButton
+          className="w-full"
+          color="red"
+          onClick={() => onDelete(item)}
+          size="sm"
+        >
+          <TrashIcon className="h-4" />
+        </IconButton>
+      )}
     </div>
   ));
 }
@@ -126,11 +138,15 @@ export function CommentsList(props) {
 CommentsList.propTypes = {
   avatarColor: PropTypes.array,
   comments: PropTypes.array,
+  onDelete: PropTypes.func,
+  showButtonDelete: PropTypes.bool,
 };
 
 CommentsList.defaultProps = {
   avatarColor: ["bg-blue-500", "bg-green-500", "bg-yellow-500"],
   comments: [],
+  onDelete: () => {},
+  showButtonDelete: false,
 };
 
 /* <div className="flex gap-2" key={index}>
