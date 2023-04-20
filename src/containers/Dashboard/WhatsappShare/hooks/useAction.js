@@ -10,14 +10,16 @@ import { normalizePhoneNumber } from "@utils/phoneNumber";
 const useAction = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const { setFailedAlert, setSuccessAlert } = usePopupAlert();
-  const { getUsername } = useUserData();
-  const username = getUsername();
   const [cardData, setCardData] = useState({});
   const [sender, setSender] = useState("");
   const [receiverList, setReceiverList] = useState([]);
   const [customReceiver, setCustomReceiver] = useState("");
   const [message, setMessage] = useState(defaultMessage);
+  const [openDialog, setOpenDialog] = useState(false);
+  const [toBeDeleted, setToBeDeleted] = useState({});
+  const { setFailedAlert, setSuccessAlert } = usePopupAlert();
+  const { getUsername } = useUserData();
+  const username = getUsername();
 
   const fetchDetail = async () => {
     setLoading(true);
@@ -90,13 +92,27 @@ const useAction = () => {
   const supportImportContact =
     "contacts" in navigator && "ContactsManager" in window;
 
+  const deleteReceiver = (item) => {
+    setToBeDeleted(item);
+    setOpenDialog(true);
+  };
+
+  const confirmDeleteReceiver = () => {
+    const updatedList = receiverList.filter(
+      (item) => item.phone !== toBeDeleted.phone
+    );
+    setReceiverList(updatedList);
+    setToBeDeleted({});
+    setOpenDialog(false);
+  };
+
   useEffect(() => {
     fetchDetail();
   }, []);
 
   return {
     loading,
-    cardData,
+    name: cardData?.data?.name,
     onClickShare,
     useSender: [sender, setSender],
     useCustomReceiver: [customReceiver, setCustomReceiver],
@@ -105,6 +121,10 @@ const useAction = () => {
     addReceiver,
     importFromContatcs,
     supportImportContact,
+    deleteReceiver,
+    toBeDeleted,
+    useDialog: [openDialog, setOpenDialog],
+    confirmDeleteReceiver,
   };
 };
 
