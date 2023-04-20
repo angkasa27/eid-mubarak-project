@@ -1,4 +1,4 @@
-let domain = "https://eid-mubarak.angkasa27.com";
+const domain = process.env.API_DOMAIN;
 
 const service = {
   // GENERAL
