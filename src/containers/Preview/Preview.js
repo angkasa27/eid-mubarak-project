@@ -6,14 +6,12 @@ import Flat from "./Theme/Flat";
 import Desert from "./Theme/Desert";
 import * as TEMPLATE from "src/configs/template";
 import { Fragment } from "react";
-import { useRouter } from "next/router";
 import PropTypes from "prop-types";
+import useAction from "./hooks/useAction";
+import LoadingPage from "src/fragments/LoadingPage";
 
-export default function Container(props) {
-  const { data } = props;
-  const {
-    query: { name },
-  } = useRouter();
+export default function Container() {
+  const { data, name, loading } = useAction();
 
   const themeProps = {
     data,
@@ -35,7 +33,7 @@ export default function Container(props) {
       case TEMPLATE.DESERT.theme:
         return <Desert {...themeProps} />;
       default:
-        break;
+        false;
     }
   };
 
@@ -43,6 +41,7 @@ export default function Container(props) {
     <Fragment>
       <div className="h-screen w-full overflow-y-scroll  text-white overflow-x-hidden">
         {_renderTheme()}
+        <LoadingPage loading={loading || !_renderTheme()} />
       </div>
     </Fragment>
   );
