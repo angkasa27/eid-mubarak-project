@@ -2,7 +2,6 @@ import Card from "@components/elements/Card";
 import useAction from "./hooks/useAction";
 import Header from "src/fragments/Header";
 import { CommentsList } from "src/fragments/CommentCard/CommentCard";
-import LoadingPage from "src/fragments/LoadingPage";
 import {
   Dialog,
   DialogHeader,
@@ -24,17 +23,27 @@ export default function Comments() {
     confirmDeleteComment,
   } = useAction();
 
+  const _renderComment =
+    comments.length > 0 ? (
+      <CommentsList
+        comments={comments}
+        onDelete={confirmDeleteComment}
+        showButtonDelete
+      />
+    ) : (
+      <p className="title-2 font-bold text-gray-300">Belum ada komentar :(</p>
+    );
+
   return (
     <div className="flex flex-col gap-4 py-6 px-4">
       <Header name="Komentar Balasan" />
       <Card className=" text-blue-gray-800">
-        <CommentsList
-          comments={comments}
-          onDelete={confirmDeleteComment}
-          showButtonDelete
-        />
+        {loadData ? (
+          <p className="title-2 font-bold text-gray-300">Memuat...</p>
+        ) : (
+          _renderComment
+        )}
       </Card>
-      <LoadingPage loading={loadData} />
       <DialogConfirm
         data={comment}
         loading={loading}
