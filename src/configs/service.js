@@ -1,4 +1,4 @@
-let domain = "https://eid-mubarak.angkasa27.com";
+const domain = process.env.API_DOMAIN;
 
 const service = {
   // GENERAL
@@ -13,7 +13,7 @@ const service = {
   IMAGE_DETAIL: (username) => `${domain}/image/${username}`,
   IMAGE_AUTH: `${domain}/image/auth`,
   COMMENT: (username) => `${domain}/comment/${username}`,
-  COMMENT_REMOVE: (id) => `http://localhost:5000/comment/remove/${id}`,
+  COMMENT_REMOVE: (id) => `${domain}/comment/remove/${id}`,
 };
 
 export default service;

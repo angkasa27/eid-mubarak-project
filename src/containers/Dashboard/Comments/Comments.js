@@ -37,7 +37,7 @@ export default function Comments() {
   return (
     <div className="flex flex-col gap-4 py-6 px-4">
       <Header name="Komentar Balasan" />
-      <Card className=" text-blue-gray-800">
+      <Card childClass="flex flex-col gap-4" className=" text-blue-gray-800">
         {loadData ? (
           <p className="title-2 font-bold text-gray-300">Memuat...</p>
         ) : (

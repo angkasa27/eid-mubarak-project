@@ -86,7 +86,7 @@ CommentCard.propTypes = {
 };
 
 CommentCard.defaultProps = {
-  avatarColor: [],
+  avatarColor: ["bg-blue-500", "bg-green-500", "bg-yellow-500"],
   buttonColor: "blue",
   commentClass: "mt-4 text-blue-gray-800",
   formClass: "text-blue-gray-800",
@@ -103,7 +103,7 @@ export function CommentsList(props) {
   };
 
   return comments.map((item, index) => (
-    <div className="w-full flex gap-2 mb-4" key={index}>
+    <div className="w-full flex gap-2" key={index}>
       <div
         className={clsx(
           "h-10 w-10 shrink-0 rounded-full flex items-center justify-center",
