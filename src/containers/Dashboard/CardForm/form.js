@@ -22,6 +22,14 @@ export default function Form(props) {
       //   disabled: true,
       // },
       {
+        field: "text",
+        control,
+        label: "Nama",
+        name: "data.name",
+        disabled: loading,
+        helperText: "Masukan nama lengkapmu atau nama pengirim ucapan",
+      },
+      {
         field: "image",
         control,
         compact: true,
@@ -34,14 +42,6 @@ export default function Form(props) {
           </>
         ),
         username,
-      },
-      {
-        field: "text",
-        control,
-        label: "Nama",
-        name: "data.name",
-        disabled: loading,
-        helperText: "Masukan nama lengkapmu atau nama pengirim ucapan",
       },
       {
         field: "text",
