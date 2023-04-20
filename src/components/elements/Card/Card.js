@@ -18,7 +18,7 @@ export default function Card(props) {
   return (
     <div
       className={clsx(
-        "rounded-lg overflow-hidden",
+        "rounded-lg",
         {
           ["cursor-pointer hover:border-blue-500"]: hover,
           ["drop-shadow-xl"]: shadow,
