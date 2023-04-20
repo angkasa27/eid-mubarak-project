@@ -29,7 +29,7 @@ export default function CardPreview(props) {
         <Card
           border={false}
           className={clsx(
-            "w-full text-blue-gray-800",
+            "w-full text-blue-gray-800 h-min",
             isSelected(item) && "ring ring-blue-500"
           )}
           header={
