@@ -177,9 +177,9 @@ function Detail(props) {
 
   return (
     <div
-      className={backgroundVariant(
-        "flex flex-col justify-between overflow-hidden min-h-screen py-10"
-      )({ variant })}
+      className={backgroundVariant("flex flex-col justify-between py-10")({
+        variant,
+      })}
     >
       <Card
         childClass="flex flex-col items-center text-center gap-6"

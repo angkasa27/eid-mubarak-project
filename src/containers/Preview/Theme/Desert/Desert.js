@@ -197,7 +197,7 @@ function Detail(props) {
   const _bottomProps = <div className="relative" />;
 
   return (
-    <div className="flex flex-col justify-between overflow-hidden min-h-screen">
+    <div className="flex flex-col justify-between">
       <div className="px-8 py-12 z-10 flex flex-col items-center text-center gap-6">
         <div className="">
           <p className={clsx(headingFont, "title-2")}>{data?.mainQuotes}</p>
