@@ -124,7 +124,7 @@ function Main(props) {
             <span className="text-white">
               14
               <br />
-              42
+              44
             </span>
             <br />H
           </p>
@@ -358,7 +358,9 @@ function ClosingSection({ data, variant }) {
       </Card>
       <Card
         border={false}
-        className={mandalaCard("col-span-1")({ variant })}
+        className={mandalaCard("col-span-1 flex justify-center")({
+          variant,
+        })}
         padding="p-4"
         shadow={false}
       >
