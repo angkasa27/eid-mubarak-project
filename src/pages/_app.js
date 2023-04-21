@@ -74,8 +74,33 @@ export default function App({ Component, pageProps }) {
         />
         <link href="/site.webmanifest" rel="manifest" />
         <link color="#0f1829" href="/safari-pinned-tab.svg" rel="mask-icon" />
+        <link href="/preview.webp" rel="image_src" />
         <meta content="#da532c" name="msapplication-TileColor" />
         <meta content="#ffffff" name="theme-color" />
+
+        <meta content="website" property="og:type" />
+        <meta content="EidMubarak!" property="og:site_name" />
+        <meta content="EidMubarak!" property="og:title" />
+        <meta content="EidMubarak!" itemProp="name" />
+        <meta
+          content="https://eid-mubarak-project.vercel.app/"
+          property="og:url"
+        />
+        <meta
+          content="https://eid-mubarak-project.vercel.app/"
+          itemProp="url"
+        />
+        <meta
+          content="Bikin ucapan lebaranmu sekarang!"
+          property="og:description"
+        />
+        <meta
+          content="Bikin ucapan lebaranmu sekarang!"
+          itemProp="description"
+        />
+        <meta content="/preview.webp" property="og:image" />
+        <meta content="/preview.webp" itemProp="image" />
+        <meta content="/preview.webp" itemProp="thumbnailUrl" />
       </Head>
       <main className={clsx(...fontsVariable, defaultClass)}>
         <ThemeProvider value={theme}>
