@@ -8,7 +8,7 @@ const validation = yup.object().shape({
     .required(ERROR_MESSAGE.REQUIRED("Username"))
     .matches(
       /^[A-Za-z0-9]*$/,
-      "Username hanya boleh berisi huruf dan angka saja"
+      "Username hanya boleh berisi huruf dan angka, tanpa spasi"
     )
     .min(6, ERROR_MESSAGE.MIN_CHAR("Username", 6)),
   password: yup
