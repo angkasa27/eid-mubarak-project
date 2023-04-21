@@ -80,8 +80,11 @@ const useAction = () => {
       if (!("contacts" in navigator && "ContactsManager" in window))
         throw new Error("Not supported");
       const contacts = await navigator.contacts.select(props, opts);
+      // const rawText = contacts
+      //   .map((item) => `${item.name}#${item.tel}`)
+      //   .join("\n");
       const rawText = contacts
-        .map((item) => `${item.name}#${item.tel}`)
+        .flatMap(({ name, tel }) => tel.map((phone) => `${name}#${phone}`))
         .join("\n");
       setCustomReceiver(rawText);
     } catch (error) {
