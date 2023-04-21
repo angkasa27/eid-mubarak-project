@@ -81,7 +81,7 @@ function MessageCard({ useSender, useMessage, name }) {
       />
       <div>
         <TextArea
-          label="Pesan"
+          label="Pesan WhatsApp"
           onChange={(e) => setMessage(e.target.value)}
           rows={10}
           value={message}
