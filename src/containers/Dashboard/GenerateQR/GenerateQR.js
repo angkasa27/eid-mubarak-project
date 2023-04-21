@@ -5,6 +5,7 @@ import Header from "src/fragments/Header";
 import QRCode from "react-qr-code";
 import { Button } from "@material-tailwind/react";
 import { useRef, useCallback } from "react";
+import { ROUTES } from "src/configs";
 
 export default function WhatsappShare() {
   const { data } = useAction();
@@ -18,7 +19,7 @@ export default function WhatsappShare() {
 
   return (
     <div className="flex flex-col gap-4 py-6 px-4">
-      <Header name="QR Code" />
+      <Header name="QR Code" routerBack={ROUTES.DASHBOARD()} />
       <Card className=" text-blue-gray-800 max-w-screen-sm">
         {!data?.link ? (
           <p className="title-2 font-bold text-gray-300">Belum ada link :(</p>

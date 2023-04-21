@@ -5,6 +5,7 @@ import useAction from "./hooks/useAction";
 import PropTypes from "prop-types";
 import Header from "src/fragments/Header";
 import ThemePreviewCard from "src/fragments/ThemePreviewCard";
+import { ROUTES } from "src/configs";
 
 export default function Main() {
   const { submitTheme, loading, redirectDemo, useTheme, useTab } = useAction();
@@ -43,7 +44,7 @@ export function ThemeSelector({ redirectDemo, useTheme, setTab }) {
 
   return (
     <>
-      <Header name="Pilih Tema" />
+      <Header name="Pilih Tema" routerBack={ROUTES.DASHBOARD()} />
       <ThemePreviewCard
         data={THEME_LIST}
         isSelected={(item) => selected.theme === item.theme}
@@ -76,7 +77,7 @@ export function VariantSelector(props) {
 
   return (
     <>
-      <Header name="Pilih Varian Tema" />
+      <Header name="Pilih Varian Tema" routerBack={ROUTES.DASHBOARD()} />
       <ThemePreviewCard
         data={selected?.variants}
         isSelected={(item) => selectedVariant === item.variant}
