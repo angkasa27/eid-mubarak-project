@@ -131,4 +131,4 @@ const useAction = () => {
 export default useAction;
 
 // eslint-disable-next-line max-len
-const defaultMessage = `Assalamu'alaikum warahmatullah wabarakatuh\n\nkepada {penerima},\n\nSaya & keluarga mengucapkan :\n\nTaqabbalallahu minnaa wa minkum, shiyaamanaa wa shiyaamakum \n"Semoga Allah SWT menerima seluruh amal ibadah kita, shaum kita dan sholat kita".\n\n"Selamat Hari Raya Idul Fitri 1443 H, Mohon Maaf Lahir & Batin".\n\n{url}\n\nSemoga kita dipertemukan kembali dengan Ramadhan tahun depan.\nAamiin Yaa Robbal Aalamiin...\n\n{pengirim}`;
+const defaultMessage = `Assalamu'alaikum warahmatullah wabarakatuh\n\nkepada {penerima},\n\nSaya & keluarga mengucapkan :\n\nTaqabbalallahu minnaa wa minkum, shiyaamanaa wa shiyaamakum \n"Semoga Allah SWT menerima seluruh amal ibadah kita, shaum kita dan sholat kita".\n\n"Selamat Hari Raya Idul Fitri 1444H, Mohon Maaf Lahir & Batin".\n\n{url}\n\nSemoga kita dipertemukan kembali dengan Ramadhan tahun depan.\nAamiin Yaa Robbal Aalamiin...\n\n{pengirim}`;

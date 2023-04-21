@@ -13,6 +13,7 @@ import useAction from "./hooks/useAction";
 import Header from "src/fragments/Header";
 import { TrashIcon, XMarkIcon } from "@heroicons/react/20/solid";
 import PropTypes from "prop-types";
+import { ROUTES } from "src/configs";
 
 export default function WhatsappShare() {
   const {
@@ -34,7 +35,11 @@ export default function WhatsappShare() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 py-6 px-4">
-      <Header className="lg:col-span-3" name="Share ke WhatsApp" />
+      <Header
+        className="lg:col-span-3"
+        name="Share ke WhatsApp"
+        routerBack={ROUTES.DASHBOARD()}
+      />
       <div>
         <MessageCard
           name={name}

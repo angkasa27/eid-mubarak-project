@@ -10,6 +10,7 @@ import {
 } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import PropTypes from "prop-types";
+import { ROUTES } from "src/configs";
 
 export default function Comments() {
   const {
@@ -36,7 +37,7 @@ export default function Comments() {
 
   return (
     <div className="flex flex-col gap-4 py-6 px-4">
-      <Header name="Komentar Balasan" />
+      <Header name="Komentar Balasan" routerBack={ROUTES.DASHBOARD()} />
       <Card childClass="flex flex-col gap-4" className=" text-blue-gray-800">
         {loadData ? (
           <p className="title-2 font-bold text-gray-300">Memuat...</p>

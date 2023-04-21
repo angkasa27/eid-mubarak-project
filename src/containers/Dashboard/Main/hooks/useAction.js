@@ -4,6 +4,7 @@ import detailCard from "@repositories/card/detailCard";
 import useUserData from "@utils/hooks/useUserData";
 import { useRouter } from "next/router";
 import { ROUTES } from "src/configs";
+import querystring from "query-string";
 
 const useAction = () => {
   const router = useRouter();
@@ -30,7 +31,10 @@ const useAction = () => {
   const copyLink = (name) => {
     try {
       let url = cardData.link;
-      if (name) url = `${cardData.link}?name=${name}`;
+      if (name)
+        url = `${cardData.link}?${querystring.stringify({
+          name,
+        })}`;
       navigator.clipboard.writeText(url);
       setSuccessAlert({ message: "Berhasil disalin!" });
       setOpenDialog(false);
